@@ -57,7 +57,7 @@ State 4) Lose State
 Wire frame of the active gameplay state:
 
 Wire frame image game play
-![wireFrame_mainPage text](./images/wireframe_gameplay.png)
+![wireFrame_gamePlay text](./images/wireframe_gameplay.png)
 
 Game Play PseudoCode:
 Additional Active Game State Functionality:
