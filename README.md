@@ -14,8 +14,12 @@ For Mine Sweeper Extreme, all mines will have to be flagged to win! A player sho
 
 A player can choose whether to play against a timer or # of moves
 
+Wire frame of the main page:
 
+Wire frame image
 ![wireframe text](./images/wireframe_main1.png)
+
+There are four "states" of the game's main page
 
 
 
