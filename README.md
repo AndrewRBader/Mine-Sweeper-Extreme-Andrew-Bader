@@ -59,6 +59,9 @@ Wire frame of the active gameplay state:
 Wire frame image game play
 ![wireFrame_mainPage text](./images/wireframe_gameplay.png)
 
+Wire frame of flag and win conditions, continued from active game play state
+![wireFrame_flagAndWin text](./images/wireframe_flagAndWin.png)
+
 
 Game Play PseudoCode:
 
