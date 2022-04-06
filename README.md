@@ -16,8 +16,8 @@ A player can choose whether to play against a timer or # of moves
 
 Wire frame of the main page:
 
-Wire frame image
-![wireframe text](./images/wireframe_main1.png)
+Wire frame image main page
+![wireFrame_mainPage text](./images/wireframe_main1.png)
 
 Main page wireframe explanation with pseudocode functionality
 
@@ -52,6 +52,12 @@ State 4) Lose State
     - Header becomes "You Lose! Game Over!"
     - Reset button remains to reset game to State 2 (active state)
     - Main menu button returns to State 1 (home state)
+
+
+Wire frame of the active gameplay state:
+
+Wire frame image game play
+![wireFrame_mainPage text](./images/wireframe_gameplay.png)
 
 
 Game Play PseudoCode:
