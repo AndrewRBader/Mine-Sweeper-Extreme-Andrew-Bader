@@ -108,7 +108,14 @@ Flag and win conditions pseudocode:
     - goes to win state (State 3)
 
 
-Conditions for loss:
+Conditions for loss (change to Lose State, State 4):
+
+1) hit a bomb
+
+Additional loss possibilities if certain features chosen
+
+2) run out of moves
+3) run out of time
 
 
 
