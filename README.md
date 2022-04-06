@@ -15,6 +15,9 @@ For Mine Sweeper Extreme, all mines will have to be flagged to win! A player sho
 A player can choose whether to play against a timer or # of moves
 
 
+![wireframe text](./images/wireframe_main1.png)
+
+
 
 
 
