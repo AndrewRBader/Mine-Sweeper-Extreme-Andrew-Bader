@@ -19,6 +19,8 @@ Wire frame of the main page:
 Wire frame image
 ![wireframe text](./images/wireframe_main1.png)
 
+Main page wireframe explanation with pseudocode functionality
+
 There are four "states" of the game's main page
 
 State 1) the Welcome State or Home Game State:
