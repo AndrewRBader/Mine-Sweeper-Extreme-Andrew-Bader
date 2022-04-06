@@ -59,11 +59,36 @@ Wire frame of the active gameplay state:
 Wire frame image game play
 ![wireFrame_mainPage text](./images/wireframe_gameplay.png)
 
+Game Play PseudoCode:
+Additional Active Game State Functionality:
+    - with have a bombs remaining counter
+    - will have a bombs found/diffused counter
+    - will have a # of moves/moves left counter
+    - note the bombs remaining !== bombs found, need to flag and diffuse for bombs remaining to decrement
+
+Game Play pseudocode within cells:
+
+Three hidden options of clicked cells:
+
+1) the hidden ID of clicked cell is a bomb, end of game
+    - return to the lose state (state 4)
+    - move count is set back to 0
+
+2) the hidden ID of clicked cell is a number
+    - number correlates to number of adjacent bombs
+    - move increments
+    - game play continues
+
+3) the hidden ID of click cell is blank
+    - In this case the adjacent squares will automatically reveal themselves in all 8 directions (sides and diagonals) 
+    - loops through revealed squares up until a square is revealed that has a number identity. 
+    - This looping/revealing happens in all 8 adjacent directions simultaneously.
+    - this logic seems similar to tic tac toe... not sure about this yet
+
 Wire frame of flag and win conditions, continued from active game play state
 ![wireFrame_flagAndWin text](./images/wireframe_flagAndWin.png)
 
 
-Game Play PseudoCode:
 
 
 
