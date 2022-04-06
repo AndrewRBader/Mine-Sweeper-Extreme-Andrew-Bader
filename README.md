@@ -85,11 +85,30 @@ Three hidden options of clicked cells:
     - This looping/revealing happens in all 8 adjacent directions simultaneously.
     - this logic seems similar to tic tac toe... not sure about this yet
 
+
 Wire frame of flag and win conditions, continued from active game play state
 ![wireFrame_flagAndWin text](./images/wireframe_flagAndWin.png)
 
 
+Flag and win conditions pseudocode:
 
+4) Flag placed ID conditions:
+    a. flag is placed on a cell with bomb ID
+        - note don't necessarily have to dig (click) first
+        - count of bomb # --
+        - count of diffused bombs ++
+        - move # increments
+    b. if flag is placed in wrong spot
+        - no diffused count or bomb count change
+        - move # still increments
+
+5) Win state:
+    - all bombs are flagged (ie diffused)
+    - not all cells have to be un hidden first
+    - goes to win state (State 3)
+
+
+Conditions for loss:
 
 
 
