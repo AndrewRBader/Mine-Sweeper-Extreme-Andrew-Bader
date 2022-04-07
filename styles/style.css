@@ -1,3 +1,86 @@
+
+/* header section */
+
 h1 {
-    background: blue;
+    display: flex;
+    justify-content: center;
 }
+
+/* gameboard section styling */
+#gameboard {
+    display: flex;
+    justify-content: center;
+}
+
+/* cell field/cells style */
+#cellfield {
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* adding style/flex to all of the elements within the cell field container (the rows) */
+#cellfield>* {
+    flex: 0 0 20%;
+    background-color: green;
+    border: solid;
+    height: 24%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* adding style/flex to all of the elements in the row containers (the cells) */
+#row-index-0>* {
+    flex: 0 0 24%;
+    background-color: grey;
+    border: solid;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#row-index-1>* {
+    flex: 0 0 24%;
+    background-color: grey;
+    border: solid;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#row-index-2>* {
+    flex: 0 0 24%;
+    border: solid;
+    background-color: grey;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#row-index-3>* {
+    flex: 0 0 24%;
+    border: solid;
+    background-color: grey;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
