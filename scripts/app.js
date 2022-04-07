@@ -1,3 +1,5 @@
+//check that renaming account didnt screw up repo
+
 // js link check
 // console.log('hello front end')
 
