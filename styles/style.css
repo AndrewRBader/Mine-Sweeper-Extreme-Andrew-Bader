@@ -20,6 +20,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
     flex-wrap: wrap;
 }
 
@@ -90,4 +91,8 @@ h1 {
 
  .bomb {
      background-color: red;
+ }
+
+ .diffused {
+     background-color: green;
  }
