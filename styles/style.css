@@ -13,7 +13,7 @@ h1 {
 }
 
 /* cell field/cells style */
-#cellfield {
+.cellfield {
     background-color: blue;
     height: 400px;
     width: 400px;
@@ -24,7 +24,7 @@ h1 {
 }
 
 /* adding style/flex to all of the elements within the cell field container (the rows) */
-#cellfield>* {
+.cellfield>* {
     flex: 0 0 20%;
     background-color: green;
     border: solid;
@@ -36,7 +36,7 @@ h1 {
 }
 
 /* adding style/flex to all of the elements in the row containers (the cells) */
-#row-index-0>* {
+.row-index-0>* {
     flex: 0 0 24%;
     background-color: grey;
     border: solid;
@@ -48,7 +48,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-#row-index-1>* {
+.row-index-1>* {
     flex: 0 0 24%;
     background-color: grey;
     border: solid;
@@ -60,7 +60,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-#row-index-2>* {
+.row-index-2>* {
     flex: 0 0 24%;
     border: solid;
     background-color: grey;
@@ -72,7 +72,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-#row-index-3>* {
+.row-index-3>* {
     flex: 0 0 24%;
     border: solid;
     background-color: grey;
@@ -83,4 +83,11 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
 }
+ /* seeing where different things are via background colors css */
+.hidden {
+     background-color: grey;
+ }
 
+ .bomb {
+     background-color: red;
+ }
