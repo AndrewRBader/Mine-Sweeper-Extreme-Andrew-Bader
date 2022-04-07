@@ -29,6 +29,16 @@ let $diffusedCells = $('.diffused');
 // console.log($diffusedCells.length);
 
 
+// initial state, remove all classes from hidden cells and show just hidden cells
+
+$hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+
+
+
+
+// $bombCells.addClass("bomb")
+// $diffuseClass.addClass('diffuse')
+
 
 
 
