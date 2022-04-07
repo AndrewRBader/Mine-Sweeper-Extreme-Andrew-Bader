@@ -55,17 +55,26 @@ cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (cell.innerHTML === 'Bomb') {
             cell.classList.add('revealed')
+
+            // Console logs to play in console, alert to play in browser link
             console.log('You Lose! Game Over!')
+            alert('You Lose! Game Over!')
             console.log(cell)
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
             cell.classList.add('revealed')
+
+            // Console logs to play in console, alert to play in browser link
             console.log(`${cell.innerHTML} bombs are close`)
+            alert(`${cell.innerHTML} bombs are close`)
             console.log(cell)
         }
         else if (parseInt(cell.innerHTML) === 0){
             cell.classList.add('revealed')
+
+            // Console logs to play in console, alert to play in browser link
             console.log('no bombs are near')
+            alert('no bombs are near')
             console.log(cell)
         }
     })

@@ -1,5 +1,8 @@
 Welcome to Mine Sweeper Extreme!!
 
+to play on browser:
+https://andrewrbader.github.io/sei321-Project-1-BrowserGame/
+
 In this game, the game board is divided into cells. Hidden within these cells are randomly distributed bombs, or mines. 
 
 When a player clicks a cell, one of three choices are possible with respect to the resultant identity of that cell:
