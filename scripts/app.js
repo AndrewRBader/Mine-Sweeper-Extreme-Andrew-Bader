@@ -39,7 +39,7 @@ $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
 
 //adding back some revealed to work on win conditions/cell click function
 
-$hiddenCells.addClass('revealed').fadeIn()
+// $hiddenCells.addClass('revealed').fadeIn()
 
 
 // using forEach array method to add event listener to each cell
@@ -48,14 +48,17 @@ $hiddenCells.addClass('revealed').fadeIn()
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (cell.innerHTML === 'Bomb') {
+            cell.classList.add('revealed')
             console.log('You Lose! Game Over!')
             console.log(cell)
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
-            console.log('bombs are close')
+            cell.classList.add('revealed')
+            console.log(`${cell.innerHTML} bombs are close`)
             console.log(cell)
         }
         else if (parseInt(cell.innerHTML) === 0){
+            cell.classList.add('revealed')
             console.log('no bombs are near')
             console.log(cell)
         }
