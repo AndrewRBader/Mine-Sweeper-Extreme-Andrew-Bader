@@ -6,7 +6,7 @@
 //Global Variables
 
 // collecting all cells in a variable
-let $cells = $('.cell');
+const cells = document.querySelectorAll('.cell')
 // console.log($cells)
 // console.log($cells.length)
 
@@ -14,6 +14,7 @@ let $cells = $('.cell');
 let $hiddenCells = $('.hidden');
 // console.log($hiddenCells)
 // console.log($hiddenCells.length)
+
 
 // collecting revealed cells (with black text) in variable
 let $revealedCells = $('.revealed');
@@ -31,16 +32,42 @@ let $diffusedCells = $('.diffused');
 // console.log($diffusedCells.length);
 
 
-// initial state, remove all classes from hidden cells and show just hidden cells
+// initial state, removes all "activity" classes from hidden cells and show just hidden cells
+// Note** this removes classes from all other element class node lists that are related as well
 
 $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
 
+//adding back some revealed to work on win conditions/cell click function
+
+$hiddenCells.addClass('revealed').fadeIn()
+
+
+// using forEach array method to add event listener to each cell
+//also using vanilla JS for event listeners/clicks cause my vs code doesnt like functions ie .click
+
+cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        if (cell.innerHTML === 'Bomb') {
+            console.log('You Lose! Game Over!')
+            console.log(cell)
+        }
+        else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
+            console.log('bombs are close')
+            console.log(cell)
+        }
+        else if (parseInt(cell.innerHTML) === 0){
+            console.log('no bombs are near')
+            console.log(cell)
+        }
+    })
+})
 
 
 
-// $bombCells.addClass("bomb")
-// $diffuseClass.addClass('diffuse')
 
+
+// thoughts:
+//can I create a game board object? or a cell object with the content?
 
 
 
