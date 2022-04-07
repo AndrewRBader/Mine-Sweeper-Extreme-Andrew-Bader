@@ -4,7 +4,6 @@
 // console.log('hello front end')
 
 //Global Variables
-
 // collecting all cells in a variable
 const cells = document.querySelectorAll('.cell')
 // console.log($cells)
@@ -31,6 +30,13 @@ let $diffusedCells = $('.diffused');
 // console.log($diffusedCells);
 // console.log($diffusedCells.length);
 
+// collecting buttons into variable (vanilla JS to avoid click function)
+let resetButton = document.querySelector('#resetButton')
+// console.log(resetButton)
+
+resetButton.addEventListener('click', () => {
+    $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+})
 
 // initial state, removes all "activity" classes from hidden cells and show just hidden cells
 // Note** this removes classes from all other element class node lists that are related as well
