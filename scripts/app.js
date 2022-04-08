@@ -83,8 +83,6 @@ $flagOnButton.click(() => {
    
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
-            cells.innerHTML ='flag'
-            console.log (cell.innerHTML)
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
             console.log('flag clicked here')
