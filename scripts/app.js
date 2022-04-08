@@ -58,6 +58,7 @@ cells.forEach(cell => {
 
             // Console logs to play in console
             console.log('You Lose! Game Over!')
+            alert('You Lose! Game Over!!')
             console.log(cell)
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
