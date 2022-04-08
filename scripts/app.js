@@ -41,7 +41,7 @@ let minesAreLive = false;
 resetButton.addEventListener('click', () => {
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
     minesAreLive = true;
-    console.log(minesAreLive)
+    console.log('Mines Are Live')
 })
 
 
@@ -75,7 +75,7 @@ $bombCells.removeClass('diffused')
 $flagOnButton.click(() => {
 
     minesAreLive = false
-    console.log(minesAreLive)
+    console.log('Safety Gear On')
 
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
@@ -85,11 +85,12 @@ $flagOnButton.click(() => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
-            console.log('flag clicked here')
+            console.log('Lets See if There is a Bomb Here')
+            console.log('Safety Gear Removed')
         })
     })
     $flagOffButton.click(() => {
-        console.log('flag turned off')
+        console.log('Safety Gear Removed')
         $flagOffButton.hide()
         $flagOnButton.fadeIn()
     })
@@ -134,7 +135,7 @@ cells.forEach(cell => {
             //switches back to mines are live when Flag is toggled off
             else {
                 minesAreLive = true
-                console.log(minesAreLive)
+                console.log('You diffused a bomb')
             }
             
         }
