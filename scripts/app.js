@@ -46,11 +46,23 @@ $flagOnButton.hide()
 $flagOffButton.hide()
 
 
+//# of bombs
 
-//reset button: press to activate Flag button
+let numberBombs = $bombCells.length
+console.log(numberBombs)
+
+//diffused bomb array
+
+let diffusedBombArray = [];
+
+
+
+//reset button: press to activate Flag button empties diffusedBombArray
 
 resetButton.addEventListener('click', () => {
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+    diffusedBombArray = []
+    console.log(diffusedBombArray)
     minesAreLive = true;
     $flagOnButton.fadeIn()
     console.log('Mines Are Live')
@@ -66,21 +78,6 @@ $hiddenCells.removeClass('revealed bomb').fadeIn()
 //Flag/diffuser functionality:
 
 //set up bomb to be initially without diffused class, will change with flag added
-
-// console.log($bombCells) // diffused bomb (diffused class remains)
-// $bombCells.removeClass('diffused')
-// console.log($bombCells) //un-diffused (no diffused class)
-//# of bombs
-
-let numberBombs = $bombCells.length
-console.log(numberBombs)
-
-//diffused bomb array
-
-let diffusedBombArray = [];
-
-//mabye put this into an active mine function?
-
 
 
 $flagOnButton.click(() => {
@@ -301,3 +298,11 @@ coordinatesFromIDGeneration()
 
 
 
+// Extra stuff
+
+// console.log($bombCells) // diffused bomb (diffused class remains)
+// $bombCells.removeClass('diffused')
+// console.log($bombCells) //un-diffused (no diffused class)
+
+
+//mabye put this into an active mine function?
