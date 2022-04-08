@@ -92,10 +92,21 @@ cells.forEach(cell => {
                 if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
                     blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
+                    let parentNode = cells[i].parentElement
+                    console.log(parentNode)
+                    let childrenOfRowNode = parentNode.children
+                    console.log(childrenOfRowNode)
+                    console.log(childrenOfRowNode.length)
+                    for (j = 0 ; j < childrenOfRowNode.length; j++){
+                        console.log(childrenOfRowNode[j])
+                        if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
+                            childrenOfRowNode[j].classList.add('revealed')
+                        }
+                    }
                  }
             }
 
-            console.log(blankCellCoordinatesInClickedColumn)
+            // console.log(blankCellCoordinatesInClickedColumn)
 
             //function to get cells in row of clicked empty square
             
