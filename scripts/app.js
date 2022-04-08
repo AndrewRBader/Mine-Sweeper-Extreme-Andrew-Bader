@@ -75,13 +75,30 @@ cells.forEach(cell => {
             console.log(cell)
 
             //find coordinates of click
-            const col = parseInt(cell.getAttribute('id').split('-').slice(3))
-            console.log(col)
-            const row = parseInt(cell.getAttribute('id').split('-').slice(1,2))
-            console.log(row)
-            const clickCoordinates = [col, row];
+            const colClick = parseInt(cell.getAttribute('id').split('-').slice(3))
+            console.log(colClick)
+            const rowClick = parseInt(cell.getAttribute('id').split('-').slice(1,2))
+            console.log(rowClick)
+            const clickCoordinates = [colClick, rowClick];
             console.log(clickCoordinates)
+            
+            //function to get cells in column of clicked empty square
+            let cellCoordinatesInClickedColumn = [];
+            for (i = 0; i<cells.length ;i++) {
+                if (cellCoordinateArray[i][0] === colClick){
+                    cellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
+                }
+                
+            }console.log(cellCoordinatesInClickedColumn)
 
+            //function to get cells in row of clicked empty square
+            let cellCoordinatesInClickedRow = [];
+            for (i = 0; i<cells.length ;i++) {
+                if (cellCoordinateArray[i][1] === rowClick){
+                    cellCoordinatesInClickedRow.push(cellCoordinateArray[i])
+                }
+                
+            }console.log(cellCoordinatesInClickedRow)
         }
     })
 })
@@ -90,7 +107,6 @@ cells.forEach(cell => {
 
 
 // function that gives coordinates for all cells in gameboard:
-
 let cellCoordinateArray = [];
 
 function coordinatesFromIDGeneration () {
@@ -103,9 +119,14 @@ function coordinatesFromIDGeneration () {
 }
 
 coordinatesFromIDGeneration()
-console.log(cellCoordinateArray)
+// console.log(cellCoordinateArray)
 
-// function collectCellsInColumn
+
+
+
+
+
+
 
 
 
