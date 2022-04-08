@@ -89,7 +89,23 @@ cells.forEach(cell => {
 
 
 
+// function that gives coordinates for all cells in gameboard:
 
+let cellCoordinateArray = [];
+
+function coordinatesFromIDGeneration () {
+    for (i = 0; i<cells.length; i++){
+        const col = parseInt(cells[i].getAttribute('id').split('-').slice(3))
+        const row = parseInt(cells[i].getAttribute('id').split('-').slice(1,2))
+        cellCoordinateArray.push([col, row, parseInt(cells[i].innerHTML)])
+    }
+    return cellCoordinateArray
+}
+
+coordinatesFromIDGeneration()
+console.log(cellCoordinateArray)
+
+// function collectCellsInColumn
 
 
 
