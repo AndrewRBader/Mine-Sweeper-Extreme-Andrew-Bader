@@ -41,7 +41,7 @@ resetButton.addEventListener('click', () => {
 // initial state, removes all "activity" classes from hidden cells and show just hidden cells
 // Note** this removes classes from all other element class node lists that are related as well
 
-$hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+$hiddenCells.removeClass('revealed bomb').fadeIn()
 
 
 
@@ -50,8 +50,36 @@ $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
 
 //Flag stuff:
 
-let flagButton = document.querySelector('#flagButton')
+//flag button
+let $flagOnButton = $('#flagOnButton');
+// console.log(flagOnButton)
+let $flagOffButton = $('#flagOffButton');
+// console.log(flagOffButton)
+$flagOffButton.hide()
 
+// bombCells have active diffused class
+console.log($bombCells)
+
+//deactivate bombCell diffused Class
+
+$bombCells.removeClass('diffused')
+
+$flagOnButton.click(() => {
+    $flagOnButton.hide()
+    $flagOffButton.fadeIn()
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            $flagOffButton.hide()
+            $flagOnButton.fadeIn()
+            console.log('flag clicked here')
+        })
+    })
+    $flagOffButton.click(() => {
+        console.log('flag turned off')
+        $flagOffButton.hide()
+        $flagOnButton.fadeIn()
+    })
+})
 
 
 
