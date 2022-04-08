@@ -87,6 +87,9 @@ cells.forEach(cell => {
             for (i = 0; i<cells.length ;i++) {
                 if (cellCoordinateArray[i][0] === colClick){
                     cellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
+                    if (cellCoordinateArray[i][2] !== 'Bomb'){
+                        cells[i].classList.add('revealed')
+                    }
                 }
                 
             }console.log(cellCoordinatesInClickedColumn)
@@ -96,6 +99,9 @@ cells.forEach(cell => {
             for (i = 0; i<cells.length ;i++) {
                 if (cellCoordinateArray[i][1] === rowClick){
                     cellCoordinatesInClickedRow.push(cellCoordinateArray[i])
+                    if (cellCoordinateArray[i][2] !== 'Bomb'){
+                        cells[i].classList.add('revealed')
+                    }
                 }
                 
             }console.log(cellCoordinatesInClickedRow)
@@ -113,13 +119,13 @@ function coordinatesFromIDGeneration () {
     for (i = 0; i<cells.length; i++){
         const col = parseInt(cells[i].getAttribute('id').split('-').slice(3))
         const row = parseInt(cells[i].getAttribute('id').split('-').slice(1,2))
-        cellCoordinateArray.push([col, row, parseInt(cells[i].innerHTML)])
+        cellCoordinateArray.push([col, row, cells[i].innerHTML])
     }
     return cellCoordinateArray
 }
 
 coordinatesFromIDGeneration()
-// console.log(cellCoordinateArray)
+console.log(cellCoordinateArray)
 
 
 
