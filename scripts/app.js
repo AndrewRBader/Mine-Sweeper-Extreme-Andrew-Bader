@@ -84,18 +84,19 @@ cells.forEach(cell => {
             
             //function to get cells in column of clicked empty square
             let cellCoordinatesInClickedColumn = [];
+            let cellCoordinatesInClickedRow = [];
+
             for (i = 0; i<cells.length ;i++) {
-                if (cellCoordinateArray[i][0] === colClick){
+                if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
                     cellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
-                    if (cellCoordinateArray[i][2] !== 'Bomb'){
-                        cells[i].classList.add('revealed')
-                    }
+                    cells[i].classList.add('revealed')
+                 }
                 }
-                
-            }console.log(cellCoordinatesInClickedColumn)
+
+            console.log(cellCoordinatesInClickedColumn)
 
             //function to get cells in row of clicked empty square
-            let cellCoordinatesInClickedRow = [];
+            
             for (i = 0; i<cells.length ;i++) {
                 if (cellCoordinateArray[i][1] === rowClick){
                     cellCoordinatesInClickedRow.push(cellCoordinateArray[i])
