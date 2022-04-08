@@ -93,6 +93,7 @@ $flagOnButton.click(() => {
         console.log('Safety Gear Removed')
         $flagOffButton.hide()
         $flagOnButton.fadeIn()
+        minesAreLive = true
     })
 })
 
