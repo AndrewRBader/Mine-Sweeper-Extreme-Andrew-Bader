@@ -67,6 +67,11 @@ $bombCells.removeClass('diffused')
 $flagOnButton.click(() => {
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
+
+    //bomb class is removed when flag is on (turn off event listener below)
+    
+    cells.innerHTML ='flag'
+
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
