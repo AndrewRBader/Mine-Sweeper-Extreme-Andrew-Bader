@@ -148,7 +148,10 @@ cells.forEach(cell => {
                         console.log(`Keep looking! There are ${numberBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberBombs){
+                        //for browser and console win check
                         console.log ('You Win!!!')
+                        alert('You Win!!!')
+                        
                         for (i = 0; i<diffusedBombArray.length;i++){
                             let cellID = diffusedBombArray[i]
                             // console.log(cellID)
