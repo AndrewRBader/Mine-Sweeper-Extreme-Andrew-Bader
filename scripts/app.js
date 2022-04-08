@@ -53,17 +53,6 @@ $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
 
 
 
-//global column index variable for expanded row column function and for loop in blank cell click
-
-let columnRowIndex = null;
-
-// function that gives coordinates for all cells in gameboard:
-let cellCoordinateArray = [];
-
-//global row children element number for row length
-let rowChildrenElementNumber = null;
-
-
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
@@ -102,6 +91,10 @@ cells.forEach(cell => {
             let blankCellCoordinatesInClickedRow =[];
             let rowChildrenElementNumber = 0;
             // console.log(rowChildrenElementNumber)
+            let lengthOfColumn = 0;
+
+            //index variable for expanded row column function and for loop in blank cell click
+            let columnRowIndex = null;
 
 
 
@@ -123,7 +116,7 @@ cells.forEach(cell => {
                     for (j = 0 ; j < childrenOfRowNode.length; j++){
                         // console.log(childrenOfRowNode[j])
                         if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
-                            // childrenOfRowNode[j].classList.add('revealed')
+                            childrenOfRowNode[j].classList.add('revealed')
                         }
                     }
                     
@@ -140,7 +133,7 @@ cells.forEach(cell => {
 
                     // need loop here that goes through columns, since parents are rows, can't use that trick
                     //length of column = (length of cells array)/childrenOfRowNode.length
-                    let lengthOfColumn = cells.length/rowChildrenElementNumber
+                    lengthOfColumn = cells.length/rowChildrenElementNumber
                     // console.log(lengthOfColumn)
 
                     // loop through column off of each row and reveal till bomb
@@ -154,30 +147,51 @@ cells.forEach(cell => {
             // console.log(blankCellCoordinatesInClickedRow)
 
              for (i = 0; i < blankCellCoordinatesInClickedRow.length; i++){
-                console.log(blankCellCoordinatesInClickedRow[i])
+                // console.log(blankCellCoordinatesInClickedRow[i])
                 let columnIndex = blankCellCoordinatesInClickedRow[i][0];
-                console.log(columnIndex)
+                // console.log(columnIndex)
+
+                let columnFromExpandingIndex = [];
+
+                for (j = 0; j<cellCoordinateArray.length; j++){
+                    if (cellCoordinateArray[j][0] === columnIndex) {
+                        columnFromExpandingIndex.push(cellCoordinateArray[j])
+                    }
+                } 
+                // console.log(columnFromExpandingIndex)
+
+                let blankElementsOfColumns = [];
+
+                for (j = 0; j<columnFromExpandingIndex.length; j++) {
+                    if (columnFromExpandingIndex[j][2] !== 'Bomb'){
+                        blankElementsOfColumns.push(columnFromExpandingIndex[j])
+                        let revealedID = columnFromExpandingIndex[j][3];
+                        // console.log(revealedID)
+                        let revealedElement = document.getElementById(revealedID)
+                        // console.log(revealedElement)
+                        revealedElement.classList.add('revealed')
+                    }
+                } 
+                
+                // console.log(blankElementsOfColumns)
+                
              }
-           
 
             //might need an else if === bomb break loop for bombs in center here
-
-           
-
         }
     })
 })
 
 
 
-
-
+// function that gives coordinates for all cells in gameboard:
+let cellCoordinateArray = [];
 
 function coordinatesFromIDGeneration () {
     for (i = 0; i<cells.length; i++){
         const col = parseInt(cells[i].getAttribute('id').split('-').slice(3))
         const row = parseInt(cells[i].getAttribute('id').split('-').slice(1,2))
-        cellCoordinateArray.push([col, row, cells[i].innerHTML])
+        cellCoordinateArray.push([col, row, cells[i].innerHTML, cells[i].getAttribute('id')])
     }
     return cellCoordinateArray
 }
