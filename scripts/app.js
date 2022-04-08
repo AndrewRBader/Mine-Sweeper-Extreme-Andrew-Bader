@@ -37,10 +37,22 @@ let resetButton = document.querySelector('#resetButton')
 //mines are live boolean for active game
 let minesAreLive = false;
 
+//flag button
+let $flagOnButton = $('#flagOnButton');
+// console.log(flagOnButton)
+let $flagOffButton = $('#flagOffButton');
+// console.log(flagOffButton)
+$flagOnButton.hide()
+$flagOffButton.hide()
+
+
+
+//reset button: press to activate Flag button
 
 resetButton.addEventListener('click', () => {
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
     minesAreLive = true;
+    $flagOnButton.fadeIn()
     console.log('Mines Are Live')
 })
 
@@ -51,26 +63,8 @@ resetButton.addEventListener('click', () => {
 
 $hiddenCells.removeClass('revealed bomb').fadeIn()
 
+//Flag/diffuser functionality:
 
-
-
-
-
-//Flag stuff:
-
-//flag button
-let $flagOnButton = $('#flagOnButton');
-// console.log(flagOnButton)
-let $flagOffButton = $('#flagOffButton');
-// console.log(flagOffButton)
-$flagOffButton.hide()
-
-// bombCells have active diffused class
-// console.log($bombCells)
-
-//deactivate bombCell diffused Class
-
-$bombCells.removeClass('diffused')
 
 $flagOnButton.click(() => {
 
@@ -101,21 +95,6 @@ $flagOnButton.click(() => {
         minesAreLive = true
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
