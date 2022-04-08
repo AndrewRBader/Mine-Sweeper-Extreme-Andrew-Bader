@@ -85,8 +85,13 @@ $flagOnButton.click(() => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
-            console.log('Lets See if There is a Bomb Here')
-            console.log('Safety Gear Removed')
+
+            // if no bomb diffused, see "no bomb is hear, safety gear removed"
+            if (cell.innerHTML !== 'Bomb') {
+                console.log('No Bomb Here')
+                console.log('Safety Gear Removed')
+            }
+            
         })
     })
     $flagOffButton.click(() => {
@@ -129,14 +134,18 @@ cells.forEach(cell => {
             cell.classList.add('revealed')
 
             if (minesAreLive === true) {
-                // alert to see loss in browser
-                console.log('You Lose! Game Over!')
-                alert('You Lose! Game Over!!')
+               
+                cell.classList.add('bomb')
+
+                 // alert to see loss in browser
+                 console.log('You Lose! Game Over!')
+                 alert('You Lose! Game Over!!')
             }
             //switches back to mines are live when Flag is toggled off
             else {
                 minesAreLive = true
                 console.log('You diffused a bomb')
+                cell.classList.add('diffused')
             }
             
         }
