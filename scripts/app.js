@@ -63,7 +63,7 @@ let diffusedBombArray = [];
 //reset button: press to activate Flag button empties diffusedBombArray
 
 resetButton.addEventListener('click', () => {
-    $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+    $hiddenCells.removeClass('cells revealed bomb diffused').fadeIn()
     diffusedBombArray = []
     console.log(diffusedBombArray)
     minesAreLive = true;
@@ -167,8 +167,10 @@ cells.forEach(cell => {
                             for (j = 0; j < cells.length; j++){
                                 let cellsArrayElementID = cells[j].id;
                                 // console.log(cellsArrayElementID)
-                                if (cellsArrayElementID === cellID)
-                                cells[j].innerHTML = 'Bomb'
+                                if (cellsArrayElementID === cellID){
+                                    cells[j].innerHTML = 'Bomb'
+                                }
+                                
                             }
                         }
                     }
