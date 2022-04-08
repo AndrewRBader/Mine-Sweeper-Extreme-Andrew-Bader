@@ -51,6 +51,20 @@ $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
 // using forEach array method to add event listener to each cell
 //also using vanilla JS for event listeners/clicks cause my vs code doesnt like functions ie .click
 
+
+
+//global column index variable for expanded row column function and for loop in blank cell click
+
+let columnRowIndex = null;
+
+// function that gives coordinates for all cells in gameboard:
+let cellCoordinateArray = [];
+
+//global row children element number for row length
+let rowChildrenElementNumber = null;
+
+
+
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (cell.innerHTML === 'Bomb') {
@@ -85,9 +99,12 @@ cells.forEach(cell => {
             
             //function to get cells in column of clicked empty square
             let blankCellCoordinatesInClickedColumn = [];
-            let blankCellCoordinatesInClickedRow = [];
+            let blankCellCoordinatesInClickedRow =[];
             let rowChildrenElementNumber = 0;
-            console.log(rowChildrenElementNumber)
+            // console.log(rowChildrenElementNumber)
+
+
+
 
             for (i = 0; i<cells.length ;i++) {
                 //collects just blank columns (no bombs in array)
@@ -106,18 +123,15 @@ cells.forEach(cell => {
                     for (j = 0 ; j < childrenOfRowNode.length; j++){
                         // console.log(childrenOfRowNode[j])
                         if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
-                            childrenOfRowNode[j].classList.add('revealed')
+                            // childrenOfRowNode[j].classList.add('revealed')
                         }
                     }
                     
                 }
             }
 
-            // console.log(blankCellCoordinatesInClickedColumn)
-            console.log(rowChildrenElementNumber)
+            console.log(blankCellCoordinatesInClickedColumn)
 
-            //function to get cells in row of clicked empty square
-            
             for (i = 0; i<cells.length ;i++) {
                 //collects just blank cells with no bombs
                 if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
@@ -127,7 +141,7 @@ cells.forEach(cell => {
                     // need loop here that goes through columns, since parents are rows, can't use that trick
                     //length of column = (length of cells array)/childrenOfRowNode.length
                     let lengthOfColumn = cells.length/rowChildrenElementNumber
-                    console.log(lengthOfColumn)
+                    // console.log(lengthOfColumn)
 
                     // loop through column off of each row and reveal till bomb
                     
@@ -135,11 +149,16 @@ cells.forEach(cell => {
                 } 
                 
             }
-            //  console.log(blankCellCoordinatesInClickedRow)
+            
+            
+            console.log(blankCellCoordinatesInClickedRow)
+
+             
+           
 
             //might need an else if === bomb break loop for bombs in center here
 
-            //function to get all rows off of column till bombs
+           
 
         }
     })
@@ -148,8 +167,7 @@ cells.forEach(cell => {
 
 
 
-// function that gives coordinates for all cells in gameboard:
-let cellCoordinateArray = [];
+
 
 function coordinatesFromIDGeneration () {
     for (i = 0; i<cells.length; i++){
@@ -161,7 +179,8 @@ function coordinatesFromIDGeneration () {
 }
 
 coordinatesFromIDGeneration()
-console.log(cellCoordinateArray)
+// console.log(cellCoordinateArray)
+
 
 
 
