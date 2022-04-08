@@ -61,7 +61,7 @@ let diffusedBombArray = [];
 //reset button: press to activate Flag button empties diffusedBombArray
 
 resetButton.addEventListener('click', () => {
-    $hiddenCells.removeClass('cells revealed bomb diffused').fadeIn()
+    $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
     diffusedBombArray = []
     console.log(diffusedBombArray)
     minesAreLive = true;
@@ -121,6 +121,22 @@ cells.forEach(cell => {
                  // alert to see loss in browser
                  console.log('You Lose! Game Over!')
                  alert('You Lose! Game Over!!')
+
+
+                 // resets diffused bombs collected before bomb hit
+                 for (i = 0; i<diffusedBombArray.length;i++){
+                    let cellID = diffusedBombArray[i]
+                    // console.log(cellID)
+                    for (j = 0; j < cells.length; j++){
+                        let cellsArrayElementID = cells[j].id;
+                        // console.log(cellsArrayElementID)
+                        if (cellsArrayElementID === cellID){
+                            cells[j].innerHTML = 'Bomb'
+                        }
+                        
+                    }
+                }
+
             }
 
             //check win function is fully for the Flag On button, last flag placed on bomb results in win

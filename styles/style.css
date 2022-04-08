@@ -38,7 +38,7 @@ h1 {
 
 /* adding style/flex to all of the elements in the row containers (the cells) */
 .row>* {
-    flex: 0 0 24%;
+    flex: 0 0 23%;
     background-color: grey;
     border: solid;
     height: 100%;
