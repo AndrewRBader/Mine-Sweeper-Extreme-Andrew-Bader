@@ -149,6 +149,15 @@ cells.forEach(cell => {
                     diffusedBombArray.push(diffusedBombID)
                     console.log(diffusedBombArray)
                     console.log('Safety Gear Removed')
+
+                    //remove bomb html from cell so can't add twice!
+                    //diffused bomb area is also safe!
+                    console.log (cell.innerHTML)
+                    let bombText = cell.innerHTML
+                    bombText = 'Diffused Bomb'
+                    cell.innerHTML = bombText
+                    console.log (cell.innerHTML)
+
                 }
             
         }
