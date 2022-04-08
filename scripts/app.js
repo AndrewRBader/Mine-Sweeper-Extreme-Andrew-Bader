@@ -59,54 +59,62 @@ cells.forEach(cell => {
             // Console logs to play in console
             console.log('You Lose! Game Over!')
             alert('You Lose! Game Over!!')
-            console.log(cell)
+            // console.log(cell)
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
             cell.classList.add('revealed')
 
             // Console logs to play in console
             console.log(`${cell.innerHTML} bombs are close`)
-            console.log(cell)
+            // console.log(cell)
         }
         else if (parseInt(cell.innerHTML) === 0){
             cell.classList.add('revealed')
 
             // Console logs to play in console
-            console.log('no bombs are near')
-            console.log(cell)
+            // console.log('no bombs are near')
+            // console.log(cell)
 
             //find coordinates of click
             const colClick = parseInt(cell.getAttribute('id').split('-').slice(3))
-            console.log(colClick)
+            // console.log(colClick)
             const rowClick = parseInt(cell.getAttribute('id').split('-').slice(1,2))
-            console.log(rowClick)
+            // console.log(rowClick)
             const clickCoordinates = [colClick, rowClick];
-            console.log(clickCoordinates)
+            // console.log(clickCoordinates)
             
             //function to get cells in column of clicked empty square
             let blankCellCoordinatesInClickedColumn = [];
             let blankCellCoordinatesInClickedRow = [];
+            let rowChildrenElementNumber = 0;
+            console.log(rowChildrenElementNumber)
 
             for (i = 0; i<cells.length ;i++) {
                 //collects just blank columns (no bombs in array)
                 if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
                     blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
+
+                    //getting rows off of columns to reveal through parent Node
                     let parentNode = cells[i].parentElement
-                    console.log(parentNode)
+                    // console.log(parentNode)
                     let childrenOfRowNode = parentNode.children
-                    console.log(childrenOfRowNode)
-                    console.log(childrenOfRowNode.length)
+                    // console.log(childrenOfRowNode)
+                    // console.log(childrenOfRowNode.length)
+                    rowChildrenElementNumber = childrenOfRowNode.length
+
                     for (j = 0 ; j < childrenOfRowNode.length; j++){
-                        console.log(childrenOfRowNode[j])
+                        // console.log(childrenOfRowNode[j])
                         if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
                             childrenOfRowNode[j].classList.add('revealed')
                         }
                     }
-                 }
+                    
+                }
             }
 
             // console.log(blankCellCoordinatesInClickedColumn)
+            console.log(rowChildrenElementNumber)
 
             //function to get cells in row of clicked empty square
             
@@ -115,10 +123,19 @@ cells.forEach(cell => {
                 if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
                     blankCellCoordinatesInClickedRow.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
+
+                    // need loop here that goes through columns, since parents are rows, can't use that trick
+                    //length of column = (length of cells array)/childrenOfRowNode.length
+                    let lengthOfColumn = cells.length/rowChildrenElementNumber
+                    console.log(lengthOfColumn)
+
+                    // loop through column off of each row and reveal till bomb
+                    
+
                 } 
                 
             }
-             console.log(blankCellCoordinatesInClickedRow)
+            //  console.log(blankCellCoordinatesInClickedRow)
 
             //might need an else if === bomb break loop for bombs in center here
 
