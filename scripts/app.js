@@ -34,9 +34,17 @@ let $diffusedCells = $('.diffused');
 let resetButton = document.querySelector('#resetButton')
 // console.log(resetButton)
 
+//mines are live boolean for active game
+let minesAreLive = false;
+
+
 resetButton.addEventListener('click', () => {
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+    minesAreLive = true;
+    console.log(minesAreLive)
 })
+
+
 
 // initial state, removes all "activity" classes from hidden cells and show just hidden cells
 // Note** this removes classes from all other element class node lists that are related as well
@@ -58,22 +66,25 @@ let $flagOffButton = $('#flagOffButton');
 $flagOffButton.hide()
 
 // bombCells have active diffused class
-console.log($bombCells)
+// console.log($bombCells)
 
 //deactivate bombCell diffused Class
 
 $bombCells.removeClass('diffused')
 
 $flagOnButton.click(() => {
+
+    minesAreLive = false
+    console.log(minesAreLive)
+
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
 
-    //bomb class is removed when flag is on (turn off event listener below)
-    
-    cells.innerHTML ='flag'
-
+   
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
+            cells.innerHTML ='flag'
+            console.log (cell.innerHTML)
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
             console.log('flag clicked here')
@@ -117,10 +128,17 @@ cells.forEach(cell => {
         if (cell.innerHTML === 'Bomb') {
             cell.classList.add('revealed')
 
-            // Console logs to play in console
-            console.log('You Lose! Game Over!')
-            alert('You Lose! Game Over!!')
-            // console.log(cell)
+            if (minesAreLive === true) {
+                // alert to see loss in browser
+                console.log('You Lose! Game Over!')
+                alert('You Lose! Game Over!!')
+            }
+            //switches back to mines are live when Flag is toggled off
+            else {
+                minesAreLive = true
+                console.log(minesAreLive)
+            }
+            
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
             cell.classList.add('revealed')
