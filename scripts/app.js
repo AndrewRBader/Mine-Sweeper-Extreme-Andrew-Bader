@@ -65,6 +65,23 @@ $hiddenCells.removeClass('revealed bomb').fadeIn()
 
 //Flag/diffuser functionality:
 
+//set up bomb to be initially without diffused class, will change with flag added
+
+// console.log($bombCells) // diffused bomb (diffused class remains)
+// $bombCells.removeClass('diffused')
+// console.log($bombCells) //un-diffused (no diffused class)
+//# of bombs
+
+let numberBombs = $bombCells.length
+console.log(numberBombs)
+
+//diffused bomb array
+
+let diffusedBombArray = [];
+
+//mabye put this into an active mine function?
+
+
 
 $flagOnButton.click(() => {
 
@@ -97,6 +114,10 @@ $flagOnButton.click(() => {
 })
 
 
+//check win function is fully for the Flag On button, last flag placed on bomb results in win
+// maybe use the add diffused class to bombs here as well
+
+
 
 
 
@@ -121,13 +142,17 @@ cells.forEach(cell => {
                  alert('You Lose! Game Over!!')
             }
             //switches back to mines are live when Flag is toggled off
+            
             else {
-                minesAreLive = true
-                console.log('You diffused a bomb')
-                cell.classList.add('diffused')
-
-                console.log('Safety Gear Removed')
-            }
+                    minesAreLive = true
+                    console.log('You diffused a bomb')
+                    cell.classList.add('diffused')
+                    let diffusedBombID = cell.getAttribute('id')
+                    console.log(diffusedBombID)
+                    diffusedBombArray.push(diffusedBombID)
+                    console.log(diffusedBombArray)
+                    console.log('Safety Gear Removed')
+                }
             
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
