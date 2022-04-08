@@ -58,8 +58,6 @@ console.log(numberBombs)
 
 let diffusedBombArray = [];
 
-
-
 //reset button: press to activate Flag button empties diffusedBombArray
 
 resetButton.addEventListener('click', () => {
@@ -71,10 +69,6 @@ resetButton.addEventListener('click', () => {
     console.log('Mines Are Live')
 })
 
-
-
-// initial state, removes all "activity" classes from hidden cells and show just hidden cells
-// Note** this removes classes from all other element class node lists that are related as well
 
 
 //Flag/diffuser functionality:
@@ -106,13 +100,6 @@ $flagOnButton.click(() => {
 })
 
 
-//check win function is fully for the Flag On button, last flag placed on bomb results in win
-// maybe use the add diffused class to bombs here as well
-
-
-
-
-
 
 // using forEach array method to add event listener to each cell
 //also using vanilla JS for event listeners/clicks cause my vs code doesnt like functions ie .click
@@ -135,7 +122,8 @@ cells.forEach(cell => {
                  console.log('You Lose! Game Over!')
                  alert('You Lose! Game Over!!')
             }
-            //switches back to mines are live when Flag is toggled off
+
+            //check win function is fully for the Flag On button, last flag placed on bomb results in win
             
             else {
                     minesAreLive = true
@@ -174,11 +162,7 @@ cells.forEach(cell => {
                             }
                         }
                     }
-                                       
-
-
                 }
-            
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
 
