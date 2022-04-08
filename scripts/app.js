@@ -34,6 +34,9 @@ let $diffusedCells = $('.diffused');
 let resetButton = document.querySelector('#resetButton')
 // console.log(resetButton)
 
+
+$hiddenCells.removeClass('revealed bomb diffused').fadeIn()
+
 //mines are live boolean for active game
 let minesAreLive = false;
 
@@ -73,7 +76,6 @@ resetButton.addEventListener('click', () => {
 // initial state, removes all "activity" classes from hidden cells and show just hidden cells
 // Note** this removes classes from all other element class node lists that are related as well
 
-$hiddenCells.removeClass('revealed bomb').fadeIn()
 
 //Flag/diffuser functionality:
 
@@ -93,13 +95,6 @@ $flagOnButton.click(() => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
-
-            // if no bomb diffused, see "no bomb is hear, safety gear removed"
-            if (cell.innerHTML !== 'Bomb' && cell.innerHTML !== 'Diffused Bomb') {
-                console.log('No Bomb Here')
-                console.log('Safety Gear Removed')
-            }
-
         })
     })
     $flagOffButton.click(() => {
@@ -127,8 +122,9 @@ $flagOnButton.click(() => {
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
+        cell.classList.add('revealed')
         if (cell.innerHTML === 'Bomb') {
-            cell.classList.add('revealed')
+            
             console.log('You found a bomb')
 
             if (minesAreLive === true) {
@@ -159,18 +155,36 @@ cells.forEach(cell => {
                     cell.innerHTML = bombText
                     // console.log (cell.innerHTML)
 
+                    // dont need loop just do conditional!
+                    if (diffusedBombArray.length !== numberBombs){
+                        console.log(`Keep looking! There are ${numberBombs - diffusedBombArray.length} left!!`)
+                    }
+                    else if (diffusedBombArray.length === numberBombs){
+                        console.log ('You Win!!!')
+                        for (i = 0; i<diffusedBombArray.length;i++){
+                            let cellID = diffusedBombArray[i]
+                            // console.log(cellID)
+                            for (j = 0; j < cells.length; j++){
+                                let cellsArrayElementID = cells[j].id;
+                                // console.log(cellsArrayElementID)
+                                if (cellsArrayElementID === cellID)
+                                cells[j].innerHTML = 'Bomb'
+                            }
+                        }
+                    }
+                                       
+
+
                 }
             
         }
         else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
-            cell.classList.add('revealed')
 
             // Console logs to play in console
             console.log(`${cell.innerHTML} bombs are close`)
             // console.log(cell)
         }
         else if (parseInt(cell.innerHTML) === 0){
-            cell.classList.add('revealed')
 
             // Console logs to play in console
             // console.log('no bombs are near')
