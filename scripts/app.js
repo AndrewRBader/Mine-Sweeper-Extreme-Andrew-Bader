@@ -91,7 +91,7 @@ $flagOnButton.click(() => {
                 console.log('No Bomb Here')
                 console.log('Safety Gear Removed')
             }
-            
+
         })
     })
     $flagOffButton.click(() => {
@@ -146,6 +146,8 @@ cells.forEach(cell => {
                 minesAreLive = true
                 console.log('You diffused a bomb')
                 cell.classList.add('diffused')
+
+                console.log('Safety Gear Removed')
             }
             
         }
@@ -291,7 +293,7 @@ coordinatesFromIDGeneration()
 // thoughts:
 //can I create a game board object? or a cell object with the content?
 
-
+// I probably want a player object!
 
 
 
