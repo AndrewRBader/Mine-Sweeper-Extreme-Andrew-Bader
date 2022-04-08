@@ -83,29 +83,42 @@ cells.forEach(cell => {
             console.log(clickCoordinates)
             
             //function to get cells in column of clicked empty square
-            let cellCoordinatesInClickedColumn = [];
+            let blankCellCoordinatesInClickedColumn = [];
             let cellCoordinatesInClickedRow = [];
+            let blankCellCoordinatesInClickedRow = [];
 
             for (i = 0; i<cells.length ;i++) {
+                //collects just blank columns (no bombs in array)
                 if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
-                    cellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
+                    blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
                  }
             }
 
-            console.log(cellCoordinatesInClickedColumn)
+            console.log(blankCellCoordinatesInClickedColumn)
 
             //function to get cells in row of clicked empty square
             
             for (i = 0; i<cells.length ;i++) {
-                if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
+                if (cellCoordinateArray[i][1] === rowClick){
+
+                // collects all cells in row for a length of row array
                     cellCoordinatesInClickedRow.push(cellCoordinateArray[i])
+                }
+
+                //collects just blank cells with no bombs
+                if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
+                    blankCellCoordinatesInClickedRow.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
                 } 
                 
             } console.log(cellCoordinatesInClickedRow)
+             console.log(blankCellCoordinatesInClickedRow)
 
             //might need an else if === bomb break loop for bombs in center here
+
+            //function to get all rows off of column till bombs
+
         }
     })
 })
