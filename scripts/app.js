@@ -96,9 +96,6 @@ cells.forEach(cell => {
             //index variable for expanded row column function and for loop in blank cell click
             let columnRowIndex = null;
 
-
-
-
             for (i = 0; i<cells.length ;i++) {
                 //collects just blank columns (no bombs in array)
                 if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
@@ -140,10 +137,8 @@ cells.forEach(cell => {
                     
 
                 } 
-                
             }
-            
-            
+
             // console.log(blankCellCoordinatesInClickedRow)
 
              for (i = 0; i < blankCellCoordinatesInClickedRow.length; i++){
@@ -181,8 +176,6 @@ cells.forEach(cell => {
         }
     })
 })
-
-
 
 // function that gives coordinates for all cells in gameboard:
 let cellCoordinateArray = [];
