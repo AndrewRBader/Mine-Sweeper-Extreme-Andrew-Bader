@@ -130,7 +130,7 @@ cells.forEach(cell => {
                 }
             }
 
-            console.log(blankCellCoordinatesInClickedColumn)
+            // console.log(blankCellCoordinatesInClickedColumn)
 
             for (i = 0; i<cells.length ;i++) {
                 //collects just blank cells with no bombs
@@ -151,9 +151,13 @@ cells.forEach(cell => {
             }
             
             
-            console.log(blankCellCoordinatesInClickedRow)
+            // console.log(blankCellCoordinatesInClickedRow)
 
-             
+             for (i = 0; i < blankCellCoordinatesInClickedRow.length; i++){
+                console.log(blankCellCoordinatesInClickedRow[i])
+                let columnIndex = blankCellCoordinatesInClickedRow[i][0];
+                console.log(columnIndex)
+             }
            
 
             //might need an else if === bomb break loop for bombs in center here
