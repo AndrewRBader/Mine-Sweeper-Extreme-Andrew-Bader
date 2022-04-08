@@ -91,21 +91,21 @@ cells.forEach(cell => {
                     cellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
                  }
-                }
+            }
 
             console.log(cellCoordinatesInClickedColumn)
 
             //function to get cells in row of clicked empty square
             
             for (i = 0; i<cells.length ;i++) {
-                if (cellCoordinateArray[i][1] === rowClick){
+                if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
                     cellCoordinatesInClickedRow.push(cellCoordinateArray[i])
-                    if (cellCoordinateArray[i][2] !== 'Bomb'){
-                        cells[i].classList.add('revealed')
-                    }
-                }
+                    cells[i].classList.add('revealed')
+                } 
                 
-            }console.log(cellCoordinatesInClickedRow)
+            } console.log(cellCoordinatesInClickedRow)
+
+            //might need an else if === bomb break loop for bombs in center here
         }
     })
 })
