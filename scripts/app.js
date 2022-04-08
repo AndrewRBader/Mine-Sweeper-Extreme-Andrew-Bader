@@ -95,7 +95,7 @@ $flagOnButton.click(() => {
             $flagOnButton.fadeIn()
 
             // if no bomb diffused, see "no bomb is hear, safety gear removed"
-            if (cell.innerHTML !== 'Bomb') {
+            if (cell.innerHTML !== 'Bomb' && cell.innerHTML !== 'Diffused Bomb') {
                 console.log('No Bomb Here')
                 console.log('Safety Gear Removed')
             }
@@ -129,6 +129,7 @@ cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (cell.innerHTML === 'Bomb') {
             cell.classList.add('revealed')
+            console.log('You found a bomb')
 
             if (minesAreLive === true) {
                
@@ -152,11 +153,11 @@ cells.forEach(cell => {
 
                     //remove bomb html from cell so can't add twice!
                     //diffused bomb area is also safe!
-                    console.log (cell.innerHTML)
+                    // console.log (cell.innerHTML)
                     let bombText = cell.innerHTML
                     bombText = 'Diffused Bomb'
                     cell.innerHTML = bombText
-                    console.log (cell.innerHTML)
+                    // console.log (cell.innerHTML)
 
                 }
             
