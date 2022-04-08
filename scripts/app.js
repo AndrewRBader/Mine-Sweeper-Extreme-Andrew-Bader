@@ -102,6 +102,10 @@ cells.forEach(cell => {
                     blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
                     cells[i].classList.add('revealed')
 
+                    if (parseInt(cells[i].innerHTML) > 0){
+                        break;
+                    }
+
                     //getting rows off of columns to reveal through parent Node
                     let parentNode = cells[i].parentElement
                     // console.log(parentNode)
@@ -109,6 +113,7 @@ cells.forEach(cell => {
                     // console.log(childrenOfRowNode)
                     // console.log(childrenOfRowNode.length)
                     rowChildrenElementNumber = childrenOfRowNode.length
+
 
                     for (j = 0 ; j < childrenOfRowNode.length; j++){
                         // console.log(childrenOfRowNode[j])
@@ -164,7 +169,7 @@ cells.forEach(cell => {
                         // console.log(revealedID)
                         let revealedElement = document.getElementById(revealedID)
                         // console.log(revealedElement)
-                        revealedElement.classList.add('revealed')
+                        // revealedElement.classList.add('revealed')
                     }
                 } 
                 
