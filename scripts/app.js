@@ -62,11 +62,27 @@ let diffusedBombArray = [];
 
 resetButton.addEventListener('click', () => {
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
-    diffusedBombArray = []
-    console.log(diffusedBombArray)
     minesAreLive = true;
     $flagOnButton.fadeIn()
     console.log('Mines Are Live')
+
+    // resets diffused bombs that are collected before reset
+    for (i = 0; i<diffusedBombArray.length;i++){
+        let cellID = diffusedBombArray[i]
+        // console.log(cellID)
+        for (j = 0; j < cells.length; j++){
+            let cellsArrayElementID = cells[j].id;
+            // console.log(cellsArrayElementID)
+            if (cellsArrayElementID === cellID){
+                cells[j].innerHTML = 'Bomb'
+            }
+            
+        }
+    }
+
+    //empties diffused bomb array
+    diffusedBombArray = []
+    
 })
 
 
