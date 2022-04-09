@@ -31,8 +31,12 @@ let $diffusedCells = $('.diffused');
 // console.log($diffusedCells.length);
 
 // collecting buttons into variable (vanilla JS to avoid click function)
-let resetButton = document.querySelector('#resetButton')
+let $resetButton = $('#resetButton')
 // console.log(resetButton)
+
+let $startButton = $('#startButton')
+console.log(startButton)
+
 
 
 $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
@@ -47,6 +51,15 @@ let $flagOffButton = $('#flagOffButton');
 // console.log(flagOffButton)
 $flagOnButton.hide()
 $flagOffButton.hide()
+$resetButton.hide()
+
+//start button event function
+$startButton.click(() => {
+    $resetButton.fadeIn();
+    $flagOnButton.fadeIn()
+    $startButton.hide();
+    minesAreLive = true;
+})
 
 
 //# of bombs
@@ -60,10 +73,9 @@ let diffusedBombArray = [];
 
 //reset button: press to activate Flag button empties diffusedBombArray
 
-resetButton.addEventListener('click', () => {
+$resetButton.click(() =>{
     $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
     minesAreLive = true;
-    $flagOnButton.fadeIn()
     console.log('Mines Are Live')
 
     // resets diffused bombs that are collected before reset
@@ -82,7 +94,7 @@ resetButton.addEventListener('click', () => {
 
     //empties diffused bomb array
     diffusedBombArray = []
-    
+
 })
 
 
