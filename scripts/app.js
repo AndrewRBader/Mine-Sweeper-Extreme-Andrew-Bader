@@ -55,6 +55,7 @@ $resetButton.hide()
 
 //start button event function
 $startButton.click(() => {
+    $hiddenCells.removeClass('revealed bomb diffused').fadeIn()
     $resetButton.fadeIn();
     $flagOnButton.fadeIn()
     $startButton.hide();
