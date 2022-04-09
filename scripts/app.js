@@ -288,7 +288,7 @@ coordinatesFromIDGeneration()
 
 
 
-// original else if 0 shit
+// original else if 0 
 
 // else if (parseInt(cell.innerHTML) === 0){
 
