@@ -262,13 +262,11 @@ console.log(widthAndHeightFromHTML())
 let coordinates = {};
 
 function coordinatesFromID (cellID) {
-    const col = parseInt(cellID.split('-').slice(3))
+    const col = parseInt(cellID.split('-').slice(3,4))
     const row = parseInt(cellID.split('-').slice(1,2))
     coordinates = {x: col+1, y: row+1}; //to make it more intuitive (not starting at 0)
     return coordinates
 }
-
-
 
 //revealing adjacent cells ids/coordinates
 
