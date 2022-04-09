@@ -1,3 +1,4 @@
+
 //check that renaming account didnt screw up repo
 
 // js link check
@@ -68,6 +69,7 @@ $startButton.click(() => {
 
 
 //# of bombs
+
 
 let numberBombs = $bombCells.length
 console.log(numberBombs)
