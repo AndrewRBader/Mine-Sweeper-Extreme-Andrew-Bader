@@ -218,9 +218,10 @@ cells.forEach(cell => {
 
             else {
 
-                let cellID = cell.getAttribute('id')
-                coordinatesFromID(cellID)
 
+                let cellID = cell.getAttribute('id')
+                console.log(coordinatesFromID(cellID))
+                
                 // revealedCell(cell, coordinates)
 
 
@@ -236,32 +237,33 @@ cells.forEach(cell => {
 
 
 
-// coordinates from ID function
-
-function coordinatesFromID (cellID) {
-    //find coordinates of click
-    const colClick = parseInt(cellID.split('-').slice(3))
-    // console.log(colClick)
-    const rowClick = parseInt(cellID.split('-').slice(1,2))
-    // console.log(rowClick)
-    let coordinates = {x: colClick, y: rowClick};
-    console.log(coordinates)
-}
-
 
 // gameboard analysis functions
 
-//will need bool that is true for custom that shuts of width and height from html board
-
-//global width and height game board variables
-let width = null;
-let height = null;
+// will need bool that is true for custom that shuts of width and height from html board
 
 // getting width and height from hard coded board
 
 function widthAndHeightFromHTML () {
-    // width = 
+    let height = document.querySelectorAll('.row').length
+    let width = document.querySelectorAll('.cell').length/height
+    return [height, width]
 }
+
+console.log(widthAndHeightFromHTML())
+
+
+// coordinates from ID function
+
+let coordinates = {};
+
+function coordinatesFromID (cellID) {
+    const col = parseInt(cellID.split('-').slice(3))
+    const row = parseInt(cellID.split('-').slice(1,2))
+    coordinates = {x: col, y: row};
+    return coordinates
+}
+
 
 
 //revealing adjacent cells ids/coordinates
