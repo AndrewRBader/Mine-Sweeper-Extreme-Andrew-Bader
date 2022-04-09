@@ -150,21 +150,6 @@ cells.forEach(cell => {
                  console.log('You Lose! Game Over!')
                  alert('You Lose! Game Over!!')
 
-
-                 // resets diffused bombs collected before bomb hit
-                 for (i = 0; i<diffusedBombArray.length;i++){
-                    let cellID = diffusedBombArray[i]
-                    // console.log(cellID)
-                    for (j = 0; j < cells.length; j++){
-                        let cellsArrayElementID = cells[j].id;
-                        // console.log(cellsArrayElementID)
-                        if (cellsArrayElementID === cellID){
-                            cells[j].innerHTML = 'Bomb'
-                        }
-                        
-                    }
-                }
-
             }
 
             //check win function is fully for the Flag On button, last flag placed on bomb results in win
@@ -195,19 +180,6 @@ cells.forEach(cell => {
                         //for browser and console win check
                         console.log ('You Win!!!')
                         alert('You Win!!!')
-                        
-                        for (i = 0; i<diffusedBombArray.length;i++){
-                            let cellID = diffusedBombArray[i]
-                            // console.log(cellID)
-                            for (j = 0; j < cells.length; j++){
-                                let cellsArrayElementID = cells[j].id;
-                                // console.log(cellsArrayElementID)
-                                if (cellsArrayElementID === cellID){
-                                    cells[j].innerHTML = 'Bomb'
-                                }
-                                
-                            }
-                        }
                     }
                 }
         }
