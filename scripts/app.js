@@ -258,7 +258,6 @@ console.log(widthAndHeightFromHTML())
 
 
 // coordinates from ID function
-
 let coordinates = {};
 
 function coordinatesFromID (cellID) {
@@ -267,6 +266,8 @@ function coordinatesFromID (cellID) {
     coordinates = {x: col+1, y: row+1}; //to make it more intuitive (not starting at 0)
     return coordinates
 }
+
+
 
 //revealing adjacent cells ids/coordinates
 
@@ -292,6 +293,11 @@ function revealedCellLocation(cell, cellID){
         const onBottomEdge = true
         console.log('click is on bottom')
     }
+
+    const cellIdNumber = parseInt(cellID.split('-').slice(4))
+    console.log(cellIdNumber)
+    console.log(cells[cellIdNumber-1])
+
 }
 
 
