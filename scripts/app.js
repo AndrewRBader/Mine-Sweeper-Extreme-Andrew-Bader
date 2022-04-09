@@ -150,9 +150,18 @@ cells.forEach(cell => {
         if (bombExplode === true || bombsDiffused === true) {
             // console.log('Reset Game!')
             alert('Please Start or Reset Game')
+        } 
+        //returns out of function if cell with bomb is already diffused
+        else if (cell.classList.contains('diffused')){
+            console.log('already diffused')
+            return;
+        }
+        //returns out of function if cell is already revealed
+        else if (cell.classList.contains('revealed')){
+            console.log('already revealed')
+            return;
         }
         else {
-            cell.classList.add('revealed')
             if (cell.innerHTML === 'Bomb') {
             
                 // console.log('You found a bomb')
@@ -199,12 +208,14 @@ cells.forEach(cell => {
                     }
                 }
             }
-            else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= numberBombs) { 
+            else if (parseInt(cell.innerHTML) !== 0) { 
 
                 // Console logs to play in console
                 console.log(`${cell.innerHTML} bombs are close`)
                 // console.log(cell)
             }
+
+
             else {
 
                 //find coordinates of click
@@ -215,10 +226,11 @@ cells.forEach(cell => {
                 let clickCoordinates = {x: colClick, y: rowClick};
                 console.log(clickCoordinates)
 
-                
+
             
                
             }
+            cell.classList.add('revealed')
         } //for overall else after if bomb explode = false
     })
 })
