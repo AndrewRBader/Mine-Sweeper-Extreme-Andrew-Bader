@@ -218,13 +218,10 @@ cells.forEach(cell => {
 
             else {
 
-                //find coordinates of click
-                const colClick = parseInt(cell.getAttribute('id').split('-').slice(3))
-                // console.log(colClick)
-                const rowClick = parseInt(cell.getAttribute('id').split('-').slice(1,2))
-                // console.log(rowClick)
-                let clickCoordinates = {x: colClick, y: rowClick};
-                console.log(clickCoordinates)
+                let cellID = cell.getAttribute('id')
+                coordinatesFromID(cellID)
+
+                // revealedCell(cell, coordinates)
 
 
             
@@ -239,6 +236,41 @@ cells.forEach(cell => {
 
 
 
+// coordinates from ID function
+
+function coordinatesFromID (cellID) {
+    //find coordinates of click
+    const colClick = parseInt(cellID.split('-').slice(3))
+    // console.log(colClick)
+    const rowClick = parseInt(cellID.split('-').slice(1,2))
+    // console.log(rowClick)
+    let coordinates = {x: colClick, y: rowClick};
+    console.log(coordinates)
+}
+
+
+// gameboard analysis functions
+
+//will need bool that is true for custom that shuts of width and height from html board
+
+//global width and height game board variables
+let width = null;
+let height = null;
+
+// getting width and height from hard coded board
+
+function widthAndHeightFromHTML () {
+    // width = 
+}
+
+
+//revealing adjacent cells ids/coordinates
+
+
+function revealedCell(cell, coordinates){
+    //is square on left or right side
+
+}
 
 
 
