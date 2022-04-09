@@ -142,8 +142,8 @@ $flagOnButton.click(() => {
 // using forEach array method to add event listener to each cell
 //also using vanilla JS for event listeners/clicks cause my vs code doesnt like functions ie .click
 
-
-
+//need cell ID var for functions and event listener
+let cellID = null;
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
@@ -219,10 +219,10 @@ cells.forEach(cell => {
             else {
 
 
-                let cellID = cell.getAttribute('id')
+                cellID = cell.getAttribute('id')
                 console.log(coordinatesFromID(cellID))
                 
-                // revealedCell(cell, coordinates)
+                revealedCellLocation(cell, cellID)
 
 
             
@@ -244,12 +244,16 @@ cells.forEach(cell => {
 
 // getting width and height from hard coded board
 
+let boardWidthHeight = {};
+
 function widthAndHeightFromHTML () {
-    let height = document.querySelectorAll('.row').length
-    let width = document.querySelectorAll('.cell').length/height
-    return [height, width]
+    let heightHTML = document.querySelectorAll('.row').length
+    let widthHTML = document.querySelectorAll('.cell').length/heightHTML
+    boardWidthHeight = {height: heightHTML, width: widthHTML}
+    return boardWidthHeight
 }
 
+//calling width and height from html for now
 console.log(widthAndHeightFromHTML())
 
 
@@ -260,7 +264,7 @@ let coordinates = {};
 function coordinatesFromID (cellID) {
     const col = parseInt(cellID.split('-').slice(3))
     const row = parseInt(cellID.split('-').slice(1,2))
-    coordinates = {x: col, y: row};
+    coordinates = {x: col+1, y: row+1}; //to make it more intuitive (not starting at 0)
     return coordinates
 }
 
@@ -269,9 +273,27 @@ function coordinatesFromID (cellID) {
 //revealing adjacent cells ids/coordinates
 
 
-function revealedCell(cell, coordinates){
-    //is square on left or right side
-
+function revealedCellLocation(cell, cellID){
+    //if click on left click is on left
+    if (coordinates.x === 1) {
+        const onLeftEdge = true
+        console.log('click is on left')
+    }
+    //if click on right click is on right
+    else if (coordinates.x/boardWidthHeight.width === 1) {
+        const onRightEdge = true
+        console.log('click is on right')
+    }
+    //if click is on top row
+    else if (coordinates.y === 1){
+        const onTopEdge = true
+        console.log('click is on top row')
+    }
+    //if click is on bottom row
+    else if (coordinates.y/boardWidthHeight.height === 1) {
+        const onBottomEdge = true
+        console.log('click is on bottom')
+    }
 }
 
 
