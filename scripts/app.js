@@ -236,20 +236,7 @@ cells.forEach(cell => {
 })
                 
 
-// function that gives coordinates for all cells in gameboard:
-let cellCoordinateArray = [];
 
-function coordinatesFromIDGeneration () {
-    for (i = 0; i<cells.length; i++){
-        const col = parseInt(cells[i].getAttribute('id').split('-').slice(3))
-        const row = parseInt(cells[i].getAttribute('id').split('-').slice(1,2))
-        cellCoordinateArray.push([col, row, cells[i].innerHTML, cells[i].getAttribute('id')])
-    }
-    return cellCoordinateArray
-}
-
-coordinatesFromIDGeneration()
-// console.log(cellCoordinateArray)
 
 
 
@@ -374,3 +361,21 @@ coordinatesFromIDGeneration()
 // }
 // //might need an else if === bomb break loop for bombs in center here
 // }
+
+
+//original cell coordinate array complicated function
+
+// function that gives coordinates for all cells in gameboard:
+// let cellCoordinateArray = [];
+
+// function coordinatesFromIDGeneration () {
+//     for (i = 0; i<cells.length; i++){
+//         const col = parseInt(cells[i].getAttribute('id').split('-').slice(3))
+//         const row = parseInt(cells[i].getAttribute('id').split('-').slice(1,2))
+//         cellCoordinateArray.push([col, row, cells[i].innerHTML, cells[i].getAttribute('id')])
+//     }
+//     return cellCoordinateArray
+// }
+
+// coordinatesFromIDGeneration()
+// console.log(cellCoordinateArray)
