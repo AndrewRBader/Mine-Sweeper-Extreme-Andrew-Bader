@@ -59,8 +59,8 @@ h1 {
     border-color:black;
  }
 
- /* revealed state shows text */
- .revealed {
+/* revealed state shows text */
+.revealed {
     background-color: grey;
     color: black;
     border-style: solid;

@@ -124,6 +124,7 @@ $flagOnButton.click(() => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
+            minesAreLive = true
         })
     })
     $flagOffButton.click(() => {
@@ -146,7 +147,7 @@ cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (bombExplode === true || bombsDiffused === true) {
             console.log('Reset Game!')
-            alert('Please Reset Game')
+            alert('Please Start or Reset Game')
         }
         else {
             cell.classList.add('revealed')
