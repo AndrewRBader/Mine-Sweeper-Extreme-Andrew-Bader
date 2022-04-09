@@ -36,7 +36,7 @@ let $resetButton = $('#resetButton')
 // console.log(resetButton)
 
 let $startButton = $('#startButton')
-console.log(startButton)
+// console.log($startButton)
 
 
 
@@ -72,7 +72,7 @@ $startButton.click(() => {
 
 
 let numberBombs = $bombCells.length
-console.log(numberBombs)
+// console.log(numberBombs)
 
 //diffused bomb array
 
@@ -85,7 +85,7 @@ $resetButton.click(() =>{
     minesAreLive = true;
     bombExplode = false;
     bombsDiffused = false;
-    console.log('Mines Are Live')
+    // console.log('Mines Are Live')
 
     // resets diffused bombs that are collected before reset
     for (i = 0; i<diffusedBombArray.length;i++){
@@ -116,7 +116,7 @@ $resetButton.click(() =>{
 $flagOnButton.click(() => {
 
     minesAreLive = false
-    console.log('Safety Gear On')
+    // console.log('Safety Gear On')
 
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
@@ -130,7 +130,7 @@ $flagOnButton.click(() => {
         })
     })
     $flagOffButton.click(() => {
-        console.log('Safety Gear Removed')
+        // console.log('Safety Gear Removed')
         $flagOffButton.hide()
         $flagOnButton.fadeIn()
         minesAreLive = true
@@ -148,21 +148,21 @@ $flagOnButton.click(() => {
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (bombExplode === true || bombsDiffused === true) {
-            console.log('Reset Game!')
+            // console.log('Reset Game!')
             alert('Please Start or Reset Game')
         }
         else {
             cell.classList.add('revealed')
             if (cell.innerHTML === 'Bomb') {
             
-                console.log('You found a bomb')
+                // console.log('You found a bomb')
 
                 if (minesAreLive === true) {
                     bombExplode = true;
                     cell.classList.add('bomb')
 
                      // alert to see loss in browser
-                     console.log('You Lose! Game Over!')
+                     // console.log('You Lose! Game Over!')
                      alert('You Lose! Game Over!!')
 
                 }
@@ -171,13 +171,13 @@ cells.forEach(cell => {
             
                 else {
                     minesAreLive = true
-                    console.log('You diffused a bomb')
+                    // console.log('You diffused a bomb')
                     cell.classList.add('diffused')
                     let diffusedBombID = cell.getAttribute('id')
-                    console.log(diffusedBombID)
+                    // console.log(diffusedBombID)
                     diffusedBombArray.push(diffusedBombID)
-                    console.log(diffusedBombArray)
-                    console.log('Safety Gear Removed')
+                    // console.log(diffusedBombArray)
+                    // console.log('Safety Gear Removed')
 
                     //remove bomb html from cell so can't add twice!
                     //diffused bomb area is also safe!
@@ -189,118 +189,36 @@ cells.forEach(cell => {
 
                     // dont need loop just do conditional!
                     if (diffusedBombArray.length !== numberBombs){
-                        console.log(`Keep looking! There are ${numberBombs - diffusedBombArray.length} left!!`)
+                        // console.log(`Keep looking! There are ${numberBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberBombs){
                         //for browser and console win check
                         bombsDiffused = true;
-                        console.log ('You Win!!!')
+                        // console.log ('You Win!!!')
                         alert('You Win!!!')
                     }
                 }
             }
-            else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= 2) { 
+            else if (parseInt(cell.innerHTML) > 0 && parseInt(cell.innerHTML) <= numberBombs) { 
 
                 // Console logs to play in console
                 console.log(`${cell.innerHTML} bombs are close`)
                 // console.log(cell)
             }
-            else if (parseInt(cell.innerHTML) === 0){
-
-                // Console logs to play in console
-                // console.log('no bombs are near')
-                // console.log(cell)
+            else {
 
                 //find coordinates of click
                 const colClick = parseInt(cell.getAttribute('id').split('-').slice(3))
                 // console.log(colClick)
                 const rowClick = parseInt(cell.getAttribute('id').split('-').slice(1,2))
                 // console.log(rowClick)
-                const clickCoordinates = [colClick, rowClick];
-                // console.log(clickCoordinates)
+                let clickCoordinates = {x: colClick, y: rowClick};
+                console.log(clickCoordinates)
+
+                
             
-                //function to get cells in column of clicked empty square
-                let blankCellCoordinatesInClickedColumn = [];
-                let blankCellCoordinatesInClickedRow =[];
-                let rowChildrenElementNumber = 0;
-                // console.log(rowChildrenElementNumber)
-                let lengthOfColumn = 0;
-
-                //index variable for expanded row column function and for loop in blank cell click
-                let columnRowIndex = null;
-
-                for (i = 0; i<cells.length ;i++) {
-                    //collects just blank columns (no bombs in array)
-                    if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
-                        blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
-                        cells[i].classList.add('revealed')
-
-                        //getting rows off of columns to reveal through parent Node
-                        let parentNode = cells[i].parentElement
-                        // console.log(parentNode)
-                        let childrenOfRowNode = parentNode.children
-                        // console.log(childrenOfRowNode)
-                        // console.log(childrenOfRowNode.length)
-                        rowChildrenElementNumber = childrenOfRowNode.length
-
-                        for (j = 0 ; j < childrenOfRowNode.length; j++){
-                            // console.log(childrenOfRowNode[j])
-                            if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
-                                childrenOfRowNode[j].classList.add('revealed')
-                            }
-                        }
-                    }
-                }
-
-                // console.log(blankCellCoordinatesInClickedColumn)
-
-                for (i = 0; i<cells.length ;i++) {
-                    //collects just blank cells with no bombs
-                    if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
-                        blankCellCoordinatesInClickedRow.push(cellCoordinateArray[i])
-                        cells[i].classList.add('revealed')
-
-                        // need loop here that goes through columns, since parents are rows, can't use that trick
-                        //length of column = (length of cells array)/childrenOfRowNode.length
-                        lengthOfColumn = cells.length/rowChildrenElementNumber
-                        // console.log(lengthOfColumn)
-
-                        // loop through column off of each row and reveal till bomb
-                    } 
-                }
-
-                // console.log(blankCellCoordinatesInClickedRow)
-
-                for (i = 0; i < blankCellCoordinatesInClickedRow.length; i++){
-                    // console.log(blankCellCoordinatesInClickedRow[i])
-                    let columnIndex = blankCellCoordinatesInClickedRow[i][0];
-                    // console.log(columnIndex)
-
-                    let columnFromExpandingIndex = [];
-
-                for (j = 0; j<cellCoordinateArray.length; j++){
-                    if (cellCoordinateArray[j][0] === columnIndex) {
-                        columnFromExpandingIndex.push(cellCoordinateArray[j])
-                    }
-                } 
-                // console.log(columnFromExpandingIndex)
-
-                let blankElementsOfColumns = [];
-
-                for (j = 0; j<columnFromExpandingIndex.length; j++) {
-                    if (columnFromExpandingIndex[j][2] !== 'Bomb'){
-                        blankElementsOfColumns.push(columnFromExpandingIndex[j])
-                        let revealedID = columnFromExpandingIndex[j][3];
-                        // console.log(revealedID)
-                        let revealedElement = document.getElementById(revealedID)
-                        // console.log(revealedElement)
-                        revealedElement.classList.add('revealed')
-                    }
-                } 
-                // console.log(blankElementsOfColumns)
+               
             }
-            //might need an else if === bomb break loop for bombs in center here
-        }
         } //for overall else after if bomb explode = false
     })
 })
@@ -346,3 +264,101 @@ coordinatesFromIDGeneration()
 
 
 //mabye put this into an active mine function?
+
+
+
+
+
+
+
+
+
+
+
+
+// original else if 0 shit
+
+// else if (parseInt(cell.innerHTML) === 0){
+
+//  //function to get cells in column of clicked empty square
+//  let blankCellCoordinatesInClickedColumn = [];
+//  let blankCellCoordinatesInClickedRow =[];
+//  let rowChildrenElementNumber = 0;
+//  // console.log(rowChildrenElementNumber)
+//  let lengthOfColumn = 0;
+
+//  //index variable for expanded row column function and for loop in blank cell click
+//  let columnRowIndex = null;
+
+//  for (i = 0; i<cells.length ;i++) {
+//      //collects just blank columns (no bombs in array)
+//      if (cellCoordinateArray[i][0] === colClick && cellCoordinateArray[i][2] !== 'Bomb'){
+//          blankCellCoordinatesInClickedColumn.push(cellCoordinateArray[i])
+//          cells[i].classList.add('revealed')
+
+//          //getting rows off of columns to reveal through parent Node
+//          let parentNode = cells[i].parentElement
+//          // console.log(parentNode)
+//          let childrenOfRowNode = parentNode.children
+//          // console.log(childrenOfRowNode)
+//          // console.log(childrenOfRowNode.length)
+//          rowChildrenElementNumber = childrenOfRowNode.length
+
+//          for (j = 0 ; j < childrenOfRowNode.length; j++){
+//              // console.log(childrenOfRowNode[j])
+//              if (childrenOfRowNode[j].innerHTML !== 'Bomb'){
+//                  childrenOfRowNode[j].classList.add('revealed')
+//              }
+//          }
+//      }
+//  }
+
+//  // console.log(blankCellCoordinatesInClickedColumn)
+
+//  for (i = 0; i<cells.length ;i++) {
+//      //collects just blank cells with no bombs
+//      if (cellCoordinateArray[i][1] === rowClick && cellCoordinateArray[i][2] !== 'Bomb'){
+//          blankCellCoordinatesInClickedRow.push(cellCoordinateArray[i])
+//          cells[i].classList.add('revealed')
+
+//          // need loop here that goes through columns, since parents are rows, can't use that trick
+//          //length of column = (length of cells array)/childrenOfRowNode.length
+//          lengthOfColumn = cells.length/rowChildrenElementNumber
+//          // console.log(lengthOfColumn)
+
+//          // loop through column off of each row and reveal till bomb
+//      } 
+//  }
+
+//  // console.log(blankCellCoordinatesInClickedRow)
+
+//  for (i = 0; i < blankCellCoordinatesInClickedRow.length; i++){
+//      // console.log(blankCellCoordinatesInClickedRow[i])
+//      let columnIndex = blankCellCoordinatesInClickedRow[i][0];
+//      // console.log(columnIndex)
+
+//      let columnFromExpandingIndex = [];
+
+//  for (j = 0; j<cellCoordinateArray.length; j++){
+//      if (cellCoordinateArray[j][0] === columnIndex) {
+//          columnFromExpandingIndex.push(cellCoordinateArray[j])
+//      }
+//  } 
+//  // console.log(columnFromExpandingIndex)
+
+//  let blankElementsOfColumns = [];
+
+//  for (j = 0; j<columnFromExpandingIndex.length; j++) {
+//      if (columnFromExpandingIndex[j][2] !== 'Bomb'){
+//          blankElementsOfColumns.push(columnFromExpandingIndex[j])
+//          let revealedID = columnFromExpandingIndex[j][3];
+//          // console.log(revealedID)
+//          let revealedElement = document.getElementById(revealedID)
+//          // console.log(revealedElement)
+//          revealedElement.classList.add('revealed')
+//      }
+//  } 
+//  // console.log(blankElementsOfColumns)
+// }
+// //might need an else if === bomb break loop for bombs in center here
+// }
