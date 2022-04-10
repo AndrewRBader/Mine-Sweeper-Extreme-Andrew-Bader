@@ -1,4 +1,16 @@
 
+/* header section */
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+/* gameboard section styling */
+.gameboard {
+    display: flex;
+    justify-content: center;
+}
 
 /* cell field/cells style */
 .cellfield {
@@ -7,6 +19,8 @@
     width: 400px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
     flex-wrap: wrap;
 }
 
@@ -14,10 +28,14 @@
 .cellfield>* {
     background-color: grey;
     height: 50px;
-    width: 50px
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-/* bomb class styling */
 .bomb {
     background-color: red;
     color: rgb(79, 40, 40);
