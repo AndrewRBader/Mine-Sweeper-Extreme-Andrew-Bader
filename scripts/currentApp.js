@@ -120,6 +120,42 @@ function settingBombCells (){
 settingBombCells()
 
 
+// button functionality
+
+// collecting buttons into variable 
+let $resetButton = $('#resetButton')
+let $startButton = $('#startButton')
+
+//mines are live boolean for active game, bomb explode, bombs diffused 
+let minesAreLive = false;
+let bombExplode = true;
+let bombsDiffused = false;
+
+
+//flag button collection
+let $flagOnButton = $('#flagOnButton');
+let $flagOffButton = $('#flagOffButton');
+
+//starting state of hidden buttons
+$flagOnButton.hide()
+$flagOffButton.hide()
+$resetButton.hide()
+
+//start button event function (buttons fading in and out)
+$startButton.click(() => {
+    $resetButton.fadeIn();
+    $flagOnButton.fadeIn()
+    $startButton.hide();
+    minesAreLive = true;
+    bombExplode = false;
+    bombsDiffused = false;
+})
+
+
+
+
+
+
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (cell.classList.contains('bomb')){
