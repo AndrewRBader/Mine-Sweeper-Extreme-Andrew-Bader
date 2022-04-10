@@ -276,15 +276,37 @@ function coordinatesFromID (cellID) {
 
 function revealedCellLocation(cell, cellID){
 
+    //finding the cells element with cellID number
+    let onLeftEdge = false
+    let onRightEdge = false
+    const cellIdNumber = parseInt(cellID.split('-').slice(4))
+
     //if click on left click is on left
     if (coordinates.x === 0) {
-        let onLeftEdge = true
+        onLeftEdge = true
         console.log('click is on left')
+
+        setTimeout (() => {
+            cells[cellIdNumber+1].classList.add('revealed')
+            cells[cellIdNumber+boardWidthHeight.width].classList.add('revealed')
+            cells[cellIdNumber-boardWidthHeight.width].classList.add('revealed')
+            cells[cellIdNumber+boardWidthHeight.width+1].classList.add('revealed')
+            cells[cellIdNumber-boardWidthHeight.width + 1].classList.add('revealed')
+        }, 20)
     }
     //if click on right click is on right
     else if ((coordinates.x+1)/boardWidthHeight.width === 1) {
-        const onRightEdge = true
+        onRightEdge = true
         console.log('click is on right')
+
+        setTimeout (() => {
+            cells[cellIdNumber-1].classList.add('revealed')
+            cells[cellIdNumber-boardWidthHeight.width - 1].classList.add('revealed')
+            cells[cellIdNumber-boardWidthHeight.width].classList.add('revealed')
+            cells[cellIdNumber+ boardWidthHeight.width].classList.add('revealed')
+            cells[cellIdNumber+ boardWidthHeight.width-1].classList.add('revealed')
+           
+        }, 20)
     }
     //if click is on top row
     else if (coordinates.y === 1){
@@ -297,20 +319,22 @@ function revealedCellLocation(cell, cellID){
         console.log('click is on bottom')
     }
 
-    //finding the cells element with cellID number
-    const cellIdNumber = parseInt(cellID.split('-').slice(4))
+    
     console.log(cellIdNumber)
     console.log(cells[cellIdNumber])
- setTimeout (() => {
-    cells[cellIdNumber+1].classList.add('revealed')
-    cells[cellIdNumber-1].classList.add('revealed')
-    cells[cellIdNumber+boardWidthHeight.width].classList.add('revealed')
-    cells[cellIdNumber+boardWidthHeight.width+1].classList.add('revealed')
-    cells[cellIdNumber+boardWidthHeight.width-1].classList.add('revealed')
-    cells[cellIdNumber-boardWidthHeight.width].classList.add('revealed')
-    cells[cellIdNumber-boardWidthHeight.width + 1].classList.add('revealed')
-    cells[cellIdNumber-boardWidthHeight.width - 1].classList.add('revealed')
- }, 500)
+    
+    setTimeout (() => {
+        if (onLeftEdge !== true && onRightEdge !== true){
+        cells[cellIdNumber+1].classList.add('revealed')
+        cells[cellIdNumber-1].classList.add('revealed')
+        cells[cellIdNumber+boardWidthHeight.width].classList.add('revealed')
+        cells[cellIdNumber+boardWidthHeight.width+1].classList.add('revealed')
+        cells[cellIdNumber+boardWidthHeight.width-1].classList.add('revealed')
+        cells[cellIdNumber-boardWidthHeight.width].classList.add('revealed')
+        cells[cellIdNumber-boardWidthHeight.width + 1].classList.add('revealed')
+        cells[cellIdNumber-boardWidthHeight.width - 1].classList.add('revealed')
+        }
+    }, 20)
 
     console.log(cells[cellIdNumber+1])
     console.log(cells[cellIdNumber+2])
