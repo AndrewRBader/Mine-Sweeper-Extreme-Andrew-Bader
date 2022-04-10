@@ -25,8 +25,8 @@ h1 {
 }
 
 /* adding style/flex to all of the elements within the cell field container (the rows) */
-.cellfield>* {
-    flex: 0 0 20%;
+.row {
+    flex: 0 0 15%;
     background-color: green;
     border: solid;
     height: 24%;
@@ -38,7 +38,7 @@ h1 {
 
 /* adding style/flex to all of the elements in the row containers (the cells) */
 .cell {
-    flex: 0 0 23%;
+    flex: 0 0 15%;
     background-color: grey;
     color: grey;
     border: solid;
@@ -52,7 +52,7 @@ h1 {
 }
 
 .revealed {
-    flex: 0 0 23%;
+    flex: 0 0 10%;
     background-color: grey;
     color: black;
     border: solid;
