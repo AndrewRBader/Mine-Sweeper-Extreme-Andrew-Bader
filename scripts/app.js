@@ -162,6 +162,8 @@ cells.forEach(cell => {
             return;
         }
         else {
+            cell.classList.add('revealed')
+
             if (cell.innerHTML === 'Bomb') {
             
                 // console.log('You found a bomb')
@@ -228,7 +230,7 @@ cells.forEach(cell => {
             
                
             }
-            cell.classList.add('revealed')
+            
         } //for overall else after if bomb explode = false
     })
 })
@@ -299,6 +301,19 @@ function revealedCellLocation(cell, cellID){
     const cellIdNumber = parseInt(cellID.split('-').slice(4))
     console.log(cellIdNumber)
     console.log(cells[cellIdNumber])
+ setTimeout (() => {
+    cells[cellIdNumber+1].classList.add('revealed')
+    cells[cellIdNumber-1].classList.add('revealed')
+    cells[cellIdNumber+boardWidthHeight.width].classList.add('revealed')
+    cells[cellIdNumber+boardWidthHeight.width+1].classList.add('revealed')
+    cells[cellIdNumber+boardWidthHeight.width-1].classList.add('revealed')
+    cells[cellIdNumber-boardWidthHeight.width].classList.add('revealed')
+    cells[cellIdNumber-boardWidthHeight.width + 1].classList.add('revealed')
+    cells[cellIdNumber-boardWidthHeight.width - 1].classList.add('revealed')
+ }, 500)
+
+    console.log(cells[cellIdNumber+1])
+    console.log(cells[cellIdNumber+2])
 
 }
 
