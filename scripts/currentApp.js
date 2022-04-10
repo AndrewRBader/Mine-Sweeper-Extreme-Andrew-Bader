@@ -5,6 +5,44 @@ const cells = document.querySelectorAll('.cell')
 let width = Math.sqrt(cells.length)
 let totalCellNumber = width * width
 
+
+
+// button functionality
+
+// collecting buttons into variable 
+let $resetButton = $('#resetButton')
+let $startButton = $('#startButton')
+
+//mines are live boolean for active game, bomb explode, bombs diffused 
+let minesAreLive = false;
+let bombExplode = true;
+let bombsDiffused = false;
+
+
+//flag button collection
+let $flagOnButton = $('#flagOnButton');
+let $flagOffButton = $('#flagOffButton');
+
+//starting state of hidden buttons
+$flagOnButton.hide()
+$flagOffButton.hide()
+$resetButton.hide()
+
+//start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
+$startButton.click(() => {
+    $resetButton.fadeIn();
+    $flagOnButton.fadeIn()
+    $startButton.hide();
+    minesAreLive = true;
+    bombExplode = false;
+    bombsDiffused = false;
+})
+
+
+
+//new functions for reset button with new randomization
+$resetButton.click(() =>{
+
 // set cells with id's and append children to the gameBoard grid
 
 function setCellIds () {
@@ -119,37 +157,21 @@ function settingBombCells (){
 
 settingBombCells()
 
+// setting inner HTML of empty cells to empty
 
-// button functionality
+function settingEmptyCells (){
+    for (i = 0; i < totalCellNumber; i++){
+        if (cells[i].classList.contains('empty') && cells[i].innerHTML == 0){
+            cells[i].innerHTML = 'empty'
+        }
+    }
+}
 
-// collecting buttons into variable 
-let $resetButton = $('#resetButton')
-let $startButton = $('#startButton')
-
-//mines are live boolean for active game, bomb explode, bombs diffused 
-let minesAreLive = false;
-let bombExplode = true;
-let bombsDiffused = false;
+settingEmptyCells()
 
 
-//flag button collection
-let $flagOnButton = $('#flagOnButton');
-let $flagOffButton = $('#flagOffButton');
-
-//starting state of hidden buttons
-$flagOnButton.hide()
-$flagOffButton.hide()
-$resetButton.hide()
-
-//start button event function (buttons fading in and out)
-$startButton.click(() => {
-    $resetButton.fadeIn();
-    $flagOnButton.fadeIn()
-    $startButton.hide();
-    minesAreLive = true;
-    bombExplode = false;
-    bombsDiffused = false;
 })
+
 
 
 
