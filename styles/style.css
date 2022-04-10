@@ -37,11 +37,26 @@ h1 {
 }
 
 /* adding style/flex to all of the elements in the row containers (the cells) */
-.row>* {
+.cell {
     flex: 0 0 23%;
     background-color: grey;
-    color: none;
+    color: grey;
     border: solid;
+    border-color: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.revealed {
+    flex: 0 0 23%;
+    background-color: grey;
+    color: black;
+    border: solid;
+    border-color: black;
     height: 100%;
     display: flex;
     justify-content: center;
