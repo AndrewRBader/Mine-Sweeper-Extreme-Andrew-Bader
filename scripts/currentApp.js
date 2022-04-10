@@ -72,6 +72,53 @@ customBoardGeneration()
 
 
 
+ //finding the cells element with cellID number
+
+ //checking if cell is on right edge or left edge
+
+ let onLeftEdge = false
+ let onRightEdge = false
+
+
+function checkSides() {
+    for (let cell = 0 ; cell < numberOfCells ; cell++) {    
+        if(cell % width === 0) {
+            onLeftEdge = true
+            console.log('click is on left')  
+        }
+        if(cell % width === width - 1) {
+            onRightEdge = true
+            console.log('click is on right')  
+        } 
+    }
+} 
+
+checkSides()
+
+//adding adjacent bomb number to empty (numbered squares)
+
+let numberAdjacentBombs = 0;
+
+function addingNumberToAdjacentSquare () {
+    for (let cell = 0 ; cell < numberOfCells ; cell++) {
+        // if empty element is not on left side and cell to the right has a bomb, add one to total number of adjacent bombs
+        if (cellEls[cell].classList.contains('empty') && cell > 0 && onLeftEdge === false && 
+            cellEls[cell - 1].classList.contains('bomb')){
+                numberAdjacentBombs++
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 })
 
