@@ -109,8 +109,7 @@ settingAdjacentNumbers()
 
 // setting inner HTML of bomb cells to bomb
 
-function settingAdjacentNumbers (){
-
+function settingBombCells (){
     for (i = 0; i < totalCellNumber; i++){
         if (cells[i].classList.contains('bomb')){
             cells[i].innerHTML = 'bomb'
@@ -118,4 +117,13 @@ function settingAdjacentNumbers (){
     }
 }
 
-settingAdjacentNumbers()
+settingBombCells()
+
+
+cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        if (cell.classList.contains('bomb')){
+            console.log('game over')
+        }
+    })
+})
