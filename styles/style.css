@@ -1,16 +1,4 @@
 
-/* header section */
-
-h1 {
-    display: flex;
-    justify-content: center;
-}
-
-/* gameboard section styling */
-#gameboard {
-    display: flex;
-    justify-content: center;
-}
 
 /* cell field/cells style */
 .cellfield {
@@ -19,50 +7,12 @@ h1 {
     width: 400px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
     flex-wrap: wrap;
 }
 
-/* adding style/flex to all of the elements within the cell field container (the rows) */
-.row {
-    flex: 0 0 15%;
-    background-color: green;
-    border: solid;
-    height: 24%;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-/* adding style/flex to all of the elements in the row containers (the cells) */
-.cell {
-    flex: 0 0 15%;
+/* to style all div children of cellfield parent */
+.cellfield div {
     background-color: grey;
-    color: grey;
-    border: solid;
-    border-color: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    height: 40px;
+    width: 40px
 }
-
-.revealed {
-    flex: 0 0 10%;
-    background-color: grey;
-    color: black;
-    border: solid;
-    border-color: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
- 

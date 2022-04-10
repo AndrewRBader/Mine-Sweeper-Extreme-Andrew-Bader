@@ -1,6 +1,28 @@
-// console.log('hello front end')
+document.addeventListener ('DOMContentLoaded', () => {
 
-//collect all the cell div pieces in a node list
 
-const cells = document.querySelectorAll('.cell')
+// grabbing gameboard (cellfield) for custom boards
 
+const gameBoard = document.querySelector('.cellfield')
+let width = 10 
+let numberOfCells = width*width;
+let cellEls = [];
+
+
+//custom board creation:
+
+function customBoardGeneration () {
+    for (let cell = 0; cell < numberOfCells; cell++){
+        const cellEl = document.createElement('div');
+        cellEl.setAttribute('id', cell);
+        gameBoard.appendChild(cellEl)
+        cellEls.push(cellEl)
+    }
+}
+
+customBoardGeneration()
+
+
+
+
+})
