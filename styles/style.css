@@ -11,8 +11,14 @@
 }
 
 /* to style all div children of cellfield parent */
-.cellfield div {
+.cellfield>* {
     background-color: grey;
     height: 40px;
     width: 40px
+}
+
+/* bomb class styling */
+.bomb {
+    background-color: red;
+    color: rgb(79, 40, 40);
 }
