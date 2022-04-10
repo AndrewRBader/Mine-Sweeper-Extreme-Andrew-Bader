@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"
+    ></script>
+    <script src="./app.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <section id = "minesweeper title">
+        <div class = "title">
+            <h1 class = "Game Header">Mine Sweeper Extreme!!</h1>
+        </div>
+    </section>
+    <section id = "gameboard">
+        <div class = "cellfield">
+            <div id = "row-index-0" class = "row">
+                <div id = "row-0-index-0-0" class="cell hidden revealed bomb diffused">Bomb</div>
+                <div id = "row-0-index-1-1" class="cell hidden revealed bomb diffused">Bomb</div>
+                <div id = "row-0-index-2-2" class="cell hidden revealed">1</div>
+                <div id = "row-0-index-3-3" class="cell hidden revealed">0</div>
+            </div>
+            <div id = "row-index-1" class = "row">
+                <div id = "row-1-index-0-4" class="cell hidden revealed">2</div>
+                <div id = "row-1-index-1-5" class="cell hidden revealed">2</div>
+                <div id = "row-1-index-2-6" class="cell hidden revealed">1</div>
+                <div id = "row-1-index-3-7" class="cell hidden revealed">0</div>
+            </div>
+            <div id = "row-index-2" class = "row">
+                <div id = "row-2-index-0-8" class="cell hidden revealed">0</div>
+                <div id = "row-2-index-1-9" class="cell hidden revealed">0</div>
+                <div id = "row-2-index-2-10" class="cell hidden revealed">0</div>
+                <div id = "row-2-index-3-11" class="cell hidden revealed">0</div>
+            </div>
+            <div id = "row-index-3" class = "row">
+                <div id = "row-3-index-0-12" class="cell hidden revealed">0</div>
+                <div id = "row-3-index-1-13" class="cell hidden revealed">0</div>
+                <div id = "row-3-index-2-14" class="cell hidden revealed">0</div>
+                <div id = "row-3-index-3-15" class="cell hidden revealed">0</div>
+            </div>
+        </div>
+        <div class = "buttons">
+            <button type = 'start' id ='startButton'>Start</button>
+            <button type = 'reset' id ='resetButton'>Reset</button>
+            <button type = 'flagOn' id ='flagOnButton'>Flag On</button>
+            <button type = 'flagOff' id ='flagOffButton'>Flag off</button>
+        </div>
+    </section>
+
+
+</body>
+</html>
