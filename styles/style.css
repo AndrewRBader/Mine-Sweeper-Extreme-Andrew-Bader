@@ -13,8 +13,8 @@
 /* to style all div children of cellfield parent */
 .cellfield>* {
     background-color: grey;
-    height: 40px;
-    width: 40px
+    height: 50px;
+    width: 50px
 }
 
 /* bomb class styling */
