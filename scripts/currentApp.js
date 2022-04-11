@@ -40,7 +40,7 @@ $startButton.click(() => {
     $startButton.hide();
     $flagOffButton.hide()
     minesAreLive = true;
-    bombExplode = false;
+    bombExplode = true;
     bombsDiffused = false;
 })
 
@@ -233,7 +233,7 @@ $flagOnButton.click(() => {
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
 
-        if (cell.classList.contains('bomb') || bombsDiffused === true) {
+        if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
             alert('Please Start or Reset Game')
         } 
         //returns out of function if cell with bomb is already diffused
