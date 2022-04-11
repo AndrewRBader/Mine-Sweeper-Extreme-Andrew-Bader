@@ -15,8 +15,8 @@ h1 {
 /* cell field/cells style */
 .cellfield {
     background-color: blue;
-    height: 448px;
-    width: 448px;
+    height: 424px;
+    width: 424px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -42,6 +42,7 @@ h1 {
  .hidden {
     background-color: grey;
     color: grey;
+    
  }
 
  /* revealed state shows text */

@@ -289,7 +289,7 @@ cells.forEach(cell => {
                 return
             }
 
-
+            // empty square expansion
             else if (cell.innerHTML === 'empty') {
 
                 let currentID = cell.id
