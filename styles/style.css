@@ -36,13 +36,15 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     border-style: solid;
-    border-color: black;
+    border-color: grey;
 }
 
  /* hiddin (starting state) cells are grey with invisible txt */
  .hidden {
     background-color: grey;
     color: grey;
+    border-style: solid;
+    border-color: black;
     
  }
 
@@ -93,4 +95,22 @@ h1 {
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
+    background: url(https://c.tenor.com/IhxqOJt5hrQAAAAM/navy-explosion.gif);
+    background-size: 800px;
+    background-position: center;
+    font-size: 100px;
+    color: white;
+}
+
+/* return to home screen button */
+
+.return-home-button{
+    display: inline;
+    justify-content: left;
+
+}
+
+.returnHomeButton {
+    display: flex;
+
 }

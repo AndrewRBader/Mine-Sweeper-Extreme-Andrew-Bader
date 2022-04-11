@@ -7,14 +7,16 @@ const cells = document.querySelectorAll('.cell')
 let width = Math.sqrt(cells.length)
 let totalCellNumber = width * width
 
+//grabbing H1 for manipulation
+const $h1 = $('h1')
 
 //hiding gameBoardSection at Start
 const $gameBoardSection = $('.gameboard')
 $gameBoardSection.hide()
 
 //hiding homescreen section when game is active
-const $homeScreenButtons = $('.home-screen-buttons')
-$homeScreenButtons.show()
+const $homeScreenButton = $('.homeScreenButtons')
+$homeScreenButton.show()
 
 
 // button functionality
@@ -46,11 +48,12 @@ $resetButton.hide()
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
 $startButton.click(() => {
     $resetButton.fadeIn();
+    $resetButton.html('Start Game')
+    $h1.html('Click Start Game to Start!')
     $flagOnButton.fadeIn()
     $startButton.hide();
     $flagOffButton.hide()
-    //hiding home screen buttons
-    $homeScreenButtons.hide()
+    $homeScreenButton.hide()
     $gameBoardSection.fadeIn()
     minesAreLive = true;
     bombExplode = true;
@@ -65,6 +68,9 @@ $resetButton.click(() =>{
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
+    $resetButton.html('Reset')
+    $h1.html('Diffuse All of The Mines!!!')
+
     // resetting booleans to live mines, intact and no diffused
 
     minesAreLive = true;
