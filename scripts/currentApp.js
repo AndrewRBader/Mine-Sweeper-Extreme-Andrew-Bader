@@ -209,18 +209,14 @@ $flagOnButton.click(() => {
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
 
-    console.log('Safety Gear Active')
-   
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
             $flagOnButton.fadeIn()
             minesAreLive = true
-            console.log('Safety Gear Removed')
         })
     })
     $flagOffButton.click(() => {
-        console.log('Safety Gear Removed')
         $flagOffButton.hide()
         $flagOnButton.fadeIn()
         minesAreLive = true
@@ -266,7 +262,7 @@ cells.forEach(cell => {
                     bombText = 'Diffused'
                     cell.innerHTML = bombText
                     if (diffusedBombArray.length !== numberOfBombs){
-                        alert(`Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
+                        alert(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberOfBombs){
                         bombsDiffused = true;
@@ -275,10 +271,7 @@ cells.forEach(cell => {
                 }
             }
             else if (cell.innerHTML !== 'empty') { 
-
-                // Console logs to play in console
-                console.log(`${cell.innerHTML} bombs are close`)
-                // console.log(cell)
+                return
             }
 
 
