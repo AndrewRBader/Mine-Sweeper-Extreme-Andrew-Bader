@@ -1,3 +1,5 @@
+// still bug in count directly under the counted square for some reason (was a 1 that missed the bomb underneath I think)
+
 
 //grabbing the cell divs and the gameboard to manipulate
 const gameBoard = document.querySelector('.cellfield')
