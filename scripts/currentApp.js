@@ -12,6 +12,9 @@ let totalCellNumber = width * width
 const $gameBoardSection = $('.gameboard')
 $gameBoardSection.hide()
 
+//hiding homescreen section when game is active
+const $homeScreenButtons = $('.home-screen-buttons')
+$homeScreenButtons.show()
 
 
 // button functionality
@@ -46,6 +49,8 @@ $startButton.click(() => {
     $flagOnButton.fadeIn()
     $startButton.hide();
     $flagOffButton.hide()
+    //hiding home screen buttons
+    $homeScreenButtons.hide()
     $gameBoardSection.fadeIn()
     minesAreLive = true;
     bombExplode = true;
