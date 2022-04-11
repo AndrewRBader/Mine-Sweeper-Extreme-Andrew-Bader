@@ -17,13 +17,16 @@ h1 {
 /* cell field/cells style */
 .cellfield {
     background-color: blue;
-    height: 424px;
-    width: 424px;
+    height: 480px;
+    width: 480px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     flex-wrap: wrap;
+    border-style: solid;
+    border-width: thick;
+    font-style: bold;
 }
 
 /* to style all div children of cellfield parent */
@@ -38,6 +41,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     border-style: solid;
+    border-width: thick;
     border-color: grey;
 }
 
