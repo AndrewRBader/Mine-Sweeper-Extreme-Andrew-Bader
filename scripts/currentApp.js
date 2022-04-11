@@ -38,6 +38,7 @@ $startButton.click(() => {
     $resetButton.fadeIn();
     $flagOnButton.fadeIn()
     $startButton.hide();
+    $flagOffButton.hide()
     minesAreLive = true;
     bombExplode = false;
     bombsDiffused = false;
@@ -47,6 +48,10 @@ $startButton.click(() => {
 
 //new functions for reset button with new randomization
 $resetButton.click(() =>{
+    
+    //making sure flag on is shown, flag off is hidden
+    $flagOnButton.fadeIn()
+    $flagOffButton.hide()
     // resetting booleans to live mines, intact and no diffused
 
     minesAreLive = true;
@@ -233,19 +238,14 @@ cells.forEach(cell => {
     cell.addEventListener('click', () => {
 
         if (bombExplode === true || bombsDiffused === true) {
-            // console.log('Reset Game!')
             alert('Please Start or Reset Game')
         } 
-
-
         //returns out of function if cell with bomb is already diffused
         else if (cell.classList.contains('diffused')){
-            console.log('already diffused')
             return;
         }
         //returns out of function if cell is already revealed
         else if (cell.classList.contains('revealed')){
-            console.log('already revealed')
             return;
         }
         else {
@@ -256,19 +256,17 @@ cells.forEach(cell => {
                     bombExplode = true;
                     cell.classList.add('bomb')
                      alert('You Lose! Game Over!!')
-
                 }
                 else {
                     minesAreLive = true
                     cell.classList.add('diffused')
                     let diffusedBombID = cell.getAttribute('id')
-                    console.log(diffusedBombID)
                     diffusedBombArray.push(diffusedBombID)
                     let bombText = cell.innerHTML
                     bombText = 'Diffused'
                     cell.innerHTML = bombText
                     if (diffusedBombArray.length !== numberOfBombs){
-                        console.log(`Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
+                        alert(`Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberOfBombs){
                         bombsDiffused = true;
