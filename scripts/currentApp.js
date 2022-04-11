@@ -70,6 +70,7 @@ $resetButton.click(() =>{
     $flagOffButton.hide()
     $resetButton.html('Reset')
     $h1.html('Diffuse All of The Mines!!!')
+    $resetButton.css({"backgroundColor" : "red"})
 
     // resetting booleans to live mines, intact and no diffused
 

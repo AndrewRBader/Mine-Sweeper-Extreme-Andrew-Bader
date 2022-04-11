@@ -112,5 +112,8 @@ h1 {
 
 .returnHomeButton {
     display: flex;
+}
 
+#resetButton{
+    background-color: green;
 }
