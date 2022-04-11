@@ -71,6 +71,7 @@ $resetButton.click(() =>{
     $resetButton.html('Reset')
     $h1.html('Diffuse All of The Mines!!!')
     $resetButton.css({"backgroundColor" : "red"})
+    
 
     // resetting booleans to live mines, intact and no diffused
 
@@ -237,8 +238,8 @@ $flagOnButton.click(() => {
         $h1.html('Safe Mode Activated!')
     }
     
-    $flagOnButton.fadeOut()
-    $flagOffButton.fadeIn()
+    $flagOnButton.hide()
+    $flagOffButton.show()
 
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
@@ -250,20 +251,13 @@ $flagOnButton.click(() => {
 
     $flagOffButton.click(() => {
         $h1.html('Diffuse All of The Mines!!!')
-        $flagOffButton.fadeOut()
-        setTimeout(() => {
-            $flagOnButton.fadeIn()
-        }, 1);
+        $flagOffButton.hide()
+        $flagOnButton.show()
         minesAreLive = true
     })
 })
 
 }) // end of reset buttion functionality
-
-
-
-
-
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {

@@ -16,9 +16,9 @@ h1 {
 
 /* cell field/cells style */
 .cellfield {
-    background-color: blue;
-    height: 480px;
-    width: 480px;
+    background-color: rgb(94, 94, 174);
+    height: 400px;
+    width: 400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -31,18 +31,20 @@ h1 {
 
 /* to style all div children of cellfield parent */
 .cellfield>* {
-    background-color: grey;
+    
     color: grey;
-    height: 50px;
-    width: 50px;
+    height: 11%;
+    width: 11%;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     border-style: solid;
-    border-width: thick;
+    border-width: medium;
     border-color: grey;
+    font-size: 0px;
+   
 }
 
  /* hiddin (starting state) cells are grey with invisible txt */
@@ -51,25 +53,43 @@ h1 {
     color: grey;
     border-style: solid;
     border-color: black;
+    background: url(https://tutorialflow.com/wp-content/uploads/2018/12/t.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size:0px;
     
  }
 
  /* revealed state shows text */
 .revealed {
-    background-color: grey;
+    background-color: rgb(85, 85, 107);
     color: black;
-
+    border-style: solid;
+    border-color: rgb(35, 38, 82);
+    background: none;
+    font-size:10px;
 }
 
 .bomb {
     background-color: red;
-    color: rgb(79, 40, 40);
+    color: rgb(161, 43, 43);
+    font-size:10px;
+    background: url(https://w1.pngwing.com/pngs/249/974/png-transparent-red-circle-minesweeper-minesweeper-deluxe-minesweeper-adfree-video-games-land-mine-naval-mine-android-thumbnail.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size:0px;
 }
 
 /* diffused shows green color and dark green text */
 .diffused {
     background-color: green;
     color: rgb(3, 44, 3);
+    z-index: 1;
+    font-size:10px;
+    background: url(https://w7.pngwing.com/pngs/337/559/png-transparent-minesweeper-computer-icons-bing-maps-video-game-mines-miscellaneous-game-angle.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size:0px;
 }
 
 
