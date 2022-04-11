@@ -231,7 +231,11 @@ hideSquares()
 $flagOnButton.click(() => {
 
     minesAreLive = false
-
+    
+    if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
+        $h1.html('Safe Mode Activated!')
+    }
+    
     $flagOnButton.hide()
     $flagOffButton.fadeIn()
 
@@ -242,6 +246,7 @@ $flagOnButton.click(() => {
             minesAreLive = true
         })
     })
+
     $flagOffButton.click(() => {
         $flagOffButton.hide()
         $flagOnButton.fadeIn()
@@ -258,7 +263,7 @@ $flagOnButton.click(() => {
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
-
+        $h1.html('Diffuse All of The Mines!!!')
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
             $h1.html('Please Start or Reset Game')
         } 

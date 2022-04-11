@@ -10,6 +10,8 @@ h1 {
 .gameboard {
     display: flex;
     justify-content: center;
+    /* centering board a little better */
+    margin-left: 120px;
 }
 
 /* cell field/cells style */
@@ -66,12 +68,7 @@ h1 {
     color: rgb(3, 44, 3);
 }
 
-/* button style */
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
+
 
 /* start button style */
 .home-screen-buttons{
@@ -114,6 +111,38 @@ h1 {
     display: flex;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 #resetButton{
     background-color: green;
+    height: 50px;
+    width: 100px;
+}
+
+.flagButtons {
+    display: inline-flex;
+    margin: 10px;
+}
+
+#flagOnButton {
+    height: 90px;
+    width: 100px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Minesweeper_flag_generic.svg/1200px-Minesweeper_flag_generic.svg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    border-style: none;
+    font-size: 0px;
+
+}
+
+#flagOffButton {
+    height: 90px;
+    width: 100px;
+    background: red;
+
 }
