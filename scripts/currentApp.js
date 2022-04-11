@@ -251,14 +251,14 @@ cells.forEach(cell => {
                 if (minesAreLive === true) {
                     bombExplode = true;
                     cell.classList.add('bomb')
+                    alert('You Lose! Game Over!!')
 
-                    const bombs = document.getQueryAll('.bomb')
-
-                    console.log(bombs)
-
-
-                     alert('You Lose! Game Over!!')
-                    
+                    //showing all cell elements with 'bomb' inner HTML after loose
+                    for (i = 0; i < totalCellNumber; i++){
+                        if (cells[i].innerHTML === 'bomb'){
+                            cells[i].classList.add('bomb')
+                        }
+                    }  
 
                 }
                 else {
