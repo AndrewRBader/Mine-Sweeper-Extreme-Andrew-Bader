@@ -190,6 +190,7 @@ settingEmptyCells()
 function hideSquares () {
     for (i = 0; i < totalCellNumber; i++){
         cells[i].classList.add('hidden');
+        cells[i].classList.remove('bomb')
         gameBoard.appendChild(cells[i])
     }
 }
@@ -197,8 +198,7 @@ function hideSquares () {
 hideSquares()
 
 
-})
-
+}) // end of reset buttion functionality
 
 // flag button functionality
 
