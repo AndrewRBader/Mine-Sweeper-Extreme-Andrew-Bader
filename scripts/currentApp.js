@@ -316,7 +316,6 @@ cells.forEach(cell => {
 
             // empty square expansion
             else if (cell.innerHTML === 'empty') {
-
                 let currentID = cell.id
 
                 // function to reveal empty squares:
