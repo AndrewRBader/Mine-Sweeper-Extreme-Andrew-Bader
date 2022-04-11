@@ -176,6 +176,7 @@ function settingAdjacentNumbers (){
         //checking cell right underneath (don't need to check if this is on the right edge)
         if (i < (totalCellNumber - width - 1) && cells[i + width].classList.contains('bomb')){ numberAdjacentBombs++}
 
+
         // setting cell data attribute to # of adjacent bombs for adjacent cells and innerHTML to the data
         cells[i].setAttribute('data', numberAdjacentBombs)
         cells[i].innerHTML = cells[i].getAttribute('data')
@@ -224,7 +225,7 @@ function hideSquares () {
 hideSquares()
 
 
-}) // end of reset buttion functionality
+
 
 // flag button functionality
 
@@ -236,25 +237,28 @@ $flagOnButton.click(() => {
         $h1.html('Safe Mode Activated!')
     }
     
-    $flagOnButton.hide()
+    $flagOnButton.fadeOut()
     $flagOffButton.fadeIn()
 
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
-            $flagOnButton.fadeIn()
+            $flagOnButton.show()
             minesAreLive = true
         })
     })
 
     $flagOffButton.click(() => {
-        $flagOffButton.hide()
-        $flagOnButton.fadeIn()
+        $h1.html('Diffuse All of The Mines!!!')
+        $flagOffButton.fadeOut()
+        setTimeout(() => {
+            $flagOnButton.fadeIn()
+        }, 1);
         minesAreLive = true
     })
 })
 
-
+}) // end of reset buttion functionality
 
 
 
