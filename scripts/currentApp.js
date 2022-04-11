@@ -126,16 +126,22 @@ randomizedCellClasses()
 function settingAdjacentNumbers (){
 
  for (i = 0; i < totalCellNumber; i++){
+
+    // setting incrementing # of adjacent bomb variables to 0
     let numberAdjacentBombs = 0;
+    // if the modulus of the index/width = 0, then the index/cell is on the left side 
+    // ie modulus of 0/8 = 0, 8/8 = 0,  16/8 = 0 ... (remember index is one less than "counted" numbers ie width)
     const onLeftEdge = (i % width === 0)
     const onRightEdge = (i % width === (width - 1))
 
     if (cells[i].classList.contains('empty')){
 
         //need 8 total conditions to check bombs, also bombs can't be beyond the sides
+
         //checking bombs above 
-        //checking bomb up and to the right
+        //checking bomb to the left
         if (i > 0 && !onLeftEdge && cells[i - 1].classList.contains('bomb')){ numberAdjacentBombs++}
+        //checking for bomb up and to the right
         if (i > (width - 1) && !onRightEdge && cells[i + 1 - width].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking bomb right above 
         if (i > width && cells[i - width].classList.contains('bomb')){ numberAdjacentBombs++}
