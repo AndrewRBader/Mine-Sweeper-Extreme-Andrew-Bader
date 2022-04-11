@@ -134,7 +134,7 @@ function settingAdjacentNumbers (){
         //checking bombs above 
         //checking bomb up and to the right
         if (i > 0 && !onLeftEdge && cells[i - 1].classList.contains('bomb')){ numberAdjacentBombs++}
-        if (i > (width - 1) && !onRightEdge && cells[i - 1].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i > (width - 1) && !onRightEdge && cells[i + 1 - width].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking bomb right above 
         if (i > width && cells[i - width].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking bomb to upper left
@@ -233,7 +233,7 @@ $flagOnButton.click(() => {
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
 
-        if (bombExplode === true || bombsDiffused === true) {
+        if (cell.classList.contains('bomb') || bombsDiffused === true) {
             alert('Please Start or Reset Game')
         } 
         //returns out of function if cell with bomb is already diffused
@@ -263,12 +263,11 @@ cells.forEach(cell => {
                         alert(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberOfBombs){
-                        bombsDiffused = true;
                         alert('You Win!!!')
                     }
                 }
             }
-            else if (cell.innerHTML !== 'empty') {
+            else if (cell.innerHTML !== 'empty' && cell.innerHTML !== 'bomb' ) {
                 cell.classList.add('revealed') 
                 return
             }
@@ -292,14 +291,48 @@ cells.forEach(cell => {
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
-
+                    if (currentID > (width - 1) && !onRightEdge){
+                        const newID = cells[parseInt(currentID) + 1 - width].id 
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID > width){
+                        const newID = cells[parseInt(currentID) - width].id 
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID > (width + 1) && !onLeftEdge){
+                        const newID = cells[parseInt(currentID) - (width+1)].id 
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID < (totalCellNumber - 2) && !onRightEdge){
+                        const newID = cells[parseInt(currentID)+1].id 
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID < (totalCellNumber - width) && !onLeftEdge) {
+                        const newID = cells[parseInt(currentID) + width-1].id
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID < (totalCellNumber - width - 2) && !onRightEdge) {
+                        const newID = cells[parseInt(currentID)  + width + 1].id
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+                    if (currentID < (totalCellNumber - width - 1)) {
+                        const newID = cells[parseInt(currentID) + width].id
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
                     }, 10)
 
-               
+               cell.classList.add('revealed') 
                
             }
             
-            cell.classList.add('revealed') 
+            
             
         } 
 
