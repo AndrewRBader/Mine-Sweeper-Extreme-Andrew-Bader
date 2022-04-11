@@ -27,6 +27,7 @@ h1 {
 /* to style all div children of cellfield parent */
 .cellfield>* {
     background-color: grey;
+    color: grey;
     height: 50px;
     width: 50px;
     display: flex;
@@ -62,3 +63,13 @@ h1 {
     background-color: green;
     color: rgb(3, 44, 3);
 }
+
+/* button style */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* start button style */
+

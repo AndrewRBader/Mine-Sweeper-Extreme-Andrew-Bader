@@ -8,6 +8,11 @@ let width = Math.sqrt(cells.length)
 let totalCellNumber = width * width
 
 
+//hiding gameBoardSection at Start
+const $gameBoardSection = $('.gameboard')
+$gameBoardSection.hide()
+
+
 
 // button functionality
 
@@ -41,6 +46,7 @@ $startButton.click(() => {
     $flagOnButton.fadeIn()
     $startButton.hide();
     $flagOffButton.hide()
+    $gameBoardSection.fadeIn()
     minesAreLive = true;
     bombExplode = true;
     bombsDiffused = false;
