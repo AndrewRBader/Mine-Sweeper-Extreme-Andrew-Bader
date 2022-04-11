@@ -23,7 +23,7 @@ $homeScreenButton.show()
 
 // collecting buttons into variable 
 let $resetButton = $('#resetButton')
-let $startButton = $('#startButton')
+let $startButton = $('.startButton')
 
 //mines are live boolean for active game, bomb explode, bombs diffused 
 let minesAreLive = false;
