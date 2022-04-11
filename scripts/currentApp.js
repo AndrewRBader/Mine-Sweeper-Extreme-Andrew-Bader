@@ -33,7 +33,7 @@ let bombsDiffused = false;
 //difused bomb array
 let diffusedBombArray = [];
 //setting number of bombs
-const numberOfBombs = 10;
+const numberOfBombs = 50;
 
 
 //flag button collection
