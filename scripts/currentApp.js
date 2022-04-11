@@ -263,6 +263,7 @@ cells.forEach(cell => {
                         alert(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberOfBombs){
+                        bombsDiffused = true
                         alert('You Win!!!')
                     }
                 }
