@@ -245,8 +245,6 @@ cells.forEach(cell => {
             return;
         }
         else {
-            cell.classList.add('revealed')
-
             if (cell.innerHTML === 'bomb') {
                 if (minesAreLive === true) {
                     bombExplode = true;
@@ -270,20 +268,38 @@ cells.forEach(cell => {
                     }
                 }
             }
-            else if (cell.innerHTML !== 'empty') { 
+            else if (cell.innerHTML !== 'empty') {
+                cell.classList.add('revealed') 
                 return
             }
 
 
-            else {
+            else if (cell.innerHTML === 'empty') {
 
+                let currentID = cell.id
 
-               console.log('empty square')
+                console.log(currentID)
 
+                // function to reveal empty squares:
+                // adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
+                const onLeftEdge = (currentID % width === 0)
+                const onRightEdge = (currentID % width === width -1)
 
-            
+                // want to put in set timeout to happen slightly after the click
+                setTimeout(() => {
+                    if (currentID>0 && !onLeftEdge){
+                        const newID = cells[parseInt(currentID) - 1].id 
+                        const newCell = document.getElementById(newID)
+                        newCell.click()
+                    }
+
+                    }, 10)
+
+               
                
             }
+            
+            cell.classList.add('revealed') 
             
         } 
 
