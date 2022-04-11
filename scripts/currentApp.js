@@ -251,7 +251,15 @@ cells.forEach(cell => {
                 if (minesAreLive === true) {
                     bombExplode = true;
                     cell.classList.add('bomb')
+
+                    const bombs = document.getQueryAll('.bomb')
+
+                    console.log(bombs)
+
+
                      alert('You Lose! Game Over!!')
+                    
+
                 }
                 else {
                     minesAreLive = true
@@ -280,50 +288,60 @@ cells.forEach(cell => {
 
                 let currentID = cell.id
 
-                console.log(currentID)
-
                 // function to reveal empty squares:
                 // adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
+
                 const onLeftEdge = (currentID % width === 0)
                 const onRightEdge = (currentID % width === width -1)
 
                 // want to put in set timeout to happen slightly after the click
                 setTimeout(() => {
+                    //looking at cell to the left of clicked
                     if (currentID>0 && !onLeftEdge){
+                        //getting new id from cell to the left
                         const newID = cells[parseInt(currentID) - 1].id 
+                        // grabbing the new cell to the left of currentID
                         const newCell = document.getElementById(newID)
+                        //putting the newCell through the click function
                         newCell.click()
                     }
+                    // upper right adjacent cell
                     if (currentID > (width - 1) && !onRightEdge){
                         const newID = cells[parseInt(currentID) + 1 - width].id 
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    // cell just above current cell
                     if (currentID > width){
                         const newID = cells[parseInt(currentID) - width].id 
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    // cell to the upper left adjacent cell
                     if (currentID > (width + 1) && !onLeftEdge){
                         const newID = cells[parseInt(currentID) - (width+1)].id 
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    // cell to the right of currentID
                     if (currentID < (totalCellNumber - 2) && !onRightEdge){
                         const newID = cells[parseInt(currentID)+1].id 
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    //cell to the lower left of current ID cell
                     if (currentID < (totalCellNumber - width) && !onLeftEdge) {
                         const newID = cells[parseInt(currentID) + width-1].id
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    //cell to the lower right of the current ID cell
                     if (currentID < (totalCellNumber - width - 2) && !onRightEdge) {
                         const newID = cells[parseInt(currentID)  + width + 1].id
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
+                    // cell just below the current cell ID
                     if (currentID < (totalCellNumber - width - 1)) {
                         const newID = cells[parseInt(currentID) + width].id
                         const newCell = document.getElementById(newID)
