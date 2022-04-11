@@ -42,7 +42,7 @@ let $flagOffButton = $('#flagOffButton');
 
 //starting state of hidden buttons
 $flagOnButton.hide()
-$flagOffButton.hide()
+// $flagOffButton.hide()
 $resetButton.hide()
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
@@ -260,7 +260,7 @@ cells.forEach(cell => {
     cell.addEventListener('click', () => {
 
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
-            alert('Please Start or Reset Game')
+            $h1.html('Please Start or Reset Game')
         } 
         //returns out of function if cell with bomb is already diffused
         else if (cell.classList.contains('diffused')){
@@ -275,7 +275,11 @@ cells.forEach(cell => {
                 if (minesAreLive === true) {
                     bombExplode = true;
                     cell.classList.add('bomb')
-                    alert('You Lose! Game Over!!')
+
+                    //resetting reset button after loss
+                    $resetButton.html('Start Game')
+                    $resetButton.css({"backgroundColor" : "green"})
+                    $h1.html('Game Over! Click Start Game to Try Again!')
 
                     //showing all cell elements with 'bomb' inner HTML after loose
                     for (i = 0; i < totalCellNumber; i++){
