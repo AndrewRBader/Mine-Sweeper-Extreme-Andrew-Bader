@@ -292,7 +292,8 @@ cells.forEach(cell => {
                 // adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
 
                 const onLeftEdge = (currentID % width === 0)
-                const onRightEdge = (currentID % width === width -1)
+                // ie if width is 8, and id is 7, modulus would be 8 - 1= 7 in that case if cell is on right edge
+                const onRightEdge = (currentID % width === width - 1)
 
                 // want to put in set timeout to happen slightly after the click
                 setTimeout(() => {
