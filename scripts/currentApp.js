@@ -18,6 +18,11 @@ let minesAreLive = false;
 let bombExplode = true;
 let bombsDiffused = false;
 
+//difused bomb array
+let diffusedBombArray = [];
+//setting number of bombs
+const numberOfBombs = 10;
+
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
@@ -42,7 +47,13 @@ $startButton.click(() => {
 
 //new functions for reset button with new randomization
 $resetButton.click(() =>{
+    // resetting booleans to live mines, intact and no diffused
 
+    minesAreLive = true;
+    bombExplode = false;
+    bombsDiffused = false;
+
+    diffusedBombArray = [];
 // set cells with id's and append children to the gameBoard grid
 
 function setCellIds () {
@@ -58,7 +69,6 @@ setCellIds()
 
 //setting up bombs empty array and number of bombs variable
 
-const numberOfBombs = 10;
 const bombsArray = [];
 
 function bombSetUp () {
@@ -170,7 +180,48 @@ function settingEmptyCells (){
 settingEmptyCells()
 
 
+//hiding everything at reset
+
+function hideSquares () {
+    for (i = 0; i < totalCellNumber; i++){
+        cells[i].classList.add('hidden');
+        gameBoard.appendChild(cells[i])
+    }
+}
+
+hideSquares()
+
+
 })
+
+
+// flag button functionality
+
+$flagOnButton.click(() => {
+
+    minesAreLive = false
+
+    $flagOnButton.hide()
+    $flagOffButton.fadeIn()
+
+    console.log('Safety Gear Active')
+   
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            $flagOffButton.hide()
+            $flagOnButton.fadeIn()
+            minesAreLive = true
+            console.log('Safety Gear Removed')
+        })
+    })
+    $flagOffButton.click(() => {
+        console.log('Safety Gear Removed')
+        $flagOffButton.hide()
+        $flagOnButton.fadeIn()
+        minesAreLive = true
+    })
+})
+
 
 
 
@@ -180,8 +231,78 @@ settingEmptyCells()
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
-        if (cell.classList.contains('bomb')){
-            console.log('game over')
+
+        if (bombExplode === true || bombsDiffused === true) {
+            // console.log('Reset Game!')
+            alert('Please Start or Reset Game')
+        } 
+
+
+        //returns out of function if cell with bomb is already diffused
+        else if (cell.classList.contains('diffused')){
+            console.log('already diffused')
+            return;
         }
+        //returns out of function if cell is already revealed
+        else if (cell.classList.contains('revealed')){
+            console.log('already revealed')
+            return;
+        }
+        else {
+            cell.classList.add('revealed')
+
+            if (cell.innerHTML === 'bomb') {
+                if (minesAreLive === true) {
+                    bombExplode = true;
+                    cell.classList.add('bomb')
+                     alert('You Lose! Game Over!!')
+
+                }
+                else {
+                    minesAreLive = true
+                    cell.classList.add('diffused')
+                    let diffusedBombID = cell.getAttribute('id')
+                    console.log(diffusedBombID)
+                    diffusedBombArray.push(diffusedBombID)
+                    let bombText = cell.innerHTML
+                    bombText = 'Diffused'
+                    cell.innerHTML = bombText
+                    if (diffusedBombArray.length !== numberOfBombs){
+                        console.log(`Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
+                    }
+                    else if (diffusedBombArray.length === numberOfBombs){
+                        bombsDiffused = true;
+                        alert('You Win!!!')
+                    }
+                }
+            }
+            else if (cell.innerHTML !== 'empty') { 
+
+                // Console logs to play in console
+                console.log(`${cell.innerHTML} bombs are close`)
+                // console.log(cell)
+            }
+
+
+            else {
+
+
+               console.log('empty square')
+
+
+            
+               
+            }
+            
+        } 
+
+
+
+
+
+
+
+
+
     })
 })

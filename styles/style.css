@@ -36,7 +36,26 @@ h1 {
     flex-wrap: wrap;
 }
 
+ /* hiddin (starting state) cells are grey with invisible txt */
+ .hidden {
+    background-color: grey;
+    color: grey;
+ }
+
+ /* revealed state shows text */
+.revealed {
+    background-color: grey;
+    color: black;
+
+}
+
 .bomb {
     background-color: red;
     color: rgb(79, 40, 40);
+}
+
+/* diffused shows green color and dark green text */
+.diffused {
+    background-color: green;
+    color: rgb(3, 44, 3);
 }
