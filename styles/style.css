@@ -1,5 +1,11 @@
 body {
     background-color: grey;
+    display: block;
+    height: 610px;
+    width: 800px;
+    border-style: solid;
+    border-width: thick;
+    border-color: black;
 }
 
 
@@ -16,7 +22,7 @@ body {
     display: flex;
     justify-content: center;
     /* centering board a little better */
-    margin-left: 125px;
+    margin-left: 120px;
 }
 
 /* cell field/cells style */
@@ -72,6 +78,7 @@ body {
     border-color: rgb(35, 38, 82);
     background: none;
     font-size:5px;
+    font-style: bold;
 }
 
 .bomb {
