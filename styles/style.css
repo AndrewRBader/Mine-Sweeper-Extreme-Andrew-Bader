@@ -47,7 +47,7 @@ body {
     flex-wrap: wrap;
     border-style: solid;
     border-width: medium;
-    border-color: grey;
+    border-color: rgb(64, 64, 119);
     font-size: 0px;
    
 }
