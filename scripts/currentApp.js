@@ -42,7 +42,7 @@ let $flagOffButton = $('#flagOffButton');
 
 //starting state of hidden buttons
 $flagOnButton.hide()
-// $flagOffButton.hide()
+$flagOffButton.hide()
 $resetButton.hide()
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
