@@ -1,18 +1,18 @@
 // still bug in count directly under the counted square for some reason (was a 1 that missed the bomb underneath I think)
 
 
-//grabbing the cell divs and the gameboard to manipulate
-const gameBoard = document.querySelector('.cellfield')
-const cells = document.querySelectorAll('.cell')
-let width = Math.sqrt(cells.length)
-let totalCellNumber = width * width
-
 //grabbing H1 for manipulation
 const $h1 = $('h1')
 
 //hiding gameBoardSection at Start
 const $gameBoardSection = $('.gameboard')
 $gameBoardSection.hide()
+
+//grabbing the cell divs and the cellField gameBoard to manipulate
+const cellField = document.querySelector('.cellfield')
+const cells = document.querySelectorAll('.cell')
+let width = Math.sqrt(cells.length)
+let totalCellNumber = width * width
 
 //hiding homescreen section when game is active
 const $homeScreenButton = $('.homeScreenButtons')
@@ -84,7 +84,7 @@ $resetButton.click(() =>{
 function setCellIds () {
     for (i = 0; i < totalCellNumber; i++){
         cells[i].setAttribute('id', i);
-        gameBoard.appendChild(cells[i])
+        cellField.appendChild(cells[i])
     }
 }
 
@@ -130,7 +130,7 @@ const randomizedGameArray = bombAndEmptyArray.sort(() => Math.random() -0.5);
 function randomizedCellClasses (){
     for (i = 0; i < totalCellNumber; i++){
         cells[i].setAttribute('class', randomizedGameArray[i]);
-        gameBoard.appendChild(cells[i])
+        cellField.appendChild(cells[i])
     }
 }
 
@@ -218,7 +218,7 @@ function hideSquares () {
     for (i = 0; i < totalCellNumber; i++){
         cells[i].classList.add('hidden');
         cells[i].classList.remove('bomb')
-        gameBoard.appendChild(cells[i])
+        cellField.appendChild(cells[i])
     }
 }
 
