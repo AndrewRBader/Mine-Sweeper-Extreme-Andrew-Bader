@@ -97,7 +97,7 @@ $startButton.click(() => {
     $h1.html('Click on "Start New Game" Button Below to Begin!')
 
     // making sure flag on is shown, flag off is hidden
-    $flagOnButton.show()
+    $flagOnButton.hide()
     $flagOffButton.hide()
     //setting number of flags to starting number of flags
     numberOfFlagsLeft = numberOfFlagsStarting;
