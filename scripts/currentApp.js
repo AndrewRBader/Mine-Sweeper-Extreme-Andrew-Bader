@@ -50,6 +50,7 @@ const numberOfBombs = 2;
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
 let $flagOffButton = $('#flagOffButton');
+let $flagGoneButton = $('#flagGoneButton')
 
 //flag count down:
 const numberOfFlagsStarting = 30;
@@ -59,6 +60,7 @@ numberOfFlagsLeft = numberOfFlagsStarting;
 //starting state of hidden flag/reset buttons
 $flagOnButton.hide()
 $flagOffButton.hide()
+$flagGoneButton.hide()
 $resetButton.hide()
 
 //counter headers collection and initial hidden state
@@ -77,6 +79,8 @@ $returnHomeButton.click(() => {
     $returnHomeButton.hide()
     $flagOnButton.hide()
     $flagOffButton.hide()
+    $flagGoneButton.hide()
+    $flagsRemaining.hide()
     $resetButton.hide()
     // start button with gif fades in at home screen
     $startButton.fadeIn()
@@ -102,6 +106,7 @@ $startButton.click(() => {
     // making sure flag on is shown, flag off is hidden
     $flagOnButton.hide()
     $flagOffButton.hide()
+    $flagGoneButton.hide()
     //setting number of flags to starting number of flags
     numberOfFlagsLeft = numberOfFlagsStarting;
 
@@ -143,6 +148,7 @@ $resetButton.click(() =>{
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
+    $flagGoneButton.hide()
     $flagsRemaining.show()
     //setting number of flags to starting number of flags
     numberOfFlagsLeft = numberOfFlagsStarting;
@@ -324,6 +330,9 @@ $flagOnButton.click(() => {
     // if out of flags, no more flags avaliable and flag button doesnt work, mines are live remains true
     if(numberOfFlagsLeft === 0){
         minesAreLive = true
+        $flagOnButton.hide()
+        $flagOffButton.hide()
+        $flagGoneButton.show()
         return
     } 
     else {
@@ -421,6 +430,7 @@ cells.forEach(cell => {
                         $gameBoardSection.hide()
                         $flagOnButton.hide()
                         $flagOffButton.hide()
+                        $flagGoneButton.hide()
                         $flagsRemaining.hide()
                         $resetButton.hide()
                         $bombsDiffused.hide()
@@ -485,6 +495,7 @@ cells.forEach(cell => {
                             $gameBoardSection.hide()
                             $flagOnButton.hide()
                             $flagOffButton.hide()
+                            $flagGoneButton.hide()
                             $flagsRemaining.hide()
                             $resetButton.hide()
                             $bombsDiffused.hide()

@@ -280,6 +280,15 @@ body {
 
 }
 
+#flagGoneButton {
+    height: 90px;
+    width: 100px;
+    background-color: rgb(236, 68, 12);
+    border-style: solid;
+    border-width: thick;
+    border-color: black; 
+}
+
 /* added spacing btw bombs diffused header and surrounding elements to set organization at bottom */
 #bombsDiffused {
     display: flex;
