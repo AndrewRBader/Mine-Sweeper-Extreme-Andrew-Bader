@@ -89,7 +89,7 @@ $startButton.click(() => {
     $resetButton.fadeIn();
     $resetButton.html('Start New Game')
     // changin h1 text to direct user to click the start game button to start game/reset board
-    $h1.html('Click Start Game to Start!')
+    $h1.html('Click on "Start New Game" Button Below to Begin!')
     // making sure flag on is shown, flag off is hidden
     $flagOnButton.show()
     $flagOffButton.hide()
@@ -342,7 +342,7 @@ cells.forEach(cell => {
         $h1.html('Diffuse All of The Mines!!!')
         // if game is over or game is not active (original html '0' in divs) h1 tells user to start or reset the game
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
-            $h1.html('Click on Start New Game Button Below to Begin!')
+            $h1.html('Click on "Start New Game" Button Below to Begin!')
         } 
         //returns out of function if cell with bomb is already diffused
         else if (cell.classList.contains('diffused')){
