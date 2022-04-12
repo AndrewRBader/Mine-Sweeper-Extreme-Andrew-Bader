@@ -1,10 +1,9 @@
 // working on stretch features if time:
 // 1) chose mine # by selecting easy medium hard extreme
 // 2) timed games
-// 3) flag count down
 // less cool things
-// 4) maybe modals instead of h1 updates
-// 5) mobile first design -> super stretch
+// 3) maybe modals instead of h1 updates
+// 4) mobile first design -> super stretch
 
 
 //grabbing H1 for manipulation

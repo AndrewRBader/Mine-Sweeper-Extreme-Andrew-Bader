@@ -53,9 +53,7 @@ Icebox items:
 
 2) Timed games
 
-3) flag count down feature
-
-4) mobile first design: it works on mobile but the screen elements don't alter yet for optimal ergonomics/set up
+3) mobile first design: it works on mobile but the screen elements don't alter yet for optimal ergonomics/set up
 
 
 
