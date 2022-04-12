@@ -12,7 +12,7 @@ When a player clicks a cell, one of three choices are possible with respect to t
 
 3) there is a blank cell, meaning there are no bombs around. In this case the adjacent squares will automatically reveal themselves in all 8 directions (sides and diagonals) up until a square is revealed that has a number identity. This happens in all 8 adjacent directions simultaneously.
 
-Click the flag button to diffuse each bomb when supposed bomb-cells are found! If you hit a bomb cell without activating the flag "safe-mode" first, you loose!
+Click the flag button to diffuse each bomb when supposed bomb-cells are found! If you hit a bomb cell without activating the flag "safe-mode" first, you lose!
 
 For Mine Sweeper Extreme, all mines will have to be flagged to win! A player should use the cell numbers to guide them as a strategy.
 
@@ -56,7 +56,9 @@ Icebox items:
 
 2) Timed games
 
-3) mobile first design: it works on moble but the screen elements don't alter yet for optimal ergonomics/set up
+3) flag count down feature
+
+4) mobile first design: it works on mobile but the screen elements don't alter yet for optimal ergonomics/set up
 
 
 
