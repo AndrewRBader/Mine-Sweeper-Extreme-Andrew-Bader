@@ -398,7 +398,7 @@ cells.forEach(cell => {
                         // keeping return home button on win screen incase win home screen button doesn't work
                         $returnHomeButton.hide()
                     })
-                    }, 1500)
+                    }, 15000)
 
                 }
                 // conditional if user hits a bomb with diffuse/flag/safemode on

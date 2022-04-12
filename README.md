@@ -22,7 +22,7 @@ Starting board screenshot:
 
 Losing board screenshot:
 
-![losing-board text](./images/LosingBoard.png)
+![losing-board text](./images/loseGameScreenShot.png)
 
 Be patient, diffuse all the bombs and win!!!
 
