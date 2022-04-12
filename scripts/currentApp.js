@@ -87,7 +87,7 @@ $startButton.click(() => {
     $flagOffButton.hide()
     // hiding start button (button with gif) and showing the game board container
     $startButton.hide();
-    $gameBoardSection.fadeIn()
+    $gameBoardSection.fadeIn() 
     // setting booleans here (similar boolean set up to reset below)
     minesAreLive = true;
     bombExplode = true;
