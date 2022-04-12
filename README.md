@@ -34,6 +34,10 @@ earn that fireworks celebration!!:
 
 ![fireworks text](./images/FireWorksCelebration.png)
 
+Flag safe mode activated (can manipulate bomb cells safely!):
+
+![flagSafeMode text](./images/FlagPressedSafeModeOn.png)
+
 
 Technologies Used:
 Javascript, HTML, CSS, jQuery, Flexbox
