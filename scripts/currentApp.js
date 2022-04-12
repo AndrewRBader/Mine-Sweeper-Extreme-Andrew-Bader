@@ -347,11 +347,6 @@ $flagOnButton.click(() => {
     numberOfFlagsLeft--;
     $flagsRemaining.html(`Flags Left: ${numberOfFlagsLeft}`)
 
-    // *safe mode is activated text is only active if game is in play (solved a header text bug)
-    if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
-        $h1.html('Safe Mode Activated!')
-    }
-    
     // hides the flag on button, shows flag off button
     $flagOnButton.hide()
     $flagOffButton.show()
