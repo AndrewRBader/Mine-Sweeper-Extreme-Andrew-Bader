@@ -311,9 +311,12 @@ $flagOnButton.click(() => {
 
 }) // end of reset buttion functionality
 
+// cell click functionality (based off of tic tac toe functionality)
+
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         $h1.html('Diffuse All of The Mines!!!')
+        // if game is over or game is not active (original html '0' in divs) h1 tells user to start or reset the game
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
             $h1.html('Please Start or Reset Game')
         } 
@@ -325,33 +328,40 @@ cells.forEach(cell => {
         else if (cell.classList.contains('revealed')){
             return;
         }
+        // conditionals if game remains active
         else {
+            // conditionals if the user hits a bomb
             if (cell.innerHTML === 'bomb') {
+                // if mines are live, bomb explode = true and user loses
                 if (minesAreLive === true) {
+                    // changes bomb explode conditional to true
                     bombExplode = true;
+                    // add class list of bomb to cell (with bomb image)
                     cell.classList.add('bomb')
 
                     //resetting reset button after loss
                     $resetButton.html('Start Game')
                     $resetButton.css({"backgroundColor" : "green"})
+                    // h1 tells player game is over and to click on reset/start new game
                     $h1.html('Game Over! Click Start Game to Try Again!')
 
-                    //showing all cell elements with 'bomb' inner HTML after loose
+                    //showing all cell elements with 'bomb' inner HTML after lose
                     for (i = 0; i < totalCellNumber; i++){
                         if (cells[i].innerHTML === 'bomb'){
                             cells[i].classList.add('bomb')
                         }
-                    }  
+                    }
+                    // shows the loss screen (return home button) after 1 sec  
                     setTimeout(() => {
                     // shows loss home screen, hides everything else
-                    $lossHomeScreen.show()
-                    $gameBoardSection.hide()
-                    $returnHomeButton.hide()
-                    $flagOnButton.hide()
-                    $flagOffButton.hide()
-                    $resetButton.hide()
-                    $bombsDiffused.hide()
-                    $bombsActive.hide()
+                        $lossHomeScreen.show()
+                        $gameBoardSection.hide()
+                        $returnHomeButton.hide()
+                        $flagOnButton.hide()
+                        $flagOffButton.hide()
+                        $resetButton.hide()
+                        $bombsDiffused.hide()
+                        $bombsActive.hide()
 
                     //functionality of win home screen is same as return home button
                     $lossHomeScreen.click(() => {
@@ -363,36 +373,47 @@ cells.forEach(cell => {
                     }, 1000)
 
                 }
+                // conditional if user hits a bomb with diffuse/flag/safemode on
                 else {
+                    // sets mines are live back to true
                     minesAreLive = true
+                    // adds diffused class
                     cell.classList.add('diffused')
+                    // gets the id of the diffused bomb and pushes that id into an array
                     let diffusedBombID = cell.getAttribute('id')
                     diffusedBombArray.push(diffusedBombID)
+                    // changes the inner html to diffused (hidden with css font)
                     let bombText = cell.innerHTML
                     bombText = 'Diffused'
                     cell.innerHTML = bombText
 
-                    // change counters
+                    // change counters to effectively subtract 1 from active bombs, add 1 to diffused bombs via array length
                     $bombsDiffused.html(`Diffused Bombs: ${diffusedBombArray.length}`)
                     $bombsActive.html(`Active Bombs: ${numberOfBombs - diffusedBombArray.length}`)
 
+                    // on route to win condition:
                     if (diffusedBombArray.length !== numberOfBombs){
+                        // h1 shows the number of active bombs remaining with encouraging message
                         $h1.html(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
+                    // win condition if the diffused bomb array length = total number of bombs
                     else if (diffusedBombArray.length === numberOfBombs){
+                        // bombs diffused (win condition) is true and the game is over
                         bombsDiffused = true
+                        // header shows 'you win!'
                         $h1.html('You Win!!!')
 
+                        // shows the loss screen (return home button) after 2 secs  
                         setTimeout(() => {
-                        // shows win home screen, hides everything else
-                        $winHomeScreen.show()
-                        $gameBoardSection.hide()
-                        $returnHomeButton.hide()
-                        $flagOnButton.hide()
-                        $flagOffButton.hide()
-                        $resetButton.hide()
-                        $bombsDiffused.hide()
-                        $bombsActive.hide()
+                            // shows win home screen, hides everything else
+                            $winHomeScreen.show()
+                            $gameBoardSection.hide()
+                            $returnHomeButton.hide()
+                            $flagOnButton.hide()
+                            $flagOffButton.hide()
+                            $resetButton.hide()
+                            $bombsDiffused.hide()
+                            $bombsActive.hide()
 
                         //functionality of win home screen is same as return home button
                         $winHomeScreen.click(() => {
