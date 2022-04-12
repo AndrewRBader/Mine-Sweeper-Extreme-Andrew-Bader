@@ -35,3 +35,25 @@ earn that fireworks celebration!!:
 ![fireworks text](./images/FireWorksCelebration.png)
 
 
+Technologies Used:
+Javascript, HTML, CSS, jQuery, Flexbox
+
+Getting Started:
+Click on link to deploy the game! Have a blast!
+
+https://andrewrbader.github.io/sei321-Project-1-BrowserGame/
+
+** importantly! If the header at the top says 'click start or reset game' please do that to refresh the board and play otherwise nothing will happen when you click on the cells! **
+
+
+Icebox items:
+
+1) set up different difficulty levels with # of mines for easy, medium, hard, extreme
+
+2) Timed games
+
+3) mobile first design: it works on moble but the screen elements don't alter yet for optimal ergonomics/set up
+
+
+
+
