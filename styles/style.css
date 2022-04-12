@@ -117,12 +117,27 @@ body {
 .startButton {
     background-color: blue;
     height: 424px;
-    width: 424px;
+    width: 500px;
     display: flex;
     justify-content: center;
 }
 
 #startButton{
+    height: 424px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background: url(https://i.gifer.com/3Qv7.gif);
+    background-size: 600px;
+    background-position: center;
+    font-size: 50px;
+    color: white;
+}
+
+#winHomeScreen{
     height: 424px;
     width: 424px;
     display: flex;
@@ -130,11 +145,27 @@ body {
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    background: url(https://c.tenor.com/IhxqOJt5hrQAAAAM/navy-explosion.gif);
+    background: url(https://art.pixilart.com/b4b7a4350309388.gif);
     background-size: 800px;
     background-position: center;
-    font-size: 100px;
+    font-size: 50px;
     color: white;
+}
+
+#lossHomeScreen{
+    height: 424px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background: url(https://media2.giphy.com/media/3o7aD4pR1HbHJFTBF6/giphy.gif?cid=6c09b952d3a1a8242f9ca3691a5acc34ca75ad5bbfe12ca5&rid=giphy.gif&ct=g);
+    background-size: 570px;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-size: 50px;
+    color: black;
 }
 
 /* return to home screen button */
@@ -150,8 +181,8 @@ body {
     width: 100px;
     height: 100px;
     display: inline-flex;
-    background: url(https://c.tenor.com/IhxqOJt5hrQAAAAM/navy-explosion.gif);
-    background-size: 200px;
+    background: url(https://thumbs.dreamstime.com/b/vector-pixel-art-warship-isolated-102310368.jpg);
+    background-size: 100px;
     background-position: center;
     background-repeat:no-repeat;
     margin-left: 10px;
@@ -214,3 +245,4 @@ body {
     padding-right: 50px;
     padding-left: 50px;
 }
+

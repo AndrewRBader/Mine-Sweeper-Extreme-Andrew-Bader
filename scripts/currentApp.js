@@ -18,6 +18,12 @@ const cells = document.querySelectorAll('.cell')
 let width = Math.sqrt(cells.length)
 let totalCellNumber = width * width
 
+//win/lose return home screen buttons
+
+const $winHomeScreen = $('#winHomeScreen')
+$winHomeScreen.hide()
+const $lossHomeScreen =$('#lossHomeScreen')
+$lossHomeScreen.hide()
 
 // button functionality
 
@@ -70,12 +76,14 @@ $returnHomeButton.click(() => {
     $bombsActive.hide()
     $resetButton.css({"backgroundColor": "green"})
     $flagNumber.hide()
+    $winHomeScreen.hide()
+    $lossHomeScreen.hide()
 })
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
 $startButton.click(() => {
     $resetButton.fadeIn();
-    $resetButton.html('Start Game')
+    $resetButton.html('Start New Game')
     $h1.html('Click Start Game to Start!')
     $flagOnButton.fadeIn()
     $startButton.hide();
@@ -85,13 +93,15 @@ $startButton.click(() => {
     bombExplode = true;
     bombsDiffused = false;
     $returnHomeButton.show()
+    $winHomeScreen.hide()
+    $lossHomeScreen.hide()
 })
 
 
 
 //new functions for reset button with new randomization
 $resetButton.click(() =>{
-    
+
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
@@ -100,7 +110,6 @@ $resetButton.click(() =>{
     $resetButton.css({"backgroundColor" : "red"})
     $bombsDiffused.show()
     $bombsActive.show()
-    
 
     // resetting booleans to live mines, intact and no diffused
 
@@ -334,6 +343,25 @@ cells.forEach(cell => {
                     $resetButton.css({"backgroundColor" : "green"})
                     $h1.html('Game Over! Click Start Game to Try Again!')
 
+                    // shows loss home screen, hides everything else
+                    $lossHomeScreen.show()
+                    $gameBoardSection.hide()
+                    $returnHomeButton.hide()
+                    $flagOnButton.hide()
+                    $flagOffButton.hide()
+                    $resetButton.hide()
+                    $bombsDiffused.hide()
+                    $bombsActive.hide()
+                    $flagNumber.hide()
+
+                    //functionality of win home screen is same as return home button
+                    $lossHomeScreen.click(() => {
+                        $startButton.fadeIn()
+                        $h1.html('Mine Sweeper Extreme!')
+                        $resetButton.css({"backgroundColor": "green"})
+                        $lossHomeScreen.hide()
+                    })
+
                     //showing all cell elements with 'bomb' inner HTML after loose
                     for (i = 0; i < totalCellNumber; i++){
                         if (cells[i].innerHTML === 'bomb'){
@@ -361,6 +389,26 @@ cells.forEach(cell => {
                     else if (diffusedBombArray.length === numberOfBombs){
                         bombsDiffused = true
                         $h1.html('You Win!!!')
+
+                        // shows win home screen, hides everything else
+                        $winHomeScreen.show()
+                        $gameBoardSection.hide()
+                        $returnHomeButton.hide()
+                        $flagOnButton.hide()
+                        $flagOffButton.hide()
+                        $resetButton.hide()
+                        $bombsDiffused.hide()
+                        $bombsActive.hide()
+                        $flagNumber.hide()
+
+                        //functionality of win home screen is same as return home button
+                        $winHomeScreen.click(() => {
+                            $startButton.fadeIn()
+                            $h1.html('Mine Sweeper Extreme!')
+                            $resetButton.css({"backgroundColor": "green"})
+                            $winHomeScreen.hide()
+                        })
+
                     }
                 }
             }
