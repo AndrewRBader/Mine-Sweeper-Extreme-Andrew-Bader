@@ -51,6 +51,11 @@ const numberOfBombs = 20;
 let $flagOnButton = $('#flagOnButton');
 let $flagOffButton = $('#flagOffButton');
 
+//flag count down:
+const numberOfFlagsStarting = 20;
+let numberOfFlagsLeft = 0;
+numberOfFlagsLeft = numberOfFlagsStarting;
+
 //starting state of hidden flag/reset buttons
 $flagOnButton.hide()
 $flagOffButton.hide()
@@ -90,9 +95,13 @@ $startButton.click(() => {
     $resetButton.html('Start New Game')
     // changin h1 text to direct user to click the start game button to start game/reset board
     $h1.html('Click on "Start New Game" Button Below to Begin!')
+
     // making sure flag on is shown, flag off is hidden
     $flagOnButton.show()
     $flagOffButton.hide()
+    //setting number of flags to starting number of flags
+    numberOfFlagsLeft = numberOfFlagsStarting;
+
     // hiding start button (button with gif) and showing the game board container
     $startButton.hide();
     $gameBoardSection.fadeIn() 
@@ -131,6 +140,9 @@ $resetButton.click(() =>{
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
+    //setting number of flags to starting number of flags
+    numberOfFlagsLeft = numberOfFlagsStarting;
+     
     // setting reset button text to reset, and changing background to red (if click this, starts over game)
     $resetButton.html('Reset')
     $resetButton.css({"backgroundColor" : "red"})
@@ -296,13 +308,26 @@ function hideSquares () {
 hideSquares()
 
 
+}) // end of reset buttion functionality
+
 // flag button functionality
 // put flag button function within reset button function so flag can't be used if game isn't running
 
+
+
 $flagOnButton.click(() => {
+    // if out of flags, no more flags avaliable and flag button doesnt work, mines are live remains true
+    if(numberOfFlagsLeft === 0){
+        minesAreLive = true
+        return
+    } 
+    else {
     
     // sets mines alive bool to false so can manipulate bomb squares with flag
     minesAreLive = false
+
+    //flag count down:
+    numberOfFlagsLeft--;
 
     // *safe mode is activated text is only active if game is in play (solved a header text bug)
     if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
@@ -331,9 +356,12 @@ $flagOnButton.click(() => {
         $flagOnButton.show()
         minesAreLive = true
     })
+}
 })
 
-}) // end of reset buttion functionality
+
+
+
 
 // cell click functionality (based off of tic tac toe functionality)
 
@@ -405,6 +433,7 @@ cells.forEach(cell => {
                 else {
                     // sets mines are live back to true
                     minesAreLive = true
+
                     // adds diffused class
                     cell.classList.add('diffused')
                     // gets the id of the diffused bomb and pushes that id into an array
