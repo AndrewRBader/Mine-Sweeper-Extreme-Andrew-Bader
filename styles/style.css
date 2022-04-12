@@ -181,7 +181,7 @@ body {
 }
 
 .flagButtons {
-    display: inline-flex;
+    display: flex;
     margin: 10px;
 }
 
@@ -205,4 +205,10 @@ body {
     border-width: thick;
     border-color: black;
 
+}
+
+#bombsDiffused {
+    display: flex;
+    padding-right: 50px;
+    padding-left: 50px;
 }

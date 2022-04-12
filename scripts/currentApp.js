@@ -45,6 +45,12 @@ $flagOnButton.hide()
 $flagOffButton.hide()
 $resetButton.hide()
 
+//counter headers collection and initial state
+let $bombsDiffused = $('#bombsDiffused')
+$bombsDiffused.hide()
+let $bombsActive = $('#bombsActive')
+$bombsActive.hide()
+
 //functionality of return home button
 $returnHomeButton.click(() => {
     $gameBoardSection.hide()
@@ -54,6 +60,8 @@ $returnHomeButton.click(() => {
     $resetButton.hide()
     $startButton.fadeIn()
     $h1.html('Mine Sweeper Extreme!')
+    $bombsDiffused.hide()
+    $bombsActive.hide()
 })
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
@@ -82,6 +90,8 @@ $resetButton.click(() =>{
     $resetButton.html('Reset')
     $h1.html('Diffuse All of The Mines!!!')
     $resetButton.css({"backgroundColor" : "red"})
+    $bombsDiffused.show()
+    $bombsActive.show()
     
 
     // resetting booleans to live mines, intact and no diffused
@@ -91,7 +101,15 @@ $resetButton.click(() =>{
     bombsDiffused = false;
 
     diffusedBombArray = [];
+
+    //setting inner html of counters to be # of bombs and # of diffused
+    $bombsDiffused.html(`Diffused Bombs: ${diffusedBombArray.length}`)
+    $bombsActive.html(`Active Bombs: ${numberOfBombs}`)
+
 // set cells with id's and append children to the gameBoard grid
+
+    
+
 
 function setCellIds () {
     for (i = 0; i < totalCellNumber; i++){
@@ -311,12 +329,17 @@ cells.forEach(cell => {
                     let bombText = cell.innerHTML
                     bombText = 'Diffused'
                     cell.innerHTML = bombText
+
+                    // change counters
+                    $bombsDiffused.html(`Diffused Bombs: ${diffusedBombArray.length}`)
+                    $bombsActive.html(`Active Bombs: ${numberOfBombs - diffusedBombArray.length}`)
+
                     if (diffusedBombArray.length !== numberOfBombs){
-                        alert(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
+                        $h1.html(`Good job!! Keep looking! There are ${numberOfBombs - diffusedBombArray.length} left!!`)
                     }
                     else if (diffusedBombArray.length === numberOfBombs){
                         bombsDiffused = true
-                        alert('You Win!!!')
+                        $h1.html('You Win!!!')
                     }
                 }
             }
@@ -390,7 +413,6 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     }, 10)
-
                cell.classList.add('revealed') 
                
             }
