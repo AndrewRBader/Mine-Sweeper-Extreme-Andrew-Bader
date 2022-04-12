@@ -22,4 +22,16 @@ Starting board screenshot:
 
 Losing board screenshot:
 
-![starting-board text](./images/LosingBoard.png)
+![losing-board text](./images/LosingBoard.png)
+
+Be patient, diffuse all the bombs and win!!!
+
+Winning board screenshot:
+
+![winning-board text](./images/WinningBoard.png)
+
+earn that fireworks celebration!!:
+
+![fireworks text](./images/FireWorksCelebration.png)
+
+
