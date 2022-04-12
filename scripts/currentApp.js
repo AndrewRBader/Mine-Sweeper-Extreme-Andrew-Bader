@@ -273,18 +273,24 @@ hideSquares()
 
 
 // flag button functionality
+// put flag button function within reset button function so flag can't be used if game isn't running
 
 $flagOnButton.click(() => {
-   
+    
+    // sets mines alive bool to false so can manipulate bomb squares with flag
     minesAreLive = false
 
+    // *safe mode is activated text is only active if game is in play (solved a header text bug)
     if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
         $h1.html('Safe Mode Activated!')
     }
     
+    // hides the flag on button, shows flag off button
     $flagOnButton.hide()
     $flagOffButton.show()
 
+    // if click a cell with flag, reverts back to original state with flag on button showing
+    // resets mines live bool to true
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
             $flagOffButton.hide()
@@ -293,6 +299,8 @@ $flagOnButton.click(() => {
         })
     })
 
+    // if click flag off (deactivate flag) button, reverts back to original state with flag on button showing
+    // resets mines live bool to true
     $flagOffButton.click(() => {
         $h1.html('Diffuse All of The Mines!!!')
         $flagOffButton.hide()
