@@ -54,7 +54,7 @@ let $flagOffButton = $('#flagOffButton');
 let $flagGoneButton = $('#flagGoneButton')
 
 //flag count down:
-const numberOfFlagsStarting = 30;
+const numberOfFlagsStarting = 15;
 let numberOfFlagsLeft = 0;
 numberOfFlagsLeft = numberOfFlagsStarting;
 
