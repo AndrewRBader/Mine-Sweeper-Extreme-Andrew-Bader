@@ -62,6 +62,7 @@ $returnHomeButton.click(() => {
     $h1.html('Mine Sweeper Extreme!')
     $bombsDiffused.hide()
     $bombsActive.hide()
+    $resetButton.css({"backgroundColor" : "green"})
 })
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
@@ -107,9 +108,6 @@ $resetButton.click(() =>{
     $bombsActive.html(`Active Bombs: ${numberOfBombs}`)
 
 // set cells with id's and append children to the gameBoard grid
-
-    
-
 
 function setCellIds () {
     for (i = 0; i < totalCellNumber; i++){
