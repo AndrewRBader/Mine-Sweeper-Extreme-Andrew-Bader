@@ -47,9 +47,6 @@ Click on link to deploy the game! Have a blast!
 
 https://andrewrbader.github.io/sei321-Project-1-BrowserGame/
 
-** importantly! If the header at the top says 'click start or reset game' please do that to refresh the board and play otherwise nothing will happen when you click on the cells! **
-
-
 Icebox items:
 
 1) set up different difficulty levels with # of mines for easy, medium, hard, extreme
