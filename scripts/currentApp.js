@@ -8,15 +8,15 @@ const $h1 = $('h1')
 const $gameBoardSection = $('.gameboard')
 $gameBoardSection.hide()
 
+//hiding return home button to start
+const $returnHomeButton = $('#returnHomeButton')
+$returnHomeButton.hide()
+
 //grabbing the cell divs and the cellField gameBoard to manipulate
 const cellField = document.querySelector('.cellfield')
 const cells = document.querySelectorAll('.cell')
 let width = Math.sqrt(cells.length)
 let totalCellNumber = width * width
-
-//hiding homescreen section when game is active
-const $homeScreenButton = $('.homeScreenButtons')
-$homeScreenButton.show()
 
 
 // button functionality
@@ -45,6 +45,17 @@ $flagOnButton.hide()
 $flagOffButton.hide()
 $resetButton.hide()
 
+//functionality of return home button
+$returnHomeButton.click(() => {
+    $gameBoardSection.hide()
+    $returnHomeButton.hide()
+    $flagOnButton.hide()
+    $flagOffButton.hide()
+    $resetButton.hide()
+    $startButton.fadeIn()
+    $h1.html('Mine Sweeper Extreme!')
+})
+
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
 $startButton.click(() => {
     $resetButton.fadeIn();
@@ -53,11 +64,11 @@ $startButton.click(() => {
     $flagOnButton.fadeIn()
     $startButton.hide();
     $flagOffButton.hide()
-    $homeScreenButton.hide()
     $gameBoardSection.fadeIn()
     minesAreLive = true;
     bombExplode = true;
     bombsDiffused = false;
+    $returnHomeButton.show()
 })
 
 
@@ -383,9 +394,6 @@ cells.forEach(cell => {
                cell.classList.add('revealed') 
                
             }
-            
-            
-            
         } 
 
     })

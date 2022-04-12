@@ -22,7 +22,9 @@ body {
     display: flex;
     justify-content: center;
     /* centering board a little better */
-    margin-left: 120px;
+    padding-left: 60px;
+    margin-left: 50px;
+   
 }
 
 /* cell field/cells style */
@@ -30,6 +32,7 @@ body {
     background-color: rgb(94, 94, 174);
     height: 410px;
     width: 400px;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -136,14 +139,29 @@ body {
 
 /* return to home screen button */
 
-.return-home-button{
-    display: inline;
-    justify-content: left;
-
+.returnHomeButton {
+    width: 100px;
+    height: 10px;
+    display: inline-flex;
+    
 }
 
-.returnHomeButton {
-    display: flex;
+#returnHomeButton {
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    background: url(https://c.tenor.com/IhxqOJt5hrQAAAAM/navy-explosion.gif);
+    background-size: 200px;
+    background-position: center;
+    background-repeat:no-repeat;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    border-style: solid;
+    border-width: thick;
+    border-color: rgb(74, 72, 72);
+    font-style: bold;
 }
 
 .action-buttons {
