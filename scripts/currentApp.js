@@ -39,7 +39,7 @@ let bombsDiffused = false;
 //diffused bomb array
 let diffusedBombArray = [];
 //setting number of bombs
-const numberOfBombs = 30;
+const numberOfBombs = 20;
 
 
 
@@ -324,6 +324,13 @@ cells.forEach(cell => {
                     $resetButton.css({"backgroundColor" : "green"})
                     $h1.html('Game Over! Click Start Game to Try Again!')
 
+                    //showing all cell elements with 'bomb' inner HTML after loose
+                    for (i = 0; i < totalCellNumber; i++){
+                        if (cells[i].innerHTML === 'bomb'){
+                            cells[i].classList.add('bomb')
+                        }
+                    }  
+                    setTimeout(() => {
                     // shows loss home screen, hides everything else
                     $lossHomeScreen.show()
                     $gameBoardSection.hide()
@@ -341,13 +348,7 @@ cells.forEach(cell => {
                         $resetButton.css({"backgroundColor": "green"})
                         $lossHomeScreen.hide()
                     })
-
-                    //showing all cell elements with 'bomb' inner HTML after loose
-                    for (i = 0; i < totalCellNumber; i++){
-                        if (cells[i].innerHTML === 'bomb'){
-                            cells[i].classList.add('bomb')
-                        }
-                    }  
+                    }, 1000)
 
                 }
                 else {
@@ -370,6 +371,7 @@ cells.forEach(cell => {
                         bombsDiffused = true
                         $h1.html('You Win!!!')
 
+                        setTimeout(() => {
                         // shows win home screen, hides everything else
                         $winHomeScreen.show()
                         $gameBoardSection.hide()
@@ -387,7 +389,7 @@ cells.forEach(cell => {
                             $resetButton.css({"backgroundColor": "green"})
                             $winHomeScreen.hide()
                         })
-
+                    }, 1000)
                     }
                 }
             }
