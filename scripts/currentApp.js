@@ -426,76 +426,96 @@ cells.forEach(cell => {
                     }
                 }
             }
+            // conditional if hit a number with expanded click or off click (not empty or not bomb cell)
             else if (cell.innerHTML !== 'empty' && cell.innerHTML !== 'bomb' ) {
+                // just reveals that # square and returns out of click function
                 cell.classList.add('revealed') 
                 return
             }
 
             // empty square expansion
             else if (cell.innerHTML === 'empty') {
-                let currentID = cell.id
+                let cellID = cell.id
 
                 // function to reveal empty squares:
                 // adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
 
-                const onLeftEdge = (currentID % width === 0)
+                const onLeftEdge = (cellID % width === 0)
                 // ie if width is 8, and id is 7, modulus would be 8 - 1= 7 in that case if cell is on right edge
-                const onRightEdge = (currentID % width === width - 1)
+                const onRightEdge = (cellID % width === width - 1)
 
                 // want to put in set timeout to happen slightly after the click
                 setTimeout(() => {
                     //looking at cell to the left of clicked
-                    if (currentID>0 && !onLeftEdge){
-                        //getting new id from cell to the left
-                        const newID = cells[parseInt(currentID) - 1].id 
-                        // grabbing the new cell to the left of currentID
+                    if (cellID>0 && !onLeftEdge){
+                        //getting new id from cell to the left, using parse int to make sure ID is integer
+                        const newID = cells[parseInt(cellID) - 1].id 
+                        // grabbing the new cell to the left of current cellID
                         const newCell = document.getElementById(newID)
                         //putting the newCell through the click function
                         newCell.click()
                     }
                     // upper right adjacent cell
-                    if (currentID > (width - 1) && !onRightEdge){
-                        const newID = cells[parseInt(currentID) + 1 - width].id 
+                    if (cellID > (width - 1) && !onRightEdge){
+                        // getting new id from cell to upper right
+                        const newID = cells[parseInt(cellID) + 1 - width].id 
+                        // grabbing the cell with the new ID
                         const newCell = document.getElementById(newID)
+                        // putting new cell through click
                         newCell.click()
                     }
                     // cell just above current cell
-                    if (currentID > width){
-                        const newID = cells[parseInt(currentID) - width].id 
+                    if (cellID > width){
+                        // getting new ID from cell just above current cell
+                        const newID = cells[parseInt(cellID) - width].id 
+                        // grabbing the cell with the new ID
                         const newCell = document.getElementById(newID)
+                        // sending new cell through click function 
                         newCell.click()
                     }
                     // cell to the upper left adjacent cell
-                    if (currentID > (width + 1) && !onLeftEdge){
-                        const newID = cells[parseInt(currentID) - (width+1)].id 
+                    if (cellID > (width + 1) && !onLeftEdge){
+                        // getting new id from cell to upper left
+                        const newID = cells[parseInt(cellID) - (width+1)].id 
+                        // grabbing cell with the upper left id
                         const newCell = document.getElementById(newID)
+                        // sending new cell through the click function
                         newCell.click()
                     }
-                    // cell to the right of currentID
-                    if (currentID < (totalCellNumber - 2) && !onRightEdge){
-                        const newID = cells[parseInt(currentID)+1].id 
+                    // cell to the right of current cell
+                    if (cellID < (totalCellNumber - 2) && !onRightEdge){
+                        // finding cell id to the right of the current cell
+                        const newID = cells[parseInt(cellID)+1].id 
+                        // grabbing cell with new ID and sending through click function
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
                     //cell to the lower left of current ID cell
-                    if (currentID < (totalCellNumber - width) && !onLeftEdge) {
-                        const newID = cells[parseInt(currentID) + width-1].id
+                    if (cellID < (totalCellNumber - width) && !onLeftEdge) {
+                        // finding cell id to the lower left of the current cell
+                        const newID = cells[parseInt(cellID) + width-1].id
+                        // grabbing that cell and sending through click function
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
                     //cell to the lower right of the current ID cell
-                    if (currentID < (totalCellNumber - width - 2) && !onRightEdge) {
-                        const newID = cells[parseInt(currentID)  + width + 1].id
+                    if (cellID < (totalCellNumber - width - 2) && !onRightEdge) {
+                        // finding id of cell above and to the right
+                        const newID = cells[parseInt(cellID)  + width + 1].id
+                        // grabbing that cell by its id and senting through click function
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
                     // cell just below the current cell ID
-                    if (currentID < (totalCellNumber - width - 1)) {
-                        const newID = cells[parseInt(currentID) + width].id
+                    if (cellID < (totalCellNumber - width - 1)) {
+                        // getting the id of the cell just below the current cell
+                        const newID = cells[parseInt(cellID) + width].id
+                        // grabbing cell with that id and sending it through the click function
                         const newCell = document.getElementById(newID)
                         newCell.click()
                     }
                     }, 10)
+                // revealing the expanding empty clicked squares by adding revealed class
                cell.classList.add('revealed') 
                
             }
