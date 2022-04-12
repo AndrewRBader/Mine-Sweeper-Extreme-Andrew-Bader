@@ -389,7 +389,7 @@ cells.forEach(cell => {
                             $resetButton.css({"backgroundColor": "green"})
                             $winHomeScreen.hide()
                         })
-                    }, 1000)
+                    }, 2000)
                     }
                 }
             }

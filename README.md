@@ -20,3 +20,6 @@ Starting board screenshot:
 
 ![starting-board text](./images/StartingBoard.png)
 
+Losing board screenshot:
+
+![starting-board text](./images/LosingBoard.png)
