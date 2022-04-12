@@ -1,3 +1,12 @@
+// working on stretch features if time:
+// 1) chose mine # by selecting easy medium hard extreme
+// 2) timed games
+// 3) flag count down
+// less cool things
+// 4) maybe modals instead of h1 updates
+// 5) trying to get old game not to show after hit start game after win/lose/hit back to home button 
+// 6) mobile first design -> super stretch
+
 
 //grabbing H1 for manipulation
 const $h1 = $('h1')
@@ -371,7 +380,7 @@ cells.forEach(cell => {
                         $resetButton.css({"backgroundColor": "green"})
                         $lossHomeScreen.hide()
                     })
-                    }, 1000)
+                    }, 3000)
 
                 }
                 // conditional if user hits a bomb with diffuse/flag/safemode on
@@ -423,7 +432,7 @@ cells.forEach(cell => {
                             $resetButton.css({"backgroundColor": "green"})
                             $winHomeScreen.hide()
                         })
-                    }, 2000)
+                    }, 3000)
                     }
                 }
             }
