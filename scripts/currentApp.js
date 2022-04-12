@@ -33,6 +33,7 @@ const $lossHomeScreen =$('#lossHomeScreen')
 $lossHomeScreen.hide()
 
 // collecting start button (initial home screen start) and resetbutton into variable 
+let $actionButtonsDiv = $('.action-buttons')
 let $resetButton = $('#resetButton')
 let $startButton = $('.startButton')
 
@@ -61,6 +62,7 @@ $flagOnButton.hide()
 $flagOffButton.hide()
 $flagGoneButton.hide()
 $resetButton.hide()
+$actionButtonsDiv.hide()
 
 //counter headers collection and initial hidden state
 let $bombsDiffused = $('#bombsDiffused')
@@ -81,6 +83,7 @@ $returnHomeButton.click(() => {
     $flagGoneButton.hide()
     $flagsRemaining.hide()
     $resetButton.hide()
+    $actionButtonsDiv.hide()
     // start button with gif fades in at home screen
     $startButton.fadeIn()
     // changing h1 back to title
@@ -98,6 +101,7 @@ $returnHomeButton.click(() => {
 $startButton.click(() => {
     // showing the reset button and changing text to 'start new game'
     $resetButton.fadeIn();
+    $actionButtonsDiv.show();
     $resetButton.html('Start New Game')
     // changin h1 text to direct user to click the start game button to start game/reset board
     $h1.html('Click on "Start New Game" Button Below to Begin!')
@@ -155,7 +159,7 @@ $resetButton.click(() =>{
      
     // setting reset button text to reset, and changing background to red (if click this, starts over game)
     $resetButton.html('Reset')
-    $resetButton.css({"backgroundColor" : "red"})
+    $resetButton.css({"backgroundColor" : "rgb(236, 68, 12)"})
     // switching header text to direct user to diffuse the mines
     $h1.html('Diffuse All of The Mines!!!')
     // showing the bombs diffused/active counts at the bottom
@@ -365,7 +369,6 @@ $flagOnButton.click(() => {
     // if click flag off (deactivate flag) button, reverts back to original state with flag on button showing
     // resets mines live bool to true
     $flagOffButton.click(() => {
-        $h1.html('Diffuse All of The Mines!!!')
         $flagOffButton.hide()
         $flagOnButton.show()
         minesAreLive = true
@@ -381,7 +384,6 @@ $flagOnButton.click(() => {
 
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
-        $h1.html('Diffuse All of The Mines!!!')
         // if game is over or game is not active (original html '0' in divs) h1 tells user to start or reset the game
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
             $h1.html('Click on "Start New Game" Button Below to Begin!')
@@ -432,6 +434,7 @@ cells.forEach(cell => {
                         $flagGoneButton.hide()
                         $flagsRemaining.hide()
                         $resetButton.hide()
+                        $actionButtonsDiv.hide()
                         $bombsDiffused.hide()
                         $bombsActive.hide()
 
@@ -483,6 +486,7 @@ cells.forEach(cell => {
                         //hiding reset button after loss
                         $resetButton.hide()
                         $returnHomeButton.hide()
+                        $actionButtonsDiv.hide()
 
                         // shows the loss screen (return home button) after 2 secs  
                         setTimeout(() => {
