@@ -186,6 +186,7 @@ randomizedCellClasses()
 
 //putting numbers on the empty squares adjacent to the bombs:
 //adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
+// ** note needed to fix code with <= and >= to get adjacent bomb count working in corners!
 function settingAdjacentNumbers (){
 
  for (i = 0; i < totalCellNumber; i++){
@@ -444,7 +445,8 @@ cells.forEach(cell => {
                 // ie if width is 8, and id is 7, modulus would be 8 - 1= 7 in that case if cell is on right edge
                 const onRightEdge = (cellID % width === width - 1)
 
-                // want to put in set timeout to happen slightly after the click
+                // want to put in set timeout to happen slightly after the click 
+                // ** note needed to fix code with <= and >= to get expansion working in corners!
                 setTimeout(() => {
                     //looking at cell to the left of clicked
                     if (cellID>0 && !onLeftEdge){
