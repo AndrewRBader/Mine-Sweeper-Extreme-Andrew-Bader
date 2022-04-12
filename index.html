@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- linking jQuery files -->
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -21,13 +22,14 @@
         </div>
     </section>
     
+    <!-- return to home screen button -->
     <div class ='returnHomeButton'>
         <button type = 'returnHomeButton' id ='returnHomeButton'>Home Page</button>
     </div>
 
     <!-- gameboard cells -->
     <section class = "gameboard">
-
+        <!-- 256 cell divs in a cellfield container -->
         <section class = "cellfield">
             <div class="cell">0</div>
             <div class="cell">0</div>
@@ -289,6 +291,7 @@
             <div class="cell">0</div>
             <div class="cell">0</div>
         </section>
+        <!-- flag button container within the gameboard section -->
         <section class = 'flagButtons'>
             <div class ='flagOnButton'>
                 <button type = 'flagOn' id ='flagOnButton'>Flag On</button>
@@ -305,16 +308,17 @@
 
     <!-- buttons -->
     
-
-
-    <!-- action buttons section -->
+    <!-- action info and buttons section -->
     <section class = 'action-buttons'>
+        <!-- reset button that changes to start new game button w/ jQuery in .js file -->
         <div class = ".resetButton">
             <button type = 'reset' id ='resetButton'>Reset</button>
         </div>
+        <!-- bombs diffused output -->
         <div class = "bombsDiffused">
             <h2 id = "bombsDiffused"> Diffused Bombs: </h2>
         </div>
+        <!-- bombs active output -->
         <div class = "bombsActive">
             <h2 id = "bombsActive"> Active Bombs:  </h2>
         </div>
@@ -323,17 +327,21 @@
 
     <!-- home screen buttons -->
     <section class = 'home-screen-buttons'>
+        <!-- start button element -->
         <div class = "startButton">
             <button type = 'start' id ='startButton'>Click Here to Start!</button>
         </div>
+        <!-- win screen that acts as return to home screen button -->
         <div class = "winHomeScreen">
             <button type = 'winHomeScreen' id ='winHomeScreen'>Congrats!! Click to Return Home!!</button>
         </div>
+        <!-- lose screen that acts as return to home screen button -->
         <div class = "lossHomeScreen">
             <button type = 'lossHomeScreen' id ='lossHomeScreen'>Game Over!! Click to Return Home!!</button>
         </div>
     </section>
 
+    <!-- signature at bottom -->
     <section>
         <h2>Andrew Bader, SEI 321 GA, 4/14/2022</h2>
     </section>
