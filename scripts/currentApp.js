@@ -33,7 +33,7 @@ let bombsDiffused = false;
 //difused bomb array
 let diffusedBombArray = [];
 //setting number of bombs
-const numberOfBombs = 50;
+const numberOfBombs = 30;
 
 
 //flag button collection
@@ -181,7 +181,7 @@ function settingAdjacentNumbers (){
         // setting cell data attribute to # of adjacent bombs for adjacent cells and innerHTML to the data
         cells[i].setAttribute('data', numberAdjacentBombs)
         cells[i].innerHTML = cells[i].getAttribute('data')
-        
+        cells[i].style.color = 'black'
     }
 }
 }
@@ -206,6 +206,8 @@ function settingEmptyCells (){
     for (i = 0; i < totalCellNumber; i++){
         if (cells[i].classList.contains('empty') && cells[i].innerHTML == 0){
             cells[i].innerHTML = 'empty'
+            cells[i].style.color = 'rgb(94, 94, 174)'
+          
         }
     }
 }
@@ -224,8 +226,6 @@ function hideSquares () {
 }
 
 hideSquares()
-
-
 
 
 // flag button functionality
@@ -387,14 +387,6 @@ cells.forEach(cell => {
             
             
         } 
-
-
-
-
-
-
-
-
 
     })
 })
