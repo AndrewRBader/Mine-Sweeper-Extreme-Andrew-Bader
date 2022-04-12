@@ -37,7 +37,7 @@ let bombsDiffused = false;
 //setting a diffused bomb array, initially empty
 let diffusedBombArray = [];
 //setting number of bombs (icebox is to make this modifiable at home screen for easy, medium, hard levels)
-const numberOfBombs = 20;
+const numberOfBombs = 30;
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
@@ -205,21 +205,21 @@ function settingAdjacentNumbers (){
         //checking bomb to the left
         if (i > 0 && !onLeftEdge && cells[i - 1].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking for bomb up and to the right
-        if (i > (width - 1) && !onRightEdge && cells[i + 1 - width].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i >= (width - 1) && !onRightEdge && cells[i + 1 - width].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking bomb right above 
-        if (i > width && cells[i - width].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i >= width && cells[i - width].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking bomb to upper left
-        if (i > (width + 1) && !onLeftEdge && cells[i - (width + 1)].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i >= (width + 1) && !onLeftEdge && cells[i - (width + 1)].classList.contains('bomb')){ numberAdjacentBombs++}
 
         //checking cells on the bottom row next
         // checking on bomb to the right
-        if (i < (totalCellNumber - 2) && !onRightEdge && cells[i + 1].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i <= (totalCellNumber - 2) && !onRightEdge && cells[i + 1].classList.contains('bomb')){ numberAdjacentBombs++}
         // check on bomb in cell to the bottom left
-        if (i < (totalCellNumber - width) && !onLeftEdge && cells[i + width-1].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i <= (totalCellNumber - width) && !onLeftEdge && cells[i + width-1].classList.contains('bomb')){ numberAdjacentBombs++}
         // check on bomb in cell to the bottom right
-        if (i < (totalCellNumber - width - 2) && !onRightEdge && cells[i + width + 1].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i <= (totalCellNumber - width - 2) && !onRightEdge && cells[i + width + 1].classList.contains('bomb')){ numberAdjacentBombs++}
         //checking cell right underneath (don't need to check if this is on the right edge)
-        if (i < (totalCellNumber - width - 1) && cells[i + width].classList.contains('bomb')){ numberAdjacentBombs++}
+        if (i <= (totalCellNumber - width - 1) && cells[i + width].classList.contains('bomb')){ numberAdjacentBombs++}
 
 
         // setting cell data attribute to # of adjacent bombs for adjacent cells and innerHTML to the data
@@ -456,7 +456,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     // upper right adjacent cell
-                    if (cellID > (width - 1) && !onRightEdge){
+                    if (cellID >= (width - 1) && !onRightEdge){
                         // getting new id from cell to upper right
                         const newID = cells[parseInt(cellID) + 1 - width].id 
                         // grabbing the cell with the new ID
@@ -465,7 +465,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     // cell just above current cell
-                    if (cellID > width){
+                    if (cellID >= width){
                         // getting new ID from cell just above current cell
                         const newID = cells[parseInt(cellID) - width].id 
                         // grabbing the cell with the new ID
@@ -474,7 +474,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     // cell to the upper left adjacent cell
-                    if (cellID > (width + 1) && !onLeftEdge){
+                    if (cellID >= (width + 1) && !onLeftEdge){
                         // getting new id from cell to upper left
                         const newID = cells[parseInt(cellID) - (width+1)].id 
                         // grabbing cell with the upper left id
@@ -483,7 +483,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     // cell to the right of current cell
-                    if (cellID < (totalCellNumber - 2) && !onRightEdge){
+                    if (cellID <= (totalCellNumber - 2) && !onRightEdge){
                         // finding cell id to the right of the current cell
                         const newID = cells[parseInt(cellID)+1].id 
                         // grabbing cell with new ID and sending through click function
@@ -491,7 +491,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     //cell to the lower left of current ID cell
-                    if (cellID < (totalCellNumber - width) && !onLeftEdge) {
+                    if (cellID <= (totalCellNumber - width) && !onLeftEdge) {
                         // finding cell id to the lower left of the current cell
                         const newID = cells[parseInt(cellID) + width-1].id
                         // grabbing that cell and sending through click function
@@ -499,7 +499,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     //cell to the lower right of the current ID cell
-                    if (cellID < (totalCellNumber - width - 2) && !onRightEdge) {
+                    if (cellID <= (totalCellNumber - width - 2) && !onRightEdge) {
                         // finding id of cell above and to the right
                         const newID = cells[parseInt(cellID)  + width + 1].id
                         // grabbing that cell by its id and senting through click function
@@ -507,7 +507,7 @@ cells.forEach(cell => {
                         newCell.click()
                     }
                     // cell just below the current cell ID
-                    if (cellID < (totalCellNumber - width - 1)) {
+                    if (cellID <= (totalCellNumber - width - 1)) {
                         // getting the id of the cell just below the current cell
                         const newID = cells[parseInt(cellID) + width].id
                         // grabbing cell with that id and sending it through the click function
