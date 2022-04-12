@@ -382,7 +382,6 @@ cells.forEach(cell => {
                         // shows loss home screen, hides everything else
                         $lossHomeScreen.show()
                         $gameBoardSection.hide()
-                        $returnHomeButton.hide()
                         $flagOnButton.hide()
                         $flagOffButton.hide()
                         $resetButton.hide()
@@ -396,6 +395,8 @@ cells.forEach(cell => {
                         $resetButton.html('Start Game')
                         $resetButton.css({"backgroundColor": "green"})
                         $lossHomeScreen.hide()
+                        // keeping return home button on win screen incase win home screen button doesn't work
+                        $returnHomeButton.hide()
                     })
                     }, 1500)
 
@@ -441,7 +442,6 @@ cells.forEach(cell => {
                             // shows win home screen, hides everything else
                             $winHomeScreen.show()
                             $gameBoardSection.hide()
-                            $returnHomeButton.hide()
                             $flagOnButton.hide()
                             $flagOffButton.hide()
                             $resetButton.hide()
@@ -455,6 +455,8 @@ cells.forEach(cell => {
                             $resetButton.html('Start Game')
                             $resetButton.css({"backgroundColor": "green"})
                             $winHomeScreen.hide()
+                            // keeping return home button on win screen incase win home screen button doesn't work
+                            $returnHomeButton.hide()
                         })
                     }, 1500)
                     }
