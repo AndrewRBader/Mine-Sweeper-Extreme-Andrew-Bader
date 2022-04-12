@@ -3,8 +3,8 @@
 body {
     background-color: grey;
     display: block;
-    height: 610px;
-    width: 800px;
+    height: 750px;
+    width: 850px;
     border-style: solid;
     border-width: thick;
     border-color: black;
@@ -31,8 +31,8 @@ body {
 /* cell field/cells style */
 .cellfield {
     background-color: rgb(94, 94, 174);
-    height: 410px;
-    width: 400px;
+    height: 550px;
+    width: 570px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -48,8 +48,8 @@ body {
 .cellfield>* {
     color: grey;
     /* optimized tile % for 16 x 16 board */
-    height: 4.6%;
-    width: 4.6%;
+    height: 5%;
+    width: 5%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -86,7 +86,7 @@ body {
     border-color: rgb(35, 38, 82);
     background: none;
     /* reveals all text, ** note empty cells are blue with js when empty cells are generated */
-    font-size:7px;
+    font-size:11.5px;
     font-style: bold;
 }
 
@@ -105,8 +105,9 @@ body {
     font-size:10px;
     /* image for bombs when hit bomb cell */
     background: url(https://w1.pngwing.com/pngs/249/974/png-transparent-red-circle-minesweeper-minesweeper-deluxe-minesweeper-adfree-video-games-land-mine-naval-mine-android-thumbnail.png);
-    background-size: 100%;
+    background-size: 90%;
     background-repeat: no-repeat;
+    background-position: center;
     /* hide the 'bomb text' */
     font-size:0px;
 }
@@ -136,23 +137,23 @@ body {
 /* start button container */
 .startButton {
     background-color: blue;
-    height: 424px;
-    width: 600px;
+    height: 500px;
+    width: 400px;
     display: flex;
     justify-content: center;
 }
 
 /* modifying actual start button with gif */
 #startButton{
-    height: 424px;
-    width: 600px;
+    height: 500px;
+    width: 410px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    background: url(https://i.gifer.com/3Qv7.gif);
-    background-size: 600px;
+    background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/09f06ffb-f5cb-4e53-b2c4-0833ac13bb02/d2741m4-8cf520ab-538f-46e7-9ab1-936115f0aed0.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA5ZjA2ZmZiLWY1Y2ItNGU1My1iMmM0LTA4MzNhYzEzYmIwMlwvZDI3NDFtNC04Y2Y1MjBhYi01MzhmLTQ2ZTctOWFiMS05MzYxMTVmMGFlZDAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pzoQqfg26zWl9FrBSr9_fQaSd-LshVYt4r8vTBtTqgM);
+    background-size: 400px;
     background-position: center;
     background-repeat: no-repeat;
     font-size: 50px;
@@ -207,21 +208,16 @@ body {
 
 /* getting return home button to upper left */
 #returnHomeButton {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 70px;
     display: inline-flex;
-    background: url(https://thumbs.dreamstime.com/b/vector-pixel-art-warship-isolated-102310368.jpg);
-    background-size: 100px;
+    background: url(http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/6d391cb2cddb5a5.png);
+    background-size: 80px;
     background-position: center;
     background-repeat:no-repeat;
     margin-left: 10px;
     margin-top: 10px;
-    text-align: center;
-    flex-wrap: wrap;
-    border-style: solid;
-    border-width: thick;
-    border-color: rgb(74, 72, 72);
-    font-style: bold;
+    font-size: 0;
 }
 
 /* style of action buttons container **inclueds diffused and active bomb headers */
@@ -235,9 +231,9 @@ body {
 /* style of reset button initially set to green, changes to red in game */
 #resetButton{
     background-color: green;
-    height: 70px;
-    width: 200px;
-    margin-right: 100px;
+    height: 50px;
+    width: 100px;
+    margin-right: 200px;
     border-style: solid;
     border-width: thick;
     border-color: black;

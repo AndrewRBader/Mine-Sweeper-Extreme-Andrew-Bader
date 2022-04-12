@@ -6,8 +6,9 @@
 // 4) mobile first design -> super stretch
 
 
-//grabbing H1 for manipulation
+//grabbing H1 and signature H2 for manipulation
 const $h1 = $('h1')
+const $sigH2 = $('.signature')
 
 //grabbing and hiding gameBoardSection at Start
 const $gameBoardSection = $('.gameboard')
@@ -86,6 +87,7 @@ $returnHomeButton.click(() => {
     $actionButtonsDiv.hide()
     // start button with gif fades in at home screen
     $startButton.fadeIn()
+    $sigH2.show()
     // changing h1 back to title
     $h1.html('Mine Sweeper Extreme!')
     $bombsDiffused.hide()
@@ -115,7 +117,8 @@ $startButton.click(() => {
 
     // hiding start button (button with gif) and showing the game board container
     $startButton.hide();
-    $gameBoardSection.fadeIn() 
+    $gameBoardSection.fadeIn()
+    $sigH2.hide() 
     // setting booleans here (similar boolean set up to reset below)
     minesAreLive = true;
     bombExplode = true;
@@ -436,6 +439,7 @@ cells.forEach(cell => {
                     //functionality of win home screen is same as return home button
                     $lossHomeScreen.click(() => {
                         $startButton.fadeIn()
+                        $sigH2.show() 
                         $h1.html('Mine Sweeper Extreme!')
                         $resetButton.html('Start Game')
                         $resetButton.css({"backgroundColor": "green"})
@@ -502,6 +506,7 @@ cells.forEach(cell => {
                         //functionality of win home screen is same as return home button
                         $winHomeScreen.click(() => {
                             $startButton.fadeIn()
+                            $sigH2.show() 
                             $h1.html('Mine Sweeper Extreme!')
                             $resetButton.html('Start Game')
                             $resetButton.css({"backgroundColor": "green"})
