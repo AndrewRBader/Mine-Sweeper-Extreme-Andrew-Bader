@@ -1,33 +1,31 @@
-// still bug in count directly under the counted square for some reason (was a 1 that missed the bomb underneath I think)
-
 
 //grabbing H1 for manipulation
 const $h1 = $('h1')
 
-//hiding gameBoardSection at Start
+//grabbing and hiding gameBoardSection at Start
 const $gameBoardSection = $('.gameboard')
 $gameBoardSection.hide()
 
-//hiding return home button to start
+//grabbing hiding return home button to start
 const $returnHomeButton = $('#returnHomeButton')
 $returnHomeButton.hide()
 
 //grabbing the cell divs and the cellField gameBoard to manipulate
 const cellField = document.querySelector('.cellfield')
 const cells = document.querySelectorAll('.cell')
+
+// width of square field is sqrt of the length of cells array
 let width = Math.sqrt(cells.length)
+// total cell number is width squared (or length of cells array too)
 let totalCellNumber = width * width
 
-//win/lose return home screen buttons
-
+//win/lose return home screen buttons shown when win or lose the game, hidden till those conditions are met below
 const $winHomeScreen = $('#winHomeScreen')
 $winHomeScreen.hide()
 const $lossHomeScreen =$('#lossHomeScreen')
 $lossHomeScreen.hide()
 
-// button functionality
-
-// collecting buttons into variable 
+// collecting start button (initial home screen start) and resetbutton into variable 
 let $resetButton = $('#resetButton')
 let $startButton = $('.startButton')
 
@@ -36,24 +34,21 @@ let minesAreLive = false;
 let bombExplode = true;
 let bombsDiffused = false;
 
-//diffused bomb array
+//setting a diffused bomb array, initially empty
 let diffusedBombArray = [];
-//setting number of bombs
+//setting number of bombs (icebox is to make this modifiable at home screen for easy, medium, hard levels)
 const numberOfBombs = 20;
-
-
-
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
 let $flagOffButton = $('#flagOffButton');
 
-//starting state of hidden buttons
+//starting state of hidden flag/reset buttons
 $flagOnButton.hide()
 $flagOffButton.hide()
 $resetButton.hide()
 
-//counter headers collection and initial state
+//counter headers collection and initial hidden state
 let $bombsDiffused = $('#bombsDiffused')
 $bombsDiffused.hide()
 let $bombsActive = $('#bombsActive')
@@ -61,33 +56,43 @@ $bombsActive.hide()
 
 //functionality of return home button
 $returnHomeButton.click(() => {
+    // at home, gameboard is hidden and all of the action buttons/items
     $gameBoardSection.hide()
     $returnHomeButton.hide()
     $flagOnButton.hide()
     $flagOffButton.hide()
     $resetButton.hide()
+    // start button with gif fades in at home screen
     $startButton.fadeIn()
+    // changing h1 back to title
     $h1.html('Mine Sweeper Extreme!')
     $bombsDiffused.hide()
     $bombsActive.hide()
+    // switching reset button color back to original green color
     $resetButton.css({"backgroundColor": "green"})
-    $flagNumber.hide()
+    // making sure win and home screens are hidden to prevent bugs
     $winHomeScreen.hide()
     $lossHomeScreen.hide()
 })
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
 $startButton.click(() => {
+    // showing the reset button and changing text to 'start new game'
     $resetButton.fadeIn();
     $resetButton.html('Start New Game')
+    // changin h1 text to direct user to click the start game button to start game/reset board
     $h1.html('Click Start Game to Start!')
+    // making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
-    $startButton.hide();
     $flagOffButton.hide()
+    // hiding start button (button with gif) and showing the game board container
+    $startButton.hide();
     $gameBoardSection.fadeIn()
+    // setting booleans here (similar boolean set up to reset below)
     minesAreLive = true;
     bombExplode = true;
     bombsDiffused = false;
+    // making sure proper return home button is shown (not win/lose pages)
     $returnHomeButton.show()
     $winHomeScreen.hide()
     $lossHomeScreen.hide()
@@ -96,23 +101,28 @@ $startButton.click(() => {
 
 
 //new functions for reset button with new randomization
+// randomized board adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
+
 $resetButton.click(() =>{
 
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
+    // setting reset button text to reset, and changing background to red (if click this, starts over game)
     $resetButton.html('Reset')
-    $h1.html('Diffuse All of The Mines!!!')
     $resetButton.css({"backgroundColor" : "red"})
+    // switching header text to direct user to diffuse the mines
+    $h1.html('Diffuse All of The Mines!!!')
+    // showing the bombs diffused/active counts at the bottom
     $bombsDiffused.show()
     $bombsActive.show()
 
     // resetting booleans to live mines, intact and no diffused
-
     minesAreLive = true;
     bombExplode = false;
     bombsDiffused = false;
 
+    // emptying the diffused bomb array
     diffusedBombArray = [];
 
     //setting inner html of counters to be # of bombs and # of diffused
@@ -120,8 +130,7 @@ $resetButton.click(() =>{
     $bombsActive.html(`Active Bombs: ${numberOfBombs}`)
 
 
-// set cells with id's and append children to the gameBoard grid
-
+// set cells with array index id's and append children to the gameBoard grid
 function setCellIds () {
     for (i = 0; i < totalCellNumber; i++){
         cells[i].setAttribute('id', i);
@@ -133,8 +142,7 @@ setCellIds()
 
 // next want to set up bombs with function
 
-//setting up bombs empty array and number of bombs variable
-
+//setting up bombs empty array and number of bombs variable (from above/global)
 const bombsArray = [];
 
 function bombSetUp () {
@@ -148,7 +156,6 @@ bombSetUp ()
 // next want to set up the empty tiles
 
 //empty tiles array bounded by number of empty tiles
-
 const emptyCellsArray = [];
 const numberEmptyCells = totalCellNumber - numberOfBombs
 
@@ -167,7 +174,6 @@ const bombAndEmptyArray = emptyCellsArray.concat(bombsArray)
 const randomizedGameArray = bombAndEmptyArray.sort(() => Math.random() -0.5);
 
 //next the board needs to be set up and random classes will be added to the divs
-
 function randomizedCellClasses (){
     for (i = 0; i < totalCellNumber; i++){
         cells[i].setAttribute('class', randomizedGameArray[i]);
@@ -179,9 +185,7 @@ randomizedCellClasses()
 
 
 //putting numbers on the empty squares adjacent to the bombs:
- // adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
- 
-
+//adapted from Traversy Media: https://www.youtube.com/watch?v=W0No1JDc6vE&t=71s
 function settingAdjacentNumbers (){
 
  for (i = 0; i < totalCellNumber; i++){
