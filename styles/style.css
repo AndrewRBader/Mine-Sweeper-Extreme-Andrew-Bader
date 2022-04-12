@@ -183,6 +183,8 @@ body {
 .flagButtons {
     display: flex;
     margin: 10px;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #flagOnButton {

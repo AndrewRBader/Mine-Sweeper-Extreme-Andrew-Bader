@@ -30,10 +30,16 @@ let minesAreLive = false;
 let bombExplode = true;
 let bombsDiffused = false;
 
-//difused bomb array
+//diffused bomb array
 let diffusedBombArray = [];
 //setting number of bombs
 const numberOfBombs = 30;
+// number of flags
+let numberOfFlagsStarting = 40;
+let $flagNumber = $('#flagNumber')
+$flagNumber.hide()
+
+
 
 
 //flag button collection
@@ -62,7 +68,8 @@ $returnHomeButton.click(() => {
     $h1.html('Mine Sweeper Extreme!')
     $bombsDiffused.hide()
     $bombsActive.hide()
-    $resetButton.css({"backgroundColor" : "green"})
+    $resetButton.css({"backgroundColor": "green"})
+    $flagNumber.hide()
 })
 
 //start button event function (buttons fading in and out) sets booleans to live mines, intact bombs, no diffused
@@ -106,6 +113,12 @@ $resetButton.click(() =>{
     //setting inner html of counters to be # of bombs and # of diffused
     $bombsDiffused.html(`Diffused Bombs: ${diffusedBombArray.length}`)
     $bombsActive.html(`Active Bombs: ${numberOfBombs}`)
+
+    //showing flag number, setting number of flags to starting number of flags
+    $flagNumber.show()
+    numberOfFlags = numberOfFlagsStarting;
+    $flagNumber.html(`Flags left: ${numberOfFlags}`)
+
 
 // set cells with id's and append children to the gameBoard grid
 
@@ -258,11 +271,20 @@ hideSquares()
 // flag button functionality
 
 $flagOnButton.click(() => {
-
+    if (numberOfFlags === 0){
+        minesAreLive = true
+        return
+    }
+    else{
     minesAreLive = false
-    
+
+    console.log(numberOfFlags--)
+
+    $flagNumber.html(`Flags left: ${numberOfFlags}`)
+
     if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
         $h1.html('Safe Mode Activated!')
+
     }
     
     $flagOnButton.hide()
@@ -282,6 +304,7 @@ $flagOnButton.click(() => {
         $flagOnButton.show()
         minesAreLive = true
     })
+}
 })
 
 }) // end of reset buttion functionality
