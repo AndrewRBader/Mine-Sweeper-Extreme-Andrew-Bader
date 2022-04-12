@@ -1,3 +1,5 @@
+/* body styling */
+
 body {
     background-color: grey;
     display: block;
@@ -9,8 +11,7 @@ body {
 }
 
 
-/* header section */
-
+/* header section styling */
 .h1 {
     display: flex;
     justify-content: center;
@@ -32,12 +33,12 @@ body {
     background-color: rgb(94, 94, 174);
     height: 410px;
     width: 400px;
-    
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     flex-wrap: wrap;
+    /* setting border around cell field */
     border-style: solid;
     border-width: thick;
     font-style: bold;
@@ -45,8 +46,8 @@ body {
 
 /* to style all div children of cellfield parent */
 .cellfield>* {
-    
     color: grey;
+    /* optimized tile % for 16 x 16 board */
     height: 4.6%;
     width: 4.6%;
     display: flex;
@@ -57,6 +58,7 @@ body {
     border-style: solid;
     border-width: medium;
     border-color: rgb(94, 94, 174);
+    /* hidding text of cells, will be hidden by hidden class and revealed by revealed class */
     font-size: 0px;
 }
 
@@ -66,9 +68,12 @@ body {
     color: grey;
     border-style: solid;
     border-color: black;
+    /* image for the pop out cells */
     background: url(https://tutorialflow.com/wp-content/uploads/2018/12/t.png);
     background-size: 100%;
+    /* preventing repeat default of tile image */
     background-repeat: no-repeat;
+    /* hiding text from hidden cells */
     font-size:0px;
     
  }
@@ -80,6 +85,7 @@ body {
     border-style: solid;
     border-color: rgb(35, 38, 82);
     background: none;
+    /* reveals all text, ** note empty cells are blue with js when empty cells are generated */
     font-size:7px;
     font-style: bold;
 }
@@ -88,9 +94,11 @@ body {
     background-color: red;
     color: rgb(161, 43, 43);
     font-size:10px;
+    /* image for bombs when hit bomb cell */
     background: url(https://w1.pngwing.com/pngs/249/974/png-transparent-red-circle-minesweeper-minesweeper-deluxe-minesweeper-adfree-video-games-land-mine-naval-mine-android-thumbnail.png);
     background-size: 100%;
     background-repeat: no-repeat;
+    /* hide the 'bomb text' */
     font-size:0px;
 }
 
@@ -98,22 +106,25 @@ body {
 .diffused {
     background-color: green;
     color: rgb(3, 44, 3);
+    /* raise +1 when bomb is diffused so visualize over bomb class */
     z-index: 1;
     font-size:10px;
+    /* flag image */
     background: url(https://w7.pngwing.com/pngs/337/559/png-transparent-minesweeper-computer-icons-bing-maps-video-game-mines-miscellaneous-game-angle.png);
     background-size: 100%;
     background-repeat: no-repeat;
+    /* hide the 'diffused bomb text' */
     font-size:0px;
 }
 
 
-
-/* start button style */
+/* start button style (start button on home page ** different from start new game button)*/
+/* home screen buttons container set to flex */
 .home-screen-buttons{
     display: flex;
     justify-content: center;
 }
-
+/* start button container */
 .startButton {
     background-color: blue;
     height: 424px;
@@ -122,6 +133,7 @@ body {
     justify-content: center;
 }
 
+/* modifying actual start button with gif */
 #startButton{
     height: 424px;
     width: 500px;
@@ -137,6 +149,7 @@ body {
     color: white;
 }
 
+/* win "return home" screen is similar to start button */
 #winHomeScreen{
     height: 424px;
     width: 424px;
@@ -152,6 +165,7 @@ body {
     color: white;
 }
 
+/* loss "return home" screen is similar to start button and win screen */
 #lossHomeScreen{
     height: 424px;
     width: 450px;
@@ -169,14 +183,16 @@ body {
 }
 
 /* return to home screen button */
-
+/* setting style of return home button's container */
 .returnHomeButton {
     width: 100px;
+    /* set height of this to 10 px to move the cell field/gameboard up */
     height: 10px;
     display: inline-flex;
     
 }
 
+/* getting return home button to upper left */
 #returnHomeButton {
     width: 100px;
     height: 100px;
@@ -195,12 +211,14 @@ body {
     font-style: bold;
 }
 
+/* style of action buttons container **inclueds diffused and active bomb headers */
 .action-buttons {
     display: flex;
     justify-content: center;
     margin: 20px;
 }
 
+/* style of reset button initially set to green, changes to red in game */
 #resetButton{
     background-color: green;
     height: 50px;
@@ -211,6 +229,7 @@ body {
 
 }
 
+/* setting style of the flag buttons container */
 .flagButtons {
     display: flex;
     margin: 10px;
@@ -218,6 +237,7 @@ body {
     justify-content: center;
 }
 
+/* only seen when flag off is pressed and at reset/start */
 #flagOnButton {
     height: 100px;
     width: 100px;
@@ -230,6 +250,7 @@ body {
 
 }
 
+/* only seen when flag on button is pressed */
 #flagOffButton {
     height: 90px;
     width: 100px;
@@ -240,6 +261,7 @@ body {
 
 }
 
+/* added spacing btw bombs diffused header and surrounding elements to set organization at bottom */
 #bombsDiffused {
     display: flex;
     padding-right: 50px;
