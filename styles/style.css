@@ -90,6 +90,15 @@ body {
     font-style: bold;
 }
 
+/* class to replace revealed/hidded style when start game is clicked*/
+.startScreenCellState{
+    background-color: rgb(85, 85, 107);
+    color: black;
+    border-style: solid;
+    border-color: rgb(35, 38, 82);
+    background: none;
+}
+
 .bomb {
     background-color: red;
     color: rgb(161, 43, 43);

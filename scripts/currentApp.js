@@ -4,8 +4,7 @@
 // 3) flag count down
 // less cool things
 // 4) maybe modals instead of h1 updates
-// 5) trying to get old game not to show after hit start game after win/lose/hit back to home button 
-// 6) mobile first design -> super stretch
+// 5) mobile first design -> super stretch
 
 
 //grabbing H1 for manipulation
@@ -46,7 +45,7 @@ let bombsDiffused = false;
 //setting a diffused bomb array, initially empty
 let diffusedBombArray = [];
 //setting number of bombs (icebox is to make this modifiable at home screen for easy, medium, hard levels)
-const numberOfBombs = 30;
+const numberOfBombs = 20;
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
@@ -92,7 +91,7 @@ $startButton.click(() => {
     // changin h1 text to direct user to click the start game button to start game/reset board
     $h1.html('Click Start Game to Start!')
     // making sure flag on is shown, flag off is hidden
-    $flagOnButton.fadeIn()
+    $flagOnButton.show()
     $flagOffButton.hide()
     // hiding start button (button with gif) and showing the game board container
     $startButton.hide();
@@ -105,6 +104,21 @@ $startButton.click(() => {
     $returnHomeButton.show()
     $winHomeScreen.hide()
     $lossHomeScreen.hide()
+
+    //resetting all cells to remove old game data with start button
+    function hideSquaresAtStart () {
+        for (i = 0; i < totalCellNumber; i++){
+            cells[i].classList.remove('hidden');
+            cells[i].classList.remove('revealed')
+            cells[i].classList.remove('bomb')
+            cells[i].classList.remove('diffused')
+            // makes cells blank at start so have to reset
+            cells[i].classList.add('.startScreenCellState')
+            cellField.appendChild(cells[i])
+        }
+    }
+    
+    hideSquaresAtStart()
 })
 
 
@@ -349,9 +363,9 @@ cells.forEach(cell => {
                     // add class list of bomb to cell (with bomb image)
                     cell.classList.add('bomb')
 
-                    //resetting reset button after loss
-                    $resetButton.html('Start Game')
-                    $resetButton.css({"backgroundColor" : "green"})
+                    //hiding reset button after loss
+                    $resetButton.hide()
+
                     // h1 tells player game is over and to click on reset/start new game
                     $h1.html('Game Over! Click Start Game to Try Again!')
 
@@ -377,10 +391,11 @@ cells.forEach(cell => {
                     $lossHomeScreen.click(() => {
                         $startButton.fadeIn()
                         $h1.html('Mine Sweeper Extreme!')
+                        $resetButton.html('Start Game')
                         $resetButton.css({"backgroundColor": "green"})
                         $lossHomeScreen.hide()
                     })
-                    }, 3000)
+                    }, 1500)
 
                 }
                 // conditional if user hits a bomb with diffuse/flag/safemode on
@@ -413,6 +428,9 @@ cells.forEach(cell => {
                         // header shows 'you win!'
                         $h1.html('You Win!!!')
 
+                        //hiding reset button after loss
+                        $resetButton.hide()
+
                         // shows the loss screen (return home button) after 2 secs  
                         setTimeout(() => {
                             // shows win home screen, hides everything else
@@ -429,10 +447,11 @@ cells.forEach(cell => {
                         $winHomeScreen.click(() => {
                             $startButton.fadeIn()
                             $h1.html('Mine Sweeper Extreme!')
+                            $resetButton.html('Start Game')
                             $resetButton.css({"backgroundColor": "green"})
                             $winHomeScreen.hide()
                         })
-                    }, 3000)
+                    }, 1500)
                     }
                 }
             }
