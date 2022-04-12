@@ -137,7 +137,7 @@ body {
 .startButton {
     background-color: blue;
     height: 424px;
-    width: 500px;
+    width: 600px;
     display: flex;
     justify-content: center;
 }
@@ -145,7 +145,7 @@ body {
 /* modifying actual start button with gif */
 #startButton{
     height: 424px;
-    width: 500px;
+    width: 600px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -154,8 +154,12 @@ body {
     background: url(https://i.gifer.com/3Qv7.gif);
     background-size: 600px;
     background-position: center;
+    background-repeat: no-repeat;
     font-size: 50px;
     color: white;
+    border-style: solid;
+    border-width: thick;
+    border-color: black
 }
 
 /* win "return home" screen is similar to start button */
@@ -170,8 +174,8 @@ body {
     background: url(https://art.pixilart.com/b4b7a4350309388.gif);
     background-size: 800px;
     background-position: center;
-    font-size: 50px;
-    color: white;
+    /* don't need text, header explains */
+    font-size: 0px;
 }
 
 /* loss "return home" screen is similar to start button and win screen */
@@ -187,9 +191,8 @@ body {
     background-size: 450px;
     background-position: top;
     background-repeat: no-repeat;
-    font-size: 30px;
-    color: rgb(176, 33, 33);
-    font-style: bold;
+    /* don't need text, header explains */
+    font-size: 0px;
 }
 
 /* return to home screen button */

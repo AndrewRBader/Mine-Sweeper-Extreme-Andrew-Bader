@@ -342,7 +342,7 @@ cells.forEach(cell => {
         $h1.html('Diffuse All of The Mines!!!')
         // if game is over or game is not active (original html '0' in divs) h1 tells user to start or reset the game
         if (bombExplode === true || bombsDiffused === true || totalCellNumber === 0) {
-            $h1.html('Please Start or Reset Game')
+            $h1.html('Click on Start New Game Button Below to Begin!')
         } 
         //returns out of function if cell with bomb is already diffused
         else if (cell.classList.contains('diffused')){
@@ -363,11 +363,11 @@ cells.forEach(cell => {
                     // add class list of bomb to cell (with bomb image)
                     cell.classList.add('bomb')
 
+                    // header shows 'GAME OVER!'
+                    $h1.html('GAME OVER!!')
+
                     //hiding reset button after loss
                     $resetButton.hide()
-
-                    // h1 tells player game is over and to click on reset/start new game
-                    $h1.html('Game Over! Click Start Game to Try Again!')
 
                     //showing all cell elements with 'bomb' inner HTML after lose
                     for (i = 0; i < totalCellNumber; i++){
@@ -377,7 +377,9 @@ cells.forEach(cell => {
                     }
                     // shows the loss screen (return home button) after 1 sec  
                     setTimeout(() => {
-                    // shows loss home screen, hides everything else
+                        // h1 tells player game is over and to click on image for home screen
+                        $h1.html('Game Over! Click Image Below for Home Screen!')
+                        // shows loss home screen, hides everything else
                         $lossHomeScreen.show()
                         $gameBoardSection.hide()
                         $returnHomeButton.hide()
@@ -425,14 +427,17 @@ cells.forEach(cell => {
                     else if (diffusedBombArray.length === numberOfBombs){
                         // bombs diffused (win condition) is true and the game is over
                         bombsDiffused = true
+                        
                         // header shows 'you win!'
-                        $h1.html('You Win!!!')
+                        $h1.html('You Win!!!') 
 
                         //hiding reset button after loss
                         $resetButton.hide()
 
                         // shows the loss screen (return home button) after 2 secs  
                         setTimeout(() => {
+                            // header shows 'you win! and where to click'
+                            $h1.html('You Win!!! Click Image Below for Home Screen')
                             // shows win home screen, hides everything else
                             $winHomeScreen.show()
                             $gameBoardSection.hide()
