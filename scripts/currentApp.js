@@ -46,7 +46,7 @@ let bombsDiffused = false;
 //setting a diffused bomb array, initially empty
 let diffusedBombArray = [];
 //setting number of bombs (icebox is to make this modifiable at home screen for easy, medium, hard levels)
-const numberOfBombs = 20;
+const numberOfBombs = 10;
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
