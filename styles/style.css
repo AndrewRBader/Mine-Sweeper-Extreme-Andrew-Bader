@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     /* centering board a little better */
-    padding-left: 60px;
+    padding-left: 10px;
     margin-left: 50px;
    
 }
@@ -242,15 +242,21 @@ body {
 
 }
 
+/* flag container elements */
+
 /* setting style of the flag buttons container */
 .flagButtons {
     display: flex;
     margin: 10px;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
+}
+/* only seen when flag off is pressed and at reset/start */
+#flagsRemaining{
+    margin-left: 5px
+
 }
 
-/* only seen when flag off is pressed and at reset/start */
 #flagOnButton {
     height: 100px;
     width: 100px;

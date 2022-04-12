@@ -45,14 +45,14 @@ let bombsDiffused = false;
 //setting a diffused bomb array, initially empty
 let diffusedBombArray = [];
 //setting number of bombs (icebox is to make this modifiable at home screen for easy, medium, hard levels)
-const numberOfBombs = 20;
+const numberOfBombs = 2;
 
 //flag button collection
 let $flagOnButton = $('#flagOnButton');
 let $flagOffButton = $('#flagOffButton');
 
 //flag count down:
-const numberOfFlagsStarting = 20;
+const numberOfFlagsStarting = 30;
 let numberOfFlagsLeft = 0;
 numberOfFlagsLeft = numberOfFlagsStarting;
 
@@ -66,6 +66,9 @@ let $bombsDiffused = $('#bombsDiffused')
 $bombsDiffused.hide()
 let $bombsActive = $('#bombsActive')
 $bombsActive.hide()
+//flag counter header and initial hidden state
+let $flagsRemaining = $('#flagsRemaining')
+$flagsRemaining.hide()
 
 //functionality of return home button
 $returnHomeButton.click(() => {
@@ -140,8 +143,10 @@ $resetButton.click(() =>{
     //making sure flag on is shown, flag off is hidden
     $flagOnButton.fadeIn()
     $flagOffButton.hide()
+    $flagsRemaining.show()
     //setting number of flags to starting number of flags
     numberOfFlagsLeft = numberOfFlagsStarting;
+    $flagsRemaining.html(`Flags Left: ${numberOfFlagsLeft}`)
      
     // setting reset button text to reset, and changing background to red (if click this, starts over game)
     $resetButton.html('Reset')
@@ -328,6 +333,7 @@ $flagOnButton.click(() => {
 
     //flag count down:
     numberOfFlagsLeft--;
+    $flagsRemaining.html(`Flags Left: ${numberOfFlagsLeft}`)
 
     // *safe mode is activated text is only active if game is in play (solved a header text bug)
     if (bombExplode !== true && bombsDiffused !== true && totalCellNumber !== 0){
@@ -396,6 +402,8 @@ cells.forEach(cell => {
 
                     //hiding reset button after loss
                     $resetButton.hide()
+                    //also have to hide return button while loss screen loads
+                    $returnHomeButton.hide()
 
                     //showing all cell elements with 'bomb' inner HTML after lose
                     for (i = 0; i < totalCellNumber; i++){
@@ -409,9 +417,11 @@ cells.forEach(cell => {
                         $h1.html('Game Over! Click Image Below for Home Screen!')
                         // shows loss home screen, hides everything else
                         $lossHomeScreen.show()
+                        $returnHomeButton.show()
                         $gameBoardSection.hide()
                         $flagOnButton.hide()
                         $flagOffButton.hide()
+                        $flagsRemaining.hide()
                         $resetButton.hide()
                         $bombsDiffused.hide()
                         $bombsActive.hide()
@@ -463,6 +473,7 @@ cells.forEach(cell => {
 
                         //hiding reset button after loss
                         $resetButton.hide()
+                        $returnHomeButton.hide()
 
                         // shows the loss screen (return home button) after 2 secs  
                         setTimeout(() => {
@@ -470,9 +481,11 @@ cells.forEach(cell => {
                             $h1.html('You Win!!! Click Image Below for Home Screen')
                             // shows win home screen, hides everything else
                             $winHomeScreen.show()
+                            $returnHomeButton.show()
                             $gameBoardSection.hide()
                             $flagOnButton.hide()
                             $flagOffButton.hide()
+                            $flagsRemaining.hide()
                             $resetButton.hide()
                             $bombsDiffused.hide()
                             $bombsActive.hide()
