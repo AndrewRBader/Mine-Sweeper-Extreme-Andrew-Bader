@@ -1,3 +1,5 @@
+** need to npm i to install dependencies/node_modules
+
 Welcome to Mine Sweeper Extreme!!
 
 Game explanation:
