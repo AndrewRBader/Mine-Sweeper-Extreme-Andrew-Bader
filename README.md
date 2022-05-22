@@ -47,7 +47,7 @@ Javascript, HTML, CSS, jQuery, Flexbox
 Getting Started:
 Click on link to deploy the game! Have a blast!
 
-https://andrewrbader.github.io/sei321-Project-1-BrowserGame/
+[Github Pages](https://andrewrbader.github.io/Mine-Sweeper-Extreme-Andrew-Bader/)
 
 Icebox items:
 
